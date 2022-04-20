@@ -83,19 +83,20 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-import dj_database_url
-DATABASES = { 'default': dj_database_url.config() }
-
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'eshopdb_dev',
-#        'USER': 'postgres',
-#        'PASSWORD': 'root',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
+# import dj_database_url
+# DATABASES = { 'default': dj_database_url.config()
 # }
+
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'eshopdb_dev',
+       'USER': 'postgres',
+       'PASSWORD': 'root',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
