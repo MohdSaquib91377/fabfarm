@@ -83,16 +83,9 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'd4jtm8eo3dou6f',
-       'USER': 'kleokozjhcwrub',
-       'PASSWORD': 'kleokozjhcwrub',
-       'HOST': 'ec2-23-20-224-166.compute-1.amazonaws.com',
-       'PORT': '5432',
-   }
-}
+import dj_database_url
+DATABASES = { 'default': dj_database_url.config() }
+
 # DATABASES = {
 #     'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
