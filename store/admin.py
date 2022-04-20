@@ -1,4 +1,4 @@
-from tkinter import Image
+from tkinter import *
 from django.contrib import admin
 
 # Register your models here.
