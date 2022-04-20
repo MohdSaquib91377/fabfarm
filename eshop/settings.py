@@ -86,13 +86,23 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'eshopdb_dev',
-       'USER': 'postgres',
-       'PASSWORD': 'root',
-       'HOST': 'localhost',
+       'NAME': 'd4jtm8eo3dou6f',
+       'USER': 'kleokozjhcwrub',
+       'PASSWORD': 'kleokozjhcwrub',
+       'HOST': 'ec2-23-20-224-166.compute-1.amazonaws.com',
        'PORT': '5432',
    }
 }
+# DATABASES = {
+#     'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'eshopdb_dev',
+#        'USER': 'postgres',
+#        'PASSWORD': 'root',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
