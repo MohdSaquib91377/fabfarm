@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+
+from django.views import View
 #from .base import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,7 +19,7 @@ SECRET_KEY = 'django-insecure-jmkl&v#x9^hpx&5%uq_4e*1yz5=6x17#g(n%-3kjtuwubwpp63
 #EMAIL_HOST_PASSWORD = os.environ.get()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -132,6 +134,15 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Reset REST_FRAMEWORK Default View to Jason View
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ]
+}
 # Base url to serve media files
 MEDIA_URL = '/media/'
 # Path where media is stored
@@ -140,3 +151,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
+

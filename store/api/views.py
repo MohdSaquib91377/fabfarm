@@ -17,16 +17,14 @@ class CategoryListView(APIView):
 class ProductsListView(APIView):
     def get(self,request,*args, **kwargs):
         catAll = Category.objects.all()
-        count = 0
-        data =[]
+        cat = dict()
         for category in catAll:
             queryset = category.product_set.all()
     
             serializer = ProductsSerializer(queryset,many=True)
-          
-            data.append({"category":category.name,"data":serializer.data})
-        return Response(data) 
-import json
+            serializer.data.append(cat)
+            return Response(serializer.data) 
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ProductDetailsView(APIView):
@@ -34,7 +32,7 @@ class ProductDetailsView(APIView):
         queryset = Product.objects.filter(pk=product_id)
         data = []
         categories = CategorySerializer(queryset.first().categories.all(),many=True)
-
+        
         serializer = ProductsDetailsSerializer(queryset,many=True)
         
         return Response({"category":categories.data,"data":serializer.data}) 
