@@ -145,10 +145,10 @@ REST_FRAMEWORK = {
 # Base url to serve media files
 MEDIA_URL = '/media/'
 # Path where media is stored
-if DEBUG:
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-else:   
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
