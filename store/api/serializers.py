@@ -3,7 +3,6 @@ from rest_framework import serializers
 
 from store.models import *
 
-
 class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -18,6 +17,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductsSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField("get_images")
+    category = serializers.ReadOnlyField(source='category.name')
     class Meta:
         model = Product
         fields = "__all__"
@@ -27,10 +27,3 @@ class ProductsSerializer(serializers.ModelSerializer):
         images = obj.images.all()
         serializer = ImageSerializer(images,many=True)
         return serializer.data
-
-
-
-class ProductsDetailsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = "__all__"
