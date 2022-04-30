@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-jmkl&v#x9^hpx&5%uq_4e*1yz5=6x17#g(n%-3kjtuwubwpp63
 #EMAIL_HOST_PASSWORD = os.environ.get()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'eshop.urls'
 
 TEMPLATES = [
@@ -74,21 +75,21 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-import dj_database_url
-DATABASES = { 'default': dj_database_url.config()
-}
-
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'eshopdb_dev',
-#        'USER': 'postgres',
-#        'PASSWORD': 'root',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
-# }
+if DEBUG:
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'eshopdb_dev',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        }
+    }
+else:
+    import dj_database_url
+    DATABASES = { 'default': dj_database_url.config()
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,10 +125,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATIC_URL = '/static/'
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+# Path where media is stored
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATIC_ROOT = BASE_DIR / 'static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -143,13 +153,7 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     ]
 }
-# Base url to serve media files
-MEDIA_URL = '/media/'
-# Path where media is stored
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]

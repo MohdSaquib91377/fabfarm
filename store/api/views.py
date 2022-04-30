@@ -25,3 +25,10 @@ class ProductDetailsView(APIView):
         queryset = Product.objects.filter(pk=product_id)
         serializer = ProductsSerializer(queryset,many=True)           
         return Response(serializer.data) 
+        
+@method_decorator(csrf_exempt, name='dispatch')
+class CategoryDetailsView(APIView):
+    def get(self,request,category_id,*args, **kwargs):
+        queryset = Product.objects.select_related('category').filter(category_id=category_id)
+        serializer = ProductsSerializer(queryset,many=True)
+        return Response(serializer.data)
