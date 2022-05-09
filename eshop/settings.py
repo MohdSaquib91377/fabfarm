@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 
-from django.views import View
+# from django.views import View
 #from .base import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,22 +75,30 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-if DEBUG:
-    DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eshopdb_dev',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        }
-    }
-else:
-    import dj_database_url
-    DATABASES = { 'default': dj_database_url.config()
-    }
+# if DEBUG:
+#     # DATABASES = {
+#     #     'default': {
+#     #     'ENGINE': 'django.db.backends.postgresql',
+#     #     'NAME': 'eshopdb_dev',
+#     #     'USER': 'postgres',
+#     #     'PASSWORD': 'root',
+#     #     'HOST': 'localhost',
+#     #     'PORT': '5432',
+#     #     }
+#     # }
+#     DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+#     }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -145,16 +153,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Reset REST_FRAMEWORK Default View to Jason View
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-    ],
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
-    ]
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': [
+#         'rest_framework.renderers.JSONRenderer',
+#     ],
+#     'DEFAULT_PARSER_CLASSES': [
+#         'rest_framework.parsers.JSONParser',
+#     ]
+# }
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
 
+AUTH_USER_MODEL = 'account.CustomUser'
