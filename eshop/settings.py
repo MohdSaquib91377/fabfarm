@@ -72,6 +72,36 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eshop.wsgi.application'
 
+# JWT
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    
+}
+
+# JWT configuration
+# Django project settings.py
+
+from datetime import timedelta
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+  
+}
+# OTP configuration
+
+OTP = {
+    "OTP_EXPIRATION_TIME": timedelta(
+        minutes=1,
+        seconds=0,
+    ),
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -167,3 +197,19 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 AUTH_USER_MODEL = 'account.CustomUser'
+
+
+# Email configuration
+
+#DataFlair
+EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "mohdsaquib91377@gmail.com"
+EMAIL_HOST_PASSWORD = "xuaqrhmmsiquguxs"
+
+# Twilio configuration
+TWILIO_ACCOUNT_SID = "AC11d4ec11e400e4fd0f50019753129f28"
+TWILIO_AUTH_TOKEN = "96ce666a60aa94679cc6623b1378f252"
+TWILIO_PHONE_NUMBER = +19804092625
