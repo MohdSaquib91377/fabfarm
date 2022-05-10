@@ -9,6 +9,7 @@ from account.helpers import get_tokens_for_user
 from rest_framework import status
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
+from django.http import Http404
 
 class RegisterApiView(APIView):
     def post(self,request, *args, **kwargs):
@@ -61,7 +62,9 @@ class VerifyOTPApiView(APIView):
                 if user:
                     if not user.is_expired:
                         CustomUser.objects.filter(id = serializer.data['id'],otp = serializer.data['otp']).update(is_verified=True)
-                        return Response({"status":"200","message":"OTP verify successfully"})
+                        # Generrate Token
+                        token = get_tokens_for_user(user)
+                        return Response({"status":"200","message":"OTP verify successfully","data":token})
                     else:
                         return Response({"status":"400","message":"OTP expire"})
                 return Response({"status":"400","message":"Invalid OTP"})
@@ -103,18 +106,37 @@ class SendOTPAPIView(APIView):
             return Response({"status":"400","message":f"{e}"})
 
 class LoginApiView(APIView):
+    try:
+        def get_object(self,email_or_mobile):
+            return CustomUser.objects.filter(email_or_mobile = email_or_mobile).first()
+    except CustomUser.DoesNotExist:
+        raise Http404
+
     def post(self, request, *args, **kwargs):
         try:
-
             serializer = LoginSerializer(data = request.data)
             if serializer.is_valid():
                 user = authenticate(self,email_or_mobile=serializer.data["email_or_mobile"],password = serializer.data['password'])
                 if user:
                     user.is_verified = True
                     user.save()
-                    return Response({"status":"200","message":"Login Successfully"})
+                    #Generate Token
+                    token = get_tokens_for_user(user)
+                    return Response({"status":"200","message":"Login Successfully","data":token})
                 return Response({"status":"400","message":"Invalid credentials"})
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
+        except Exception as e:
+            return Response({"status":"400","message":f"{e}"})
+            
+    def put(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object(request.data.get("email_or_mobile"))
+            serializer = LoginSerializer(instance, data=request.data)
+            if serializer.is_valid():
+                password = make_password(request.data.get("password"))
+                serializer.save(password=password)
+                return Response({"status":"200","message":"Password update successfully"})
+            return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"})

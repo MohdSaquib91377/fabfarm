@@ -1,3 +1,4 @@
+from pyexpat import model
 from rest_framework import serializers
 from account.models  import CustomUser
 
@@ -17,7 +18,11 @@ class OTPVerifySerializer(serializers.Serializer):
 class SendOTPSerializer(serializers.Serializer):
     email_or_mobile = serializers.CharField(max_length=64)
 
-class LoginSerializer(serializers.Serializer):
+class LoginSerializer(serializers.ModelSerializer):
     email_or_mobile = serializers.CharField(max_length=64)
-    password = serializers.CharField(max_length=24)
-    
+    class Meta:
+        model = CustomUser
+        fields = ['email_or_mobile','password']
+ 
+
+
