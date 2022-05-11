@@ -56,7 +56,7 @@ class Product(TimeStampModel):
     description = models.TextField()
     meta_keywords = models.CharField("Meta Keywords",max_length=225, help_text="Comma-delimited set of SEO keywords for meta tag")
     meta_description = models.CharField("Meta Description",max_length=255, help_text="Content for description meta tag")
-    category = models.ForeignKey('Category',on_delete=models.CASCADE,related_name="categories",null=True)
+    category = models.ForeignKey('Category',on_delete=models.CASCADE,related_name="products",null=True)
     #categories = models.ManyToManyField(Category)
     brand = models.ForeignKey(Brand,on_delete=models.CASCADE,related_name="products",null=True)
 

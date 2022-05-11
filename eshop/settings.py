@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'store',
     'rest_framework',
     'rest_framework_simplejwt',
-    'corsheaders',
+    'corsheaders', 
 ]
 
 MIDDLEWARE = [
