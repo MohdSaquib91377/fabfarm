@@ -21,7 +21,7 @@ class RegisterApiView(APIView):
                 if user and not user.is_verified:
                     user.delete()
                 elif user and user.is_verified:
-                    return Response({"status":"400","message":f"{email_or_mobile} already exists plz login"})
+                    return Response({"status":"400","message":f"{email_or_mobile} already exists plz login"},status= status.HTTP_400_BAD_REQUEST)
                 password = make_password(self.request.data['password'])
                 user = serializer.save(password=password)   
                 if '@' in email_or_mobile:
@@ -66,11 +66,11 @@ class VerifyOTPApiView(APIView):
                         token = get_tokens_for_user(user)
                         return Response({"status":"200","message":"OTP verify successfully","data":token})
                     else:
-                        return Response({"status":"400","message":"OTP expire"})
-                return Response({"status":"400","message":"Invalid OTP"})
+                        return Response({"status":"400","message":"OTP expire"},status= status.HTTP_400_BAD_REQUEST)
+                return Response({"status":"400","message":"Invalid OTP"},status= status.HTTP_400_BAD_REQUEST)
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({"status":"400","message":f"{e}"})
+            return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class SendOTPAPIView(APIView):
     def post(self, request, *args, **kwargs):
@@ -100,10 +100,10 @@ class SendOTPAPIView(APIView):
                                 "id": user.id
                             }
                         )
-                return Response({"status":"400","message":"Invalid credentials"})    
+                return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)    
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)       
         except Exception as e:
-            return Response({"status":"400","message":f"{e}"})
+            return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class LoginApiView(APIView):
     try:
@@ -123,11 +123,11 @@ class LoginApiView(APIView):
                     #Generate Token
                     token = get_tokens_for_user(user)
                     return Response({"status":"200","message":"Login Successfully","data":token})
-                return Response({"status":"400","message":"Invalid credentials"})
+                return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
         except Exception as e:
-            return Response({"status":"400","message":f"{e}"})
+            return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
             
     def put(self, request, *args, **kwargs):
         try:
@@ -139,4 +139,4 @@ class LoginApiView(APIView):
                 return Response({"status":"200","message":"Password update successfully"})
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({"status":"400","message":f"{e}"})
+            return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
