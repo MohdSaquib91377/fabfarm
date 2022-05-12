@@ -1,15 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-    
-# Create your models here.
-class TimeStampModel(models.Model):
-    id = models.AutoField(primary_key=True,editable=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+from account.models import TimeStampModel
 
-    class Meta:
-        abstract = True
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=64)
