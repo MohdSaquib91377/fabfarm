@@ -5,11 +5,6 @@ from django.contrib import admin
 from .models import *
 
 class CartAdmin(admin.ModelAdmin):
-    list_display = ['id','ordered','total_price','total_item','user']
+    list_display = ['id','user','product','quantity']
 
 admin.site.register(Cart,CartAdmin)
-
-class CartItemAdmin(admin.ModelAdmin):
-    list_display = ['id','cart','product','quantity']
-
-admin.site.register(CartItem,CartItemAdmin)
