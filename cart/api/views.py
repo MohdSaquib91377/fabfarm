@@ -25,18 +25,25 @@ class AddToCartApiView(APIView):
     def post(self,request,*args,**kwargs):
         try:
             for product in request.data:
-                serializer = CreateCartSerializer(data = product)
-                product = get_product_object(product['product_id'])
-                if serializer.is_valid():
-                    if int(serializer.data['quantity']) < product.quantity:
-                        if Cart.objects.filter(user = request.user, product = product).exists():
-                            Cart.objects.filter(user = request.user, product = product).update(quantity = serializer.data['quantity'])
+                if isinstance(product,dict):
+                    serializer = CreateCartSerializer(data = product)
+                    product = get_product_object(product['product_id'])
+                    if serializer.is_valid():
+                        if int(serializer.data['quantity']) < product.quantity:
+                            if Cart.objects.filter(user = request.user, product = product).exists():
+                                Cart.objects.filter(user = request.user, product = product).update(quantity = serializer.data['quantity'])
+                            else:
+                                serializer.save(user = request.user) 
                         else:
-                            serializer.save(user = request.user) 
+                            return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
                     else:
-                        return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+                        return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+                
                 else:
-                    return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+                    return Response(
+                        {"status": "failed", "message": "send data in array of json"},
+                        status=400,
+                    )
             return Response({"sttaus":"200","message":"Product Added into Cart"},status = status.HTTP_201_CREATED)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
