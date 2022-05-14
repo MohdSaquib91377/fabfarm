@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from.serializers import CartSerializer,CreateCartSerializer
 from rest_framework import status
 from store.helpers import get_product_object
+from cart.helpers import *
 
 class AddToCartApiView(APIView):
     permission_classes = [IsAuthenticated]
@@ -23,15 +24,20 @@ class AddToCartApiView(APIView):
 
     def post(self,request,*args,**kwargs):
         try:
-            serializer = CreateCartSerializer(data = request.data)
-            product = get_product_object(request.data.get('product_id'))
-            if serializer.is_valid():
-                if Cart.objects.filter(user = request.user, product = product).exists():
-                    Cart.objects.filter(user = request.user, product = product).update(quantity = serializer.data['quantity'])
-                    return Response({"sttaus":"200","message":"Product updated into Cart"},status = status.HTTP_400_BAD_REQUEST)
-                serializer.save(user = request.user)
-                return Response({"sttaus":"200","message":"Product Added into Cart"},status = status.HTTP_201_CREATED)
-            return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+            for product in request.data:
+                serializer = CreateCartSerializer(data = product)
+                product = get_product_object(product['product_id'])
+                if serializer.is_valid():
+                    if int(serializer.data['quantity']) < product.quantity:
+                        if Cart.objects.filter(user = request.user, product = product).exists():
+                            Cart.objects.filter(user = request.user, product = product).update(quantity = serializer.data['quantity'])
+                        else:
+                            serializer.save(user = request.user) 
+                    else:
+                        return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+                else:
+                    return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+            return Response({"sttaus":"200","message":"Product Added into Cart"},status = status.HTTP_201_CREATED)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
@@ -48,7 +54,7 @@ class AddToCartApiView(APIView):
             return Response({"status":"400","message":"You dont have permission to edit this product"},status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
-
+    
     def delete(self,request, *args, **kwargs):
         try:
             product = get_product_object(request.data.get('product_id'))
