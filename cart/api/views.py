@@ -28,14 +28,14 @@ class AddToCartApiView(APIView):
                 for product in request.data:
                     if isinstance(product,dict):
                         serializer = CreateCartSerializer(data = product)
+                        data = product
                         if serializer.is_valid():
-                            product = get_product_object(product['product_id'])
-                            if int(serializer.data['quantity']) < product.quantity:
+                            product = get_product_object(data['product_id'])
+                            if int(data['quantity']) < int(product.quantity):
                                 if Cart.objects.filter(user = request.user, product = product).exists():
-                                    Cart.objects.filter(user = request.user, product = product).update(quantity = serializer.data['quantity'])
+                                    Cart.objects.filter(user = request.user, product = product).update(quantity = data['quantity'])
                                 else:
                                     serializer.save(user = request.user) 
-                                     
                             else:
                                 return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
                         else:
@@ -53,23 +53,9 @@ class AddToCartApiView(APIView):
             return Response(
                             {"status": "200", "message": "Product Added Into Cart !!"},
                                         status=200,
-                            )  
+                                )  
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
-
-    def put(self,request, *args, **kwargs):
-        try:
-            product = get_product_object(request.data.get('product_id'))
-            user_cart = Cart.objects.filter(user = request.user, product = product).first()
-            if user_cart:
-                serializer = CreateCartSerializer(user_cart,data=request.data, partial=True)
-                if serializer.is_valid():
-                    serializer.save()
-                    return Response({"status":"200","message":"Product updated into cart successfully"},status = status.HTTP_200_OK)
-                return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
-            return Response({"status":"400","message":"You dont have permission to edit this product"},status = status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
     
     def delete(self,request, *args, **kwargs):
         try:
