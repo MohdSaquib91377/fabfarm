@@ -122,13 +122,16 @@ class LoginApiView(APIView):
             serializer = LoginSerializer(data = request.data)
             if serializer.is_valid():
                 user = authenticate(self,email_or_mobile=serializer.data["email_or_mobile"],password = serializer.data['password'])
-                if user:
+                if user and user.is_verified:
                     user.is_verified = True
                     user.save()
                     #Generate Token
                     token = get_tokens_for_user(user)
                     return Response({"status":"200","message":"Login Successfully","data":token})
-                return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
+                elif user:
+                    return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"})
+                else:
+                    return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
         except Exception as e:
