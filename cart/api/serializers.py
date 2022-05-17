@@ -25,3 +25,10 @@ class CreateCartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
         fields = ['user_id','product_id','quantity']    
+
+class DeleteCartSerializer(serializers.ModelSerializer):
+    product_id = serializers.IntegerField()
+    
+    class Meta:
+        model = Cart
+        fields = ['product_id']    

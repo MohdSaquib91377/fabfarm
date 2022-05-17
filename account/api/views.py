@@ -10,8 +10,10 @@ from rest_framework import status
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
 from django.http import Http404
+from drf_yasg.utils import swagger_auto_schema
 
 class RegisterApiView(APIView):
+    @swagger_auto_schema(tags = ['account'],request_body = RegisterSerializer)
     def post(self,request, *args, **kwargs):
         try:
             serializer = RegisterSerializer(data = request.data)
@@ -54,6 +56,7 @@ class RegisterApiView(APIView):
                         )
         
 class VerifyOTPApiView(APIView):
+    @swagger_auto_schema(tags = ['account'],request_body = OTPVerifySerializer)
     def post(self,request,*args, **kwargs):
         try:
             serializer = OTPVerifySerializer(data = request.data)
@@ -73,6 +76,7 @@ class VerifyOTPApiView(APIView):
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class SendOTPAPIView(APIView):
+    @swagger_auto_schema(tags = ['account'],request_body = SendOTPSerializer)
     def post(self, request, *args, **kwargs):
         try:
             serializer = SendOTPSerializer(data = request.data)
@@ -106,12 +110,13 @@ class SendOTPAPIView(APIView):
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class LoginApiView(APIView):
+    
     try:
         def get_object(self,email_or_mobile):
             return CustomUser.objects.filter(email_or_mobile = email_or_mobile).first()
     except CustomUser.DoesNotExist:
         raise Http404
-
+    @swagger_auto_schema(tags = ['account'],request_body = LoginSerializer)
     def post(self, request, *args, **kwargs):
         try:
             serializer = LoginSerializer(data = request.data)
@@ -128,7 +133,8 @@ class LoginApiView(APIView):
 
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
-            
+
+    @swagger_auto_schema(tags = ['account'],request_body = LoginSerializer)       
     def put(self, request, *args, **kwargs):
         try:
             instance = self.get_object(request.data.get("email_or_mobile"))
