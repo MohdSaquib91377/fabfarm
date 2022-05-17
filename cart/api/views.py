@@ -4,13 +4,16 @@ from rest_framework.response import Response
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
-from.serializers import CartSerializer,CreateCartSerializer
+from.serializers import CartSerializer,CreateCartSerializer,DeleteCartSerializer
 from rest_framework import status
 from store.helpers import get_product_object
 from cart.helpers import *
+from drf_yasg.utils import swagger_auto_schema
+
 
 class AddToCartApiView(APIView):
     permission_classes = [IsAuthenticated]
+
     def get(slef,request,*args,**kwargs):
         try:
             queryset = Cart.objects.filter(user = request.user)
@@ -22,6 +25,7 @@ class AddToCartApiView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(tags = ['cart'],request_body = CreateCartSerializer)
     def post(self,request,*args,**kwargs):
         try:
             if len(request.data) > 0:
@@ -57,6 +61,7 @@ class AddToCartApiView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
     
+    @swagger_auto_schema(tags = ['cart'],request_body = DeleteCartSerializer)
     def delete(self,request, *args, **kwargs):
         try:
             product = get_product_object(request.data.get('product_id'))

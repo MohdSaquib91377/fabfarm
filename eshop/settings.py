@@ -33,12 +33,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'account',
     'store',
     'cart',
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders', 
+
 ]
 
 MIDDLEWARE = [
@@ -104,6 +106,19 @@ OTP = {
     ),
 }
 
+#swagger authentication
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+
+   'SECURITY_DEFINITIONS': {
+
+      'api_key': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
