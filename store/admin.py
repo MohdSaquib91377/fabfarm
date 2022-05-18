@@ -11,12 +11,14 @@ class BrandAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'slug','meta_keywords','meta_description']
 admin.site.register(Brand, BrandAdmin)
 
+class ImageAdmin(admin.StackedInline): 
+    model = Image
+
 class ProductAdmin(admin.ModelAdmin):    
-    list_display = ['id', 'name', 'slug','sku','price','old_price','is_active','is_bestseller','quantity','description','meta_keywords','meta_description']
+    inlines = [ImageAdmin]
+    class Meta:
+        model = Product
+
 admin.site.register(Product, ProductAdmin)
-
-class ImageAdmin(admin.ModelAdmin):    
-    list_display = ['id', 'image', 'thumbnail','image_caption','products']
-
-admin.site.register(Image, ImageAdmin)
+admin.site.register(Image)
 
