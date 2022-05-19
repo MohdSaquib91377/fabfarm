@@ -2,7 +2,6 @@ from email import message
 from operator import le
 from pyexpat import model
 from django.db import models
-from numpy import product
 from account.models import CustomUser,TimeStampModel
 from store.models import *
 # Create your models here.
