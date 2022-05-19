@@ -56,6 +56,7 @@ class OrderAPIView(APIView):
             return Response({"status":"400","message":f"{e}"},status=status.HTTP_400_BAD_REQUEST)
 
 class OrderDetailsAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request,order_id,*args,**kwargs):
         try:    
             if not Order.objects.filter(id = order_id).exists():
