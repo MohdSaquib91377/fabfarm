@@ -1,4 +1,5 @@
 from pyexpat import model
+from attr import fields
 from rest_framework import serializers
 from account.models  import CustomUser
 
@@ -24,5 +25,8 @@ class LoginSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['email_or_mobile','password']
  
-
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = "__all__"
 
