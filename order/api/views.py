@@ -10,6 +10,7 @@ from cart.models import Cart
 from order.models import Order, OrderItem
 from store.models import *
 from cart.helpers import is_product_in_cart
+from django.http import Http404
 
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -55,6 +56,8 @@ class OrderAPIView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status=status.HTTP_400_BAD_REQUEST)
 
+
+
 class OrderDetailsAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self,request,order_id,*args,**kwargs):
@@ -66,3 +69,33 @@ class OrderDetailsAPIView(APIView):
             return Response(serializer.data,status = status.HTTP_200_OK)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
+
+
+class OrderCancelAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    try:
+        def get_object(self,order_item):
+            return  OrderItem.objects.filter(pk = order_item).first()
+    except Exception as e:
+        raise Http404
+
+    def put(self,request,order_item_id,*args,**kwargs):
+        try:
+            order_item = self.get_object(order_item_id)
+            if order_item is None:
+                return Response({"status":"400","message":"Order item not found"},status = status.HTTP_400_BAD_REQUEST)
+            if order_item.status == "Cancel":
+                return Response({"status":"400","message":"Order item already cancel"},status = status.HTTP_400_BAD_REQUEST)
+            order_item.status = "Cancel"
+            order_item.save()
+            # update product quantity
+            product = Product.objects.filter(pk= order_item.product.id).first()
+            product.quantity += order_item.quantity
+            product.save()
+
+            return Response({"status":"200","message":"Order Cancel Successfully"},status = status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
+
+
