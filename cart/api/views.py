@@ -35,7 +35,7 @@ class AddToCartApiView(APIView):
                         data = product
                         if serializer.is_valid():
                             product = get_product_object(data['product_id'])
-                            if int(data['quantity']) < int(product.quantity):
+                            if int(data['quantity']) <= int(product.quantity):
                                 if Cart.objects.filter(user = request.user, product = product).exists():
                                     Cart.objects.filter(user = request.user, product = product).update(quantity = data['quantity'])
                                 else:
