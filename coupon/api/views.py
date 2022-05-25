@@ -4,9 +4,10 @@ from .serializers import ApplyCouponSerializer
 from coupon.models import *
 from rest_framework.response import Response
 from coupon.helpers import validate_coupon,apply_coupon_on_cart_total
+from rest_framework import permissions
 
 class ApplyCouponApiView(APIView):
-
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request,coupon_code,*args,**kwargs):
         error_resp = {}
         success,message= validate_coupon(request.user,coupon_code)
