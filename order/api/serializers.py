@@ -8,9 +8,10 @@ from store.models import *
 
 class OrderSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only = True)
+    coupon = serializers.PrimaryKeyRelatedField(read_only = True)
     class Meta:
         model = Order
-        fields = ["full_name","city","state","country","pincode","locality","landmark","address","alternate_number","payment_mode","message","user"]
+        fields = ["full_name","city","state","country","pincode","locality","landmark","address","alternate_number","payment_mode","message","user","coupon"]
 
 
 class OrderItemSerializer(serializers.ModelSerializer):

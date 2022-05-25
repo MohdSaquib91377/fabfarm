@@ -11,21 +11,37 @@ from order.models import Order, OrderItem
 from store.models import *
 from cart.helpers import is_product_in_cart
 from django.http import Http404
+from coupon.helpers import validate_coupon,apply_coupon_on_cart_total
 
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     @swagger_auto_schema(tags = ['order'],request_body = OrderSerializer)
     def post(self,request,*args, **kwargs):
         try:
+            error_resp = {}
             serializer = OrderSerializer(data = request.data)
             if serializer.is_valid(raise_exception=True):
                 if not is_product_in_cart(request.user):
                     return Response({"status":"400","message":"No product found in cart"},status=status.HTTP_400_BAD_REQUEST)
-                cart_total,_ = Cart.get_cart_total_item_or_cost(request.user)
-                order = serializer.save(
-                user = request.user,
-                tracking_no = request.data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
-                total_price = cart_total)
+                print(request.data.get('couponCode'))
+                if request.data.get('couponCode') != "" and request.data.get('couponCode') is not None:
+                    success,message= validate_coupon(request.user,request.data.get('couponCode'))
+                    if not success:
+                        error_resp["message"] = message
+                        return Response(error_resp, status = 400)
+
+                    cart_total,total_amount_payble,discount_amount,coupon_id = apply_coupon_on_cart_total(request.user,message)
+                    order = serializer.save(
+                    user = request.user,
+                    tracking_no = request.data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
+                    total_price = cart_total,total_amount_payble = total_amount_payble,discounted_price = discount_amount,coupon = message)
+               
+                else:        
+                    cart_total,_ = Cart.get_cart_total_item_or_cost(request.user)
+                    order = serializer.save(
+                    user = request.user,
+                    tracking_no = request.data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
+                    total_price = cart_total)
 
                 # Read Cart
                 user_carts = Cart.objects.filter(user = request.user)
