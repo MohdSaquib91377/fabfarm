@@ -4,6 +4,7 @@ from pyexpat import model
 from django.db import models
 from account.models import CustomUser,TimeStampModel
 from store.models import *
+from coupon.models import *
 # Create your models here.
 
 class Order(TimeStampModel):
@@ -22,6 +23,10 @@ class Order(TimeStampModel):
     payment_id = models.CharField(max_length=64,null=True)
     message = models.TextField(null = True)
     tracking_no = models.CharField(max_length=64,null = True)
+    # Coupon
+    coupon = models.ForeignKey('coupon.Coupon',on_delete = models.CASCADE,related_name="order",null = True)
+    discounted_price = models.FloatField(default = 0)
+    total_amount_payble = models.FloatField(default = 0)
 
     def __str__(self):
             return f"{self.id}"
