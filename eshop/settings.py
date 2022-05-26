@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders', 
     'order',
-    'coupon'
+    'coupon',
+    'rest_framework_simplejwt.token_blacklist',
 
 ]
 
@@ -95,7 +96,7 @@ from datetime import timedelta
 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15 ad),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
   
 }
