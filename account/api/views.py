@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
 from services.otp import send_twilio_sms
-from .serializers import RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,LoginSerializer
+from .serializers import RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,LoginSerializer,LogoutSerializer
 from account.models import CustomUser
 from account.helpers import get_tokens_for_user
 from rest_framework import status
@@ -11,6 +11,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
 from django.http import Http404
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
 
 class RegisterApiView(APIView):
     @swagger_auto_schema(tags = ['account'],request_body = RegisterSerializer)
@@ -149,3 +151,13 @@ class LoginApiView(APIView):
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
+
+class LogoutAPIView(generics.GenericAPIView):
+    serializer_class = LogoutSerializer
+    permission_classes = [IsAuthenticated]
+
+    def post(self,request,*args, **kwargs):
+        serializer = self.serializer_class(data = request.data)
+        serializer.is_valid(raise_exception = True)
+        serializer.save()
+        return Response({"status":"204","message":"logout  successfully"})
