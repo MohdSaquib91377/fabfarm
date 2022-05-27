@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/v1/cart/',include('cart.api.urls')),
     path('api/v1/order/',include('order.api.urls')),
     path('api/v1/coupon/',include('coupon.api.urls')),
+    path('api/v1/wishlist/',include('wishlist.api.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 if settings.DEBUG:
