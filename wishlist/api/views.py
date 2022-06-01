@@ -16,15 +16,15 @@ class WishListAPIView(APIView):
         serializer = WishListSerializer(queryset,many = True)
         return Response(serializer.data,status = 200)
 
-    @swagger_auto_schema(tags = ['wishlist'],request_body = WishListSerializer)
+    @swagger_auto_schema(tags = ['wishlist'],request_body = WishListCreateDeleteSerializer)
     def post(self,request,*args, **kwargs):
         serializer = WishListCreateDeleteSerializer(data = request.data)
         serializer.is_valid(raise_exception = True)
-        product = Product.objects.filter(id = request.data['product']).first()
+        product = Product.objects.filter(id = request.data['product_id']).first()
         serializer.save(user = self.request.user,product = product)
         return Response({"status": "200","message":"Product added into wishlist"},status =200)
     
-    @swagger_auto_schema(tags = ['wishlist'],request_body = WishListSerializer)
+    @swagger_auto_schema(tags = ['wishlist'],request_body = WishListCreateDeleteSerializer)
     def delete(self,request,*args, **kwargs):       
         serializer = WishListCreateDeleteSerializer(data = request.data)
         serializer.is_valid(raise_exception = True)
