@@ -4,10 +4,12 @@ from account.api.serializers import UserSerializer
 from store.api.serializers import ProductsSerializer
 
 class WishListCreateDeleteSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(read_only = True)
+    product_id = serializers.IntegerField()
     class Meta:
         model = Wishlist
-        fields = ["user","product"]
+        fields = ["product_id"]
+        extra_kwargs = {"user": {"required": False, "allow_null": True},"product": {"required": False, "allow_null": True}}
+
 
 class WishListSerializer(serializers.ModelSerializer):
     user = UserSerializer()
