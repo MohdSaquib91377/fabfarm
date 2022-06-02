@@ -28,7 +28,7 @@ class WishListAPIView(APIView):
     def delete(self,request,*args, **kwargs):       
         serializer = WishListCreateDeleteSerializer(data = request.data)
         serializer.is_valid(raise_exception = True)
-        product = Product.objects.filter(id = request.data['product']).first()
+        product = Product.objects.filter(id = request.data['product_id']).first()
         if Wishlist.objects.filter(product = product,user = request.user).exists():
             Wishlist.objects.filter(product = product,user = request.user).delete()
             return Response({"status": "200","message":"Product removed from wishlist"},status = 203)
