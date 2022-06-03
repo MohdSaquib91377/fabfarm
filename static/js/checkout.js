@@ -1,7 +1,8 @@
 
 
 async function createorder(url, data = {}){
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MjMxOTg1LCJpYXQiOjE2NTQyMzE5ODAsImp0aSI6ImFlNWMxZTVlMmUyMDQ2OWM5YTE4OTZhYWM3MTQ5ZWY2IiwidXNlcl9pZCI6MX0.JTDmFK1VxFt1NtAKMyYYJDXsOUhDUDrAz8zhZ5LDEeQ"
+
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MjUyNTE5LCJpYXQiOjE2NTQyNDg5MTksImp0aSI6IjQ2ZDgyZGE3NWJkMDQ4MWNhNjkyYzM2NjI5NDQ0OGY3IiwidXNlcl9pZCI6MX0.23s4QQzC_eFzgcv96XUAYseJ40Oaha5iA1dyWdnQfuo"
     const response = await fetch(url,{
     method: 'post',
     headers: {
@@ -12,7 +13,7 @@ async function createorder(url, data = {}){
 
     body: JSON.stringify(data),
 
-    })
+    });
     return response.json()
 
 }
@@ -22,23 +23,24 @@ async function createorder(url, data = {}){
 
 document.getElementById('rzp-btn').onclick = function(e){
     e.preventDefault();
-    let url = "http://localhost:8000/api/v1/order/place-order/",
-    data = {
-        "address": "dhsdjdsfbhjsfhjs",
-        "alternate_number": "123456788",
-        "city": "Mumbai",
-        "country": "India",
-        "full_name": "mohd saquib",
-        "locality": "meer apartment",
-        "pincode": "4129",
-        "state": "Maharastra"
+    let url = "http://localhost:8000/api/v1/order/place-order/"
+    var data = {
+        address: "dhsdjdsfbhjsfhjs",
+        alternate_number: "123456788",
+        city: "Mumbai",
+        country: "India",
+        full_name: "mohd saquib",
+        locality: "meer apartment",
+        pincode: "4129",
+        state: "Maharastra",
+        full_name:"Mohd Saquib"
     }
     createorder(url,data).then(function(response){
 
         if(response.status == 200){
             var options = {
                 "key": "rzp_test_TO3eDopEjDMO6e", // Enter the Key ID generated from the Dashboard
-                "amount": 50000, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "amount": response.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",
                 "description": "Test Transaction",

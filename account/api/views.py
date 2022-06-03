@@ -131,7 +131,7 @@ class LoginApiView(APIView):
                     token = get_tokens_for_user(user)
                     return Response({"status":"200","message":"Login Successfully","data":token})
                 elif user:
-                    return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"})
+                    return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
                 else:
                     return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
