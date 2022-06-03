@@ -2,7 +2,6 @@ from email import message
 from operator import le
 from pyexpat import model
 from django.db import models
-from numpy import product
 from account.models import CustomUser,TimeStampModel
 from store.models import *
 from coupon.models import *
@@ -28,6 +27,13 @@ class Order(TimeStampModel):
     coupon = models.ForeignKey('coupon.Coupon',on_delete = models.CASCADE,related_name="order",null = True)
     discounted_price = models.FloatField(default = 0)
     total_amount_payble = models.FloatField(default = 0)
+    # razorpay Details
+    razorpay_order_id = models.CharField(max_length=64,null = True,blank = True)
+    razorpay_status = models.CharField(max_length=16,null = True,blank = True)
+    amount_due = models.PositiveBigIntegerField(default = 0,null = True,blank = True)
+    amount_paid = models.PositiveBigIntegerField(default = 0,null = True,blank = True)
+    attempts = models.PositiveIntegerField(default=0, blank=True, null=True)
+
 
     def __str__(self):
             return f"{self.id}"
