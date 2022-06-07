@@ -1,22 +1,25 @@
 import razorpay
-from rest_framework.response import Response
 from django.conf import settings
 client = razorpay.Client(auth = (settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
 def create_razorpay_order(ordered):
-    amount = str(int(ordered.total_amount_payble)*100)
+    response = dict()
+    order_amount = int(ordered.total_amount_payble*100) 
+    order_currency = 'INR'
+    order_receipt = 'order_rcptid_11'
     payment = client.order.create({
-        "amount": amount,
-        "currency":"INR",
-        "receipt": "order_rcptid_11" 
+        "amount": order_amount,
+        "currency":order_currency,
+        "receipt": order_currency
     })
     ordered.razorpay_order_id = payment['id']
-    ordered.status = payment['status']
     ordered.amount_paid = payment['amount_paid']
     ordered.amount_due = payment['amount_due']
     ordered.attempts = payment['attempts']
+    ordered.razorpay_status = payment['status']
     ordered.save()
 
-    return Response({
-        "razorpay_order_id":ordered.razorpay_order_id,
-        "amount":amount
-    })
+    response["razorpay_order_id"] = ordered.razorpay_order_id
+    response["amount"] = order_amount
+    response["status"] = "200"
+    response["message"] = "Your ordered has been placed successfully successfuly"
+    return response

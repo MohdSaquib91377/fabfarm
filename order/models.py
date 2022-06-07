@@ -44,7 +44,8 @@ class OrderItem(TimeStampModel):
     product = models.ForeignKey('store.Product',on_delete = models.CASCADE,related_name="orderItem")
     price = models.FloatField(null = True)
     quantity = models.IntegerField(null = True)
-    order_status = (     
+    order_status = (   
+          
         ("Pending","Pending"),
         ("Out For Shipping","Out For Shiping"),
         ("Completed","Completed"),

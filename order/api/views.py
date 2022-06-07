@@ -38,7 +38,7 @@ class OrderAPIView(APIView):
                     user = request.user,
                     tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
                     total_price = cart_total,total_amount_payble = total_amount_payble,discounted_price = discount_amount,coupon = message)
-                    create_razorpay_order(order)
+                    ordered_response = create_razorpay_order(order)
 
                 else:
                     cart_total,_ = Cart.get_cart_total_item_or_cost(request.user)
@@ -46,7 +46,7 @@ class OrderAPIView(APIView):
                     user = request.user,
                     tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
                     total_price = cart_total,total_amount_payble = cart_total)
-                    create_razorpay_order(order)
+                    ordered_response = create_razorpay_order(order)
 
                 # Read Cart
                 user_carts = Cart.objects.filter(user = request.user)
@@ -63,7 +63,10 @@ class OrderAPIView(APIView):
 
                 # Clear User Cart
                 Cart.objects.filter(user = request.user).delete()
-                return Response({"status":"200","message":"Your ordered has been placed successfully successfuly"},status = status.HTTP_200_OK)
+                return Response(
+                    ordered_response
+                    ,status = status.HTTP_200_OK
+                    )
             else:
                 return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:

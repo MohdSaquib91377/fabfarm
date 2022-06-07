@@ -2,7 +2,7 @@
 
 async function createorder(url, data = {}){
 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MjUyNTE5LCJpYXQiOjE2NTQyNDg5MTksImp0aSI6IjQ2ZDgyZGE3NWJkMDQ4MWNhNjkyYzM2NjI5NDQ0OGY3IiwidXNlcl9pZCI6MX0.23s4QQzC_eFzgcv96XUAYseJ40Oaha5iA1dyWdnQfuo"
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MzI4MDkyLCJpYXQiOjE2NTQzMjQ0OTIsImp0aSI6IjhiYmZjMTc2ZjFmYzQyZDk5YTJiM2ZhNTc0ZjhiOWI4IiwidXNlcl9pZCI6MX0.BBV2th_a-rYZmyHCg-pSaoKZvWf8C1RLS9HllCbE_E0"
     const response = await fetch(url,{
     method: 'post',
     headers: {
@@ -29,23 +29,24 @@ document.getElementById('rzp-btn').onclick = function(e){
         alternate_number: "123456788",
         city: "Mumbai",
         country: "India",
+        landmark:"Meer Apartment",
         full_name: "mohd saquib",
         locality: "meer apartment",
         pincode: "4129",
         state: "Maharastra",
-        full_name:"Mohd Saquib"
+        full_name:"Mohd Saquib",
+        payment_mode:"razor_pay"
     }
-    createorder(url,data).then(function(response){
-
-        if(response.status == 200){
+    createorder(url,data).then(function(data){
+        if(data.status == "200"){
             var options = {
                 "key": "rzp_test_TO3eDopEjDMO6e", // Enter the Key ID generated from the Dashboard
-                "amount": response.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "amount": `${data.amount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",
                 "description": "Test Transaction",
                 "image": "https://example.com/your_logo",
-                "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "order_id": `${data.razorpay_order_id}`, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                 "handler": function (response){
                     alert(response.razorpay_payment_id);
                     alert(response.razorpay_order_id);
@@ -81,6 +82,8 @@ document.getElementById('rzp-btn').onclick = function(e){
         }
 
 
+    }).catch(function(error){
+        alert(error)
     })
    
 }
