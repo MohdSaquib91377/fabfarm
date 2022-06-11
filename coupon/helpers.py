@@ -4,7 +4,8 @@ from cart.models import Cart
 from order.models import *
 
 def validate_coupon(user,coupon_code):
-    cart_total,_ = Cart.get_cart_total_item_or_cost(user)    
+    cart_total,_ = Cart.get_cart_total_item_or_cost(user)  
+    print(cart_total)  
     coupon = Coupon.objects.filter(couponCode = coupon_code).first()
     flag = True
     message = coupon
@@ -28,7 +29,7 @@ def validate_coupon(user,coupon_code):
     elif timezone.now() > coupon.expiryDateTime:
         flag = False
         message = "Coupon has been expired"
-
+    
     elif not cart_total >= coupon.maximumDiscountValue:
         flag = False
         message = f"Coupon will aapply if your order amount max or equal to {coupon.maximumDiscountValue}"
@@ -36,7 +37,6 @@ def validate_coupon(user,coupon_code):
     elif not coupon.maxApplyCountPerUser > Order.objects.filter(user = user,coupon = coupon).count():
         flag = False
         message = f"This coupon is only allowed {coupon.maxApplyCountPerUser} times you reach it's max limit"
-        
     return flag, message
 
 def apply_coupon_on_cart_total(user,coupon):
@@ -45,7 +45,7 @@ def apply_coupon_on_cart_total(user,coupon):
         discount_amount = (cart_total/100)*int(coupon.discountValue)
         total_amount_payble = cart_total - discount_amount
         return cart_total,total_amount_payble,discount_amount,coupon.id
-
+    
     total_amount_payble = cart_total - int(coupon.discountValue)
-    return cart_total,total_amount_payble,int(coupon.discountValue),coupon.id
+    return cart_total,total_amount_payble
   

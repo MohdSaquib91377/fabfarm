@@ -21,13 +21,18 @@ class OrderAPIView(APIView):
     @method_decorator(csrf_exempt, name='dispatch')         
     def post(self,request,*args, **kwargs):
         try:
+            ordered_response = dict()
+            
             error_resp = {}
             data = json.loads(request.body)
             serializer = OrderSerializer(data = data)
             if serializer.is_valid():
                 if not is_product_in_cart(request.user):
                     return Response({"status":"400","message":"No product found in cart"},status=status.HTTP_400_BAD_REQUEST)
-                if request.data.get('couponCode') != "" and data.get('couponCode') is not None:
+
+                # Created order if couo]pon code provided 
+                if data.get('couponCode') != "" and data.get('couponCode') is not None:
+                    print("------------------------------------------------------")
                     success,message= validate_coupon(request.user,data.get('couponCode'))
                     if not success:
                         error_resp["message"] = message
@@ -38,7 +43,10 @@ class OrderAPIView(APIView):
                     user = request.user,
                     tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
                     total_price = cart_total,total_amount_payble = total_amount_payble,discounted_price = discount_amount,coupon = message)
-                    ordered_response = create_razorpay_order(order)
+                    ordered_response["total_price"] = cart_total
+                    ordered_response["discount_amount"] = discount_amount
+                    ordered_response["total_amount_payble"] = total_amount_payble               
+                
 
                 else:
                     cart_total,_ = Cart.get_cart_total_item_or_cost(request.user)
@@ -46,8 +54,16 @@ class OrderAPIView(APIView):
                     user = request.user,
                     tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
                     total_price = cart_total,total_amount_payble = cart_total)
-                    ordered_response = create_razorpay_order(order)
+                    ordered_response["total_price"] = cart_total
 
+                ordered_response["status"] = "200"
+                ordered_response["message"] = "Your ordered has been placed successfully"
+
+                if data.get('payment_mode') == 'razor_pay':
+                    razorpay_order_id = create_razorpay_order(order)
+                    ordered_response["razorpay_order_id"] = razorpay_order_id
+                
+                
                 # Read Cart
                 user_carts = Cart.objects.filter(user = request.user)
 

@@ -2,12 +2,11 @@
 
 async function createorder(url, data = {}){
 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MzI4MDkyLCJpYXQiOjE2NTQzMjQ0OTIsImp0aSI6IjhiYmZjMTc2ZjFmYzQyZDk5YTJiM2ZhNTc0ZjhiOWI4IiwidXNlcl9pZCI6MX0.BBV2th_a-rYZmyHCg-pSaoKZvWf8C1RLS9HllCbE_E0"
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0OTYyODg4LCJpYXQiOjE2NTQ5NTkyODgsImp0aSI6IjU5M2YzZTY2YjE5NTRkYWY5YmUzNGJkNWJjZjJiYWVjIiwidXNlcl9pZCI6MX0._n_zcels7VrfDErYkWUw9cYYFoJbFz-HqonHfS__RvA"
     const response = await fetch(url,{
     method: 'post',
     headers: {
-        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-      "Access-Control-Allow-Headers": "*",
+        'Content-Type': 'application/json',
         "Authorization": 'Bearer '+token,
     },
 
@@ -35,12 +34,12 @@ document.getElementById('rzp-btn').onclick = function(e){
         pincode: "4129",
         state: "Maharastra",
         full_name:"Mohd Saquib",
-        payment_mode:"razor_pay"
+        payment_mode:"razor_pay",
     }
     createorder(url,data).then(function(data){
         if(data.status == "200"){
             var options = {
-                "key": "rzp_test_TO3eDopEjDMO6e", // Enter the Key ID generated from the Dashboard
+                "key": "rzp_test_pmUdkJmQrKPswH", // Enter the Key ID generated from the Dashboard
                 "amount": `${data.amount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",
@@ -48,6 +47,8 @@ document.getElementById('rzp-btn').onclick = function(e){
                 "image": "https://example.com/your_logo",
                 "order_id": `${data.razorpay_order_id}`, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                 "handler": function (response){
+                alert(JSON.stringify(response));
+
                     alert(response.razorpay_payment_id);
                     alert(response.razorpay_order_id);
                     alert(response.razorpay_signature);

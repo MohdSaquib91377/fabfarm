@@ -8,7 +8,7 @@ class OrderAdmin(admin.ModelAdmin):
                     "alternate_number","total_price","payment_mode",
                     "payment_id","message","tracking_no","coupon",
                     "discounted_price","total_amount_payble","razorpay_order_id",
-                    "razorpay_status","amount_due","amount_paid","attempts",
+                    "razorpay_status","amount_due","amount_paid","attempts", "created_at"
     ]
 admin.site.register(Order,OrderAdmin)
 
