@@ -32,7 +32,6 @@ class OrderAPIView(APIView):
 
                 # Created order if couo]pon code provided 
                 if data.get('couponCode') != "" and data.get('couponCode') is not None:
-                    print("------------------------------------------------------")
                     success,message= validate_coupon(request.user,data.get('couponCode'))
                     if not success:
                         error_resp["message"] = message
@@ -83,8 +82,7 @@ class OrderAPIView(APIView):
                     ordered_response
                     ,status = status.HTTP_200_OK
                     )
-            else:
-                return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status=status.HTTP_400_BAD_REQUEST)
 

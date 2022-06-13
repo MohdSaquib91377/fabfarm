@@ -8,12 +8,12 @@ class Payment(TimeStampModel):
     user = models.ForeignKey(CustomUser, related_name="payment",on_delete = models.CASCADE)
 
     # payment successful
-    razorpay_payment_id = models.CharField(max_length=64)
-    razorpay_order_id = models.CharField(max_length=64)
-    razorpay_signature = models.CharField(max_length= 64)
-    method = models.CharField(max_length=64)
-    fee = models.CharField(max_length=64)
-    tax = models.CharField(max_length=64)
+    razorpay_payment_id = models.CharField(max_length=64,null=True,blank=True)
+    razorpay_order_id = models.CharField(max_length=64,null=True,blank=True)
+    razorpay_signature = models.CharField(max_length= 64,null=True,blank=True)
+    method = models.CharField(max_length=64,null=True,blank=True)
+    fee = models.CharField(max_length=64,null=True,blank=True)
+    tax = models.CharField(max_length=64,null=True,blank=True)
 
     # payment Errors
     error_code = models.TextField(max_length=64,null=True,blank=True)

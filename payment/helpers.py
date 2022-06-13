@@ -3,14 +3,17 @@ from django.conf import settings
 import hashlib
 import hmac
 
-client = razorpay.Client(auth = (settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
+
+def get_razorpay_client():
+    client = razorpay.Client(auth = (settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
+    return client
 
 def create_razorpay_order(ordered):
     response = dict()
     order_amount = int(ordered.total_amount_payble*100) 
     order_currency = 'INR'
     order_receipt = 'order_rcptid_11'
-    payment = client.order.create({
+    payment = get_razorpay_client().order.create({
         "amount": order_amount,
         "currency":order_currency,
         "receipt": order_currency
@@ -36,4 +39,11 @@ def verify_razorpay_signature(data:dict,key=settings.RAZOR_KEY_SECRET):
 
 # verify payment signature
 def payment_signature_varification(data:dict):
-    return client.utility.verify_payment_signature(data)
+    return get_razorpay_client().utility.verify_payment_signature(data)
+
+# Fetch An Order with id from razorpay server
+def fetch_order_from_razor_pay(order_id):
+    razorpay_order = get_razorpay_client().order.fetch(order_id)
+    print(razorpay_order)
+    return razorpay_order
+
