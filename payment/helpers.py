@@ -2,6 +2,7 @@ import razorpay
 from django.conf import settings
 import hashlib
 import hmac
+
 client = razorpay.Client(auth = (settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
 
 def create_razorpay_order(ordered):
@@ -20,20 +21,19 @@ def create_razorpay_order(ordered):
     ordered.attempts = payment['attempts']
     ordered.razorpay_status = payment['status']
     ordered.save()
-
-    # response["razorpay_order_id"] = ordered.razorpay_order_id
-    # response["amount"] = order_amount
-    
-
     return ordered.razorpay_order_id
 
 
 
     
-# Verify Payment Signature🔗
+# Verify razorpay Signature🔗
 
-def verify_signature(data:dict,key=settings.RAZOR_KEY_SECRET):
+def verify_razorpay_signature(data:dict,key=settings.RAZOR_KEY_SECRET):
     message = f"{data.get('razorpay_order_id', '')}|{data.get('razorpay_payment_id','')}"
     return hmac.new(
         key.encode(), message.encode(), hashlib.sha256
     ).hexdigest() == data.get("razorpay_signature", "")
+
+# verify payment signature
+def payment_signature_varification(data:dict):
+    return client.utility.verify_payment_signature(data)

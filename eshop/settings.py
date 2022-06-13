@@ -242,5 +242,5 @@ TWILIO_AUTH_TOKEN = "96ce666a60aa94679cc6623b1378f252"
 TWILIO_PHONE_NUMBER = +19804092625
 
 # Rayzorpay configuration
-RAZOR_KEY_ID = "rzp_test_pmUdkJmQrKPswH"
-RAZOR_KEY_SECRET = "7AR4jlLgnI9xx2Pmne1Vupa2"
+RAZOR_KEY_ID = "rzp_test_5nmqymdWIq7XjJ"
+RAZOR_KEY_SECRET = "HUGdopnyrBwaYp9zXTMNlxy0"

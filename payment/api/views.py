@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from .serializers import PaymentSuccessSerializer, PaymentFailureSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from payment.helpers import verify_signature
+from payment.helpers import verify_razorpay_signature,payment_signature_varification
 
 class PaymentSuccessAPIView(APIView):
     def post(self, request, *args, **kwargs):
@@ -17,10 +17,11 @@ class PaymentSuccessAPIView(APIView):
                 "razorpay_order_id": razorpay_order_id,
                 "razorpay_signature": razorpay_signature
             }
-            if verify_signature(pay_dict):
-                return Response({"status":"200","message":"verify razorpay signature successfully"})
-            else:
+            if not verify_razorpay_signature(pay_dict):
                 return Response({"status":"400","message":"Something went wrong while verify razorpay signature"})
+            if payment_signature_varification(pay_dict) is None:
+                return Response({"status":"200","message":"payment verification success"})
+    
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
