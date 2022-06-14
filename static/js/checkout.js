@@ -2,7 +2,7 @@
 
 async function createorder(url, data = {}){
 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTI5NzA1LCJpYXQiOjE2NTUxMjYxMDUsImp0aSI6IjU3ODMwMjYxNGVhMDQ4MzM5Y2QwMDg5ZTY3MmQwNzExIiwidXNlcl9pZCI6MX0.CcEF5-suIsBBctIVRZeIqa_gOkZPA4Uw00RTQ-7Z3is"
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjEyNzkwLCJpYXQiOjE2NTUyMDkxOTAsImp0aSI6IjNiYjQxOWEzODFhNTQyNjE4M2YxNjJmNmVlYTEwZGU1IiwidXNlcl9pZCI6MX0.PKlHiFBq78rUKjWFIajRc_F4yd6OpdCN1JG-fQGyMHc"
     const response = await fetch(url,{
     method: 'post',
     headers: {
@@ -39,7 +39,7 @@ document.getElementById('rzp-btn').onclick = function(e){
     createorder(url,data).then(function(data){
         if(data.status == "200"){
             var options = {
-                "key": "rzp_test_5nmqymdWIq7XjJ", // Enter the Key ID generated from the Dashboard
+                "key": "rzp_test_dDKHklaSWC4N3X", // Enter the Key ID generated from the Dashboard
                 "amount": `${data.amount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",
@@ -47,11 +47,10 @@ document.getElementById('rzp-btn').onclick = function(e){
                 "image": "https://example.com/your_logo",
                 "order_id": `${data.razorpay_order_id}`, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                 "handler": function (response){
-                alert(JSON.stringify(response));
 
-                    alert(response.razorpay_payment_id);
-                    alert(response.razorpay_order_id);
-                    alert(response.razorpay_signature);
+                    window.localStorage.setItem("razorpay_payment_id",response.razorpay_payment_id);
+                    window.localStorage.setItem("razorpay_order_id",response.razorpay_order_id);
+                    window.localStorage.setItem("razorpay_signature",response.razorpay_signature);
                 },
                 "prefill": {
                     "name": "Gaurav Kumar",
@@ -70,13 +69,15 @@ document.getElementById('rzp-btn').onclick = function(e){
             var rzp1 = new Razorpay(options);
             rzp1.open()
             rzp1.on('payment.failed', function (response){
-            alert(response.error.code);
-            alert(response.error.description);
-            alert(response.error.source);
-            alert(response.error.step);
-            alert(response.error.reason);
-            alert(response.error.metadata.order_id);
-            alert(response.error.metadata.payment_id);
+            window.sessionStorage.setItem("error_code",response.error.code);
+            window.sessionStorage.setItem("error_description",response.error.description);
+            window.sessionStorage.setItem("error_source",response.error.source);
+            window.sessionStorage.setItem("error_step",response.error.step);
+            window.sessionStorage.setItem("error_reason",response.error.reason);
+            window.sessionStorage.setItem("error_order_id",response.error.metadata.order_id);
+            window.sessionStorage.setItem("error_payment_id",response.error.metadata.payment_id);
+
+            
             });
 
 

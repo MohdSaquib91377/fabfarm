@@ -59,8 +59,9 @@ class OrderAPIView(APIView):
                 ordered_response["message"] = "Your ordered has been placed successfully"
 
                 if data.get('payment_mode') == 'razor_pay':
-                    razorpay_order_id = create_razorpay_order(order)
+                    razorpay_order_id,order_amount_in_paise = create_razorpay_order(order)
                     ordered_response["razorpay_order_id"] = razorpay_order_id
+                    ordered_response["amount"] = order_amount_in_paise
                 
                 
                 # Read Cart

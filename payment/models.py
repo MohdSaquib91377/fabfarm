@@ -16,13 +16,13 @@ class Payment(TimeStampModel):
     tax = models.CharField(max_length=64,null=True,blank=True)
 
     # payment Errors
-    error_code = models.TextField(max_length=64,null=True,blank=True)
-    error_description = models.TextField(max_length=64,null=True,blank=True)
-    error_source = models.TextField(max_length=64,null=True,blank=True)
-    error_step = models.TextField(max_length=64,null=True,blank=True)
-    error_reason = models.CharField(max_length=64,null=True,blank=True)
-    error_order_id = models.TextField(max_length=64,null=True,blank=True)
-    error_payment_id = models.TextField(max_length=64,null=True,blank=True)
+    error_code = models.TextField(null=True,blank=True)
+    error_description = models.TextField(null=True,blank=True)
+    error_source = models.TextField(null=True,blank=True)
+    error_step = models.TextField(null=True,blank=True)
+    error_reason = models.CharField(max_length = 64,null=True,blank=True)
+    error_order_id = models.TextField(null=True,blank=True)
+    error_payment_id = models.TextField(null=True,blank=True)
 
     class Meta:
         db_table = 'Payments'
