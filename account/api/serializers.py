@@ -1,5 +1,4 @@
 from pyexpat import model
-from attr import fields
 from rest_framework import serializers
 from account.models  import CustomUser
 from rest_framework_simplejwt.tokens import RefreshToken,TokenError

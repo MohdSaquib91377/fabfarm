@@ -1,4 +1,3 @@
-from attr import field
 from rest_framework.response import Response
 from rest_framework import serializers
 from order.models import Order,OrderItem

@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'coupon',
     'wishlist',
     'rest_framework_simplejwt.token_blacklist',
-
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +65,7 @@ ROOT_URLCONF = 'eshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -222,6 +222,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000","http://135.181.204.238:8002"
 ]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000"
+# ]
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+)
+CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'account.CustomUser'
 
@@ -240,3 +249,7 @@ EMAIL_HOST_PASSWORD = "xuaqrhmmsiquguxs"
 TWILIO_ACCOUNT_SID = "AC11d4ec11e400e4fd0f50019753129f28"
 TWILIO_AUTH_TOKEN = "96ce666a60aa94679cc6623b1378f252"
 TWILIO_PHONE_NUMBER = +19804092625
+
+# Rayzorpay configuration
+RAZOR_KEY_ID = "rzp_test_dDKHklaSWC4N3X"
+RAZOR_KEY_SECRET = "saUTslkI1Q96imXUfKI8MJ7P"
