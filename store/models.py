@@ -2,8 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from account.models import TimeStampModel
-
-
+import PIL.Image
 class Category(TimeStampModel):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=64,unique=True, help_text="Unique value for product page URL,created from name")
@@ -63,7 +62,6 @@ class Product(TimeStampModel):
     
 class Image(TimeStampModel):
     image = models.ImageField(upload_to='images/products/main')
-    thumbnail = models.ImageField(upload_to='images/products/thumbnails')
     image_caption = models.CharField(max_length=64)
     products = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='images', default=None)
 
@@ -71,3 +69,12 @@ class Image(TimeStampModel):
         ordering = ['-created_at']
         db_table = "images"
         verbose_name_plural = "Images"
+         
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        img = PIL.Image.open(self.image.path)
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300,300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
