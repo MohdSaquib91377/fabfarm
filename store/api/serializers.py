@@ -43,3 +43,8 @@ class CategoryProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'name','products']
 
 
+# Banner Serializer
+class BannerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Banner
+        fields = "__all__"
