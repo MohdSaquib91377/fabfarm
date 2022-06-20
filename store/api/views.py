@@ -2,10 +2,10 @@ from rest_framework.views import APIView
 from store.models import *
 from rest_framework.response import Response
 from django.utils.decorators import method_decorator
-from .serializers import CategoryProductSerializer,ProductsSerializer,CategorySerializer,BannerSerializer
+from .serializers import CategoryProductSerializer,ProductsSerializer,CategorySerializer
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
-from rest_framework import generics
+
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryProductView(APIView):    
     def get(self,request,*args, **kwargs):
@@ -52,12 +52,3 @@ class ProductDetailsView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
             
-# Banner Api
-class BannerAPIView(generics.ListAPIView):
-    queryset = Banner.objects.all()
-    serializer_class = BannerSerializer
-
-    def get_queryset(self):
-        page_name = self.kwargs['page_name']
-        queryset = Banner.objects.filter(page__icontains = page_name)
-        return queryset
