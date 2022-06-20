@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Category, Brand, Product, Image
+from .models import Category, Brand, Product, Image, RecentView
 
 class CategoryAdmin(admin.ModelAdmin):    
     list_display = ['id', 'name', 'slug','description','is_active','meta_keywords','meta_description']    
@@ -21,3 +21,8 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Image)
+
+class RecentViewAdmin(admin.ModelAdmin):
+    list_display = ["id","user","product","views_counter"]
+
+admin.site.register(RecentView, RecentViewAdmin)

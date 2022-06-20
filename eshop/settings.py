@@ -235,7 +235,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "mohdsaquib91377@gmail.com"
-EMAIL_HOST_PASSWORD = "xuaqrhmmsiquguxs"
+EMAIL_HOST_PASSWORD = "vtslcsozvekwxrif"
 
 # Twilio configuration
 TWILIO_ACCOUNT_SID = "AC11d4ec11e400e4fd0f50019753129f28"

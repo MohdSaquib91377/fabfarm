@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 from account.models import TimeStampModel
 import PIL.Image
+from account.models import *
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=64)
@@ -81,3 +82,11 @@ class Image(TimeStampModel):
             img.save(self.image.path)
 
 
+
+class RecentView(TimeStampModel):
+    product = models.ForeignKey("Product",related_name="recent_view",on_delete=models.CASCADE)
+    user = models.ForeignKey("account.CustomUser",related_name="recent_view",on_delete=models.CASCADE)
+    views_counter = models.IntegerField(default = 1)
+
+    class Meta:
+        db_table = "RecentViews"
