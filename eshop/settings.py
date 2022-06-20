@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'wishlist',
     'rest_framework_simplejwt.token_blacklist',
     'payment',
+    'banner'
 ]
 
 MIDDLEWARE = [
