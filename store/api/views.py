@@ -5,6 +5,8 @@ from django.utils.decorators import method_decorator
 from .serializers import CategoryProductSerializer,ProductsSerializer,CategorySerializer
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
+from store.helpers import add_recent_views_product
+from rest_framework.permissions import IsAuthenticated
 
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryProductView(APIView):    
@@ -42,11 +44,15 @@ class CategoryDetailsView(APIView):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ProductDetailsView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self,request,product_id,*args, **kwargs):
         try:
 
             queryset = Product.objects.filter(pk=product_id)
-            serializer = ProductsSerializer(queryset,many=True)           
+            
+            serializer = ProductsSerializer(queryset,many=True,context = {"user":request.user})   
+            # User recently viewed add into RecentView model 
+            add_recent_views_product(request.user,product_id)       
             return Response(serializer.data) 
 
         except Exception as e:
