@@ -83,10 +83,3 @@ class Image(TimeStampModel):
 
 
 
-class RecentView(TimeStampModel):
-    product = models.ForeignKey("Product",related_name="recent_view",on_delete=models.CASCADE)
-    user = models.ForeignKey("account.CustomUser",related_name="recent_view",on_delete=models.CASCADE)
-    views_counter = models.IntegerField(default = 1)
-
-    class Meta:
-        db_table = "RecentViews"

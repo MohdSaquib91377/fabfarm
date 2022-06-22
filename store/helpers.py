@@ -13,12 +13,12 @@ def get_product_object(product_id):
     except Exception as e:
         raise Http404
 
-def add_recent_views_product(user,product_id):
-    try:
-        recent_views_obj,created = RecentView.objects.get_or_create(user = user,product_id = product_id)
-        if not created:
-            recent_views_obj.views_counter += 1
-            recent_views_obj.save()
+# def add_recent_views_product(user,product_id):
+#     try:
+#         recent_views_obj,created = RecentViewProduct.objects.get_or_create(user = user,product_id = product_id)
+#         if not created:
+#             recent_views_obj.views_counter += 1
+#             recent_views_obj.save()
         
-    except Exception as e:
-        print(f"Error -> {e}")
+#     except Exception as e:
+#         print(f"Error -> {e}")
