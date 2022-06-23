@@ -148,7 +148,7 @@ SWAGGER_SETTINGS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'agri_prod',
+        'NAME': 'agri_db',
         'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost',
