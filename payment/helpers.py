@@ -25,7 +25,7 @@ def create_razorpay_order(ordered):
     ordered.attempts = payment['attempts']
     ordered.razorpay_status = payment['status']
     ordered.save()
-    return ordered.razorpay_order_id,order_amount
+    return ordered.razorpay_order_id,order_amount,settings.RAZOR_KEY_ID
 
 
 
