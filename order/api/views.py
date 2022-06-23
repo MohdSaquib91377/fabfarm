@@ -21,6 +21,7 @@ class OrderAPIView(APIView):
     @method_decorator(csrf_exempt, name='dispatch')         
     def post(self,request,*args, **kwargs):
         try:
+            is_razor_pay_mode = False
             ordered_response = dict()
             
             error_resp = {}
@@ -59,10 +60,12 @@ class OrderAPIView(APIView):
                 ordered_response["message"] = "Your ordered has been placed successfully"
 
                 if data.get('payment_mode') == 'razor_pay':
+                    is_razor_pay_mode = True
                     razorpay_order_id,order_amount_in_paise,razorpay_key_id = create_razorpay_order(order)
                     ordered_response["razorpay_order_id"] = razorpay_order_id
                     ordered_response["razorpay_key_id"] = razorpay_key_id
                     ordered_response["amount"] = order_amount_in_paise
+
                 
                 
                 # Read Cart
@@ -82,7 +85,7 @@ class OrderAPIView(APIView):
                 Cart.objects.filter(user = request.user).delete()
                 return Response(
                     ordered_response
-                    ,status = status.HTTP_200_OK
+                    ,status = status.HTTP_201_CREATED if is_razor_pay_mode else status.HTTP_200_OK
                     )
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
