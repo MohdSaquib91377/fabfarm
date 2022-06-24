@@ -4,12 +4,16 @@ from rest_framework.response import Response
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
-from.serializers import CartSerializer,CreateCartSerializer
+from.serializers import CartSerializer,CreateCartSerializer,DeleteCartSerializer
 from rest_framework import status
 from store.helpers import get_product_object
+from cart.helpers import *
+from drf_yasg.utils import swagger_auto_schema
+
 
 class AddToCartApiView(APIView):
     permission_classes = [IsAuthenticated]
+
     def get(slef,request,*args,**kwargs):
         try:
             queryset = Cart.objects.filter(user = request.user)
@@ -21,34 +25,43 @@ class AddToCartApiView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(tags = ['cart'],request_body = CreateCartSerializer)
     def post(self,request,*args,**kwargs):
         try:
-            serializer = CreateCartSerializer(data = request.data)
-            product = get_product_object(request.data.get('product_id'))
-            if serializer.is_valid():
-                if Cart.objects.filter(user = request.user, product = product).exists():
-                    Cart.objects.filter(user = request.user, product = product).update(quantity = serializer.data['quantity'])
-                    return Response({"sttaus":"200","message":"Product updated into Cart"},status = status.HTTP_400_BAD_REQUEST)
-                serializer.save(user = request.user)
-                return Response({"sttaus":"200","message":"Product Added into Cart"},status = status.HTTP_201_CREATED)
-            return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+            if len(request.data) > 0:
+                for product in request.data:
+                    if isinstance(product,dict):
+                        serializer = CreateCartSerializer(data = product)
+                        data = product
+                        if serializer.is_valid():
+                            product = get_product_object(data['product_id'])
+                            if int(data['quantity']) <= int(product.quantity):
+                                if Cart.objects.filter(user = request.user, product = product).exists():
+                                    Cart.objects.filter(user = request.user, product = product).update(quantity = data['quantity'])
+                                else:
+                                    serializer.save(user = request.user) 
+                            else:
+                                return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+                        else:
+                            return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+                    
+                    else:
+                        return Response(
+                            {"status": "failed", "message": "send data in array of json"},
+                            status=400,
+                        )   
+            else:
+                serializer = CreateCartSerializer(data = request.data)
+                if not serializer.is_valid():
+                    return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+            return Response(
+                            {"status": "200", "message": "Product Added Into Cart !!"},
+                                        status=200,
+                                )  
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
-
-    def put(self,request, *args, **kwargs):
-        try:
-            product = get_product_object(request.data.get('product_id'))
-            user_cart = Cart.objects.filter(user = request.user, product = product).first()
-            if user_cart:
-                serializer = CreateCartSerializer(user_cart,data=request.data, partial=True)
-                if serializer.is_valid():
-                    serializer.save()
-                    return Response({"status":"200","message":"Product updated into cart successfully"},status = status.HTTP_200_OK)
-                return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
-            return Response({"status":"400","message":"You dont have permission to edit this product"},status = status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
-
+    
+    @swagger_auto_schema(tags = ['cart'],request_body = DeleteCartSerializer)
     def delete(self,request, *args, **kwargs):
         try:
             product = get_product_object(request.data.get('product_id'))

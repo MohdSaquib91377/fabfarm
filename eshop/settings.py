@@ -33,12 +33,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'account',
     'store',
     'cart',
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders', 
+    'order',
+    'coupon',
+    'wishlist',
+    'rest_framework_simplejwt.token_blacklist',
+    'payment',
+    'banner'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +66,7 @@ ROOT_URLCONF = 'eshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +98,7 @@ from datetime import timedelta
 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
   
 }
@@ -104,6 +111,19 @@ OTP = {
     ),
 }
 
+#swagger authentication
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+
+   'SECURITY_DEFINITIONS': {
+
+      'api_key': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -118,18 +138,20 @@ OTP = {
 #     #     'PORT': '5432',
 #     #     }
 #     # }
+
+# if DEBUG:
 #     DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 #     }
-
+# else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'agriculture_db',
-        'USER': 'admin',
+        'NAME': 'agri_db',
+        'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '',
@@ -201,8 +223,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000","http://135.181.204.238:8002"
 ]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000"
+# ]
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+)
+CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'account.CustomUser'
 
@@ -215,9 +246,13 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "mohdsaquib91377@gmail.com"
-EMAIL_HOST_PASSWORD = "xuaqrhmmsiquguxs"
+EMAIL_HOST_PASSWORD = "vtslcsozvekwxrif"
 
 # Twilio configuration
 TWILIO_ACCOUNT_SID = "AC11d4ec11e400e4fd0f50019753129f28"
 TWILIO_AUTH_TOKEN = "96ce666a60aa94679cc6623b1378f252"
 TWILIO_PHONE_NUMBER = +19804092625
+
+# Rayzorpay configuration
+RAZOR_KEY_ID = "rzp_test_gA8EySAyVrpp7h"
+RAZOR_KEY_SECRET = "TguJ2I5On52z57ZU3fjFE5aN"
