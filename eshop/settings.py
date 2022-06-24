@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-jmkl&v#x9^hpx&5%uq_4e*1yz5=6x17#g(n%-3kjtuwubwpp63
 #EMAIL_HOST_PASSWORD = os.environ.get()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -139,24 +139,24 @@ SWAGGER_SETTINGS = {
 #     #     }
 #     # }
 
-if DEBUG:
-    DATABASES = {
+# if DEBUG:
+#     DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+#     }
+# else:
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'agri_db',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
     }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'agri_db',
-            'USER': 'postgres',
-            'PASSWORD': 'root',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
+}
 
 
 # Password validation
@@ -254,5 +254,5 @@ TWILIO_AUTH_TOKEN = "96ce666a60aa94679cc6623b1378f252"
 TWILIO_PHONE_NUMBER = +19804092625
 
 # Rayzorpay configuration
-RAZOR_KEY_ID = "rzp_test_dDKHklaSWC4N3X"
-RAZOR_KEY_SECRET = "saUTslkI1Q96imXUfKI8MJ7P"
+RAZOR_KEY_ID = "rzp_test_gA8EySAyVrpp7h"
+RAZOR_KEY_SECRET = "TguJ2I5On52z57ZU3fjFE5aN"

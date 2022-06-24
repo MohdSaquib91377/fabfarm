@@ -38,8 +38,11 @@ class PaymentSuccessAPIView(APIView):
             order.payment_status = "payment_success"
             order.order_status = "order_success"
             order.save()
+            return Response({
+                "status":"200",
+                "message":"Payment Verification Successfull"
+            },status = status.HTTP_200_OK)
             
-            razorpay_order_response = fetch_order_from_razor_pay(razorpay_order_id)
             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
