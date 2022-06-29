@@ -11,7 +11,6 @@ def get_razorpay_client():
 def create_razorpay_order(ordered):
     response = dict()
     order_amount = int(ordered.total_amount_payble*100) 
-    print(ordered.total_amount_payble)
     order_currency = 'INR'
     order_receipt = 'order_rcptid_11'
     payment = get_razorpay_client().order.create({

@@ -5,7 +5,6 @@ from order.models import *
 
 def validate_coupon(user,coupon_code):
     cart_total,_ = Cart.get_cart_total_item_or_cost(user)  
-    print(cart_total)  
     coupon = Coupon.objects.filter(couponCode = coupon_code).first()
     flag = True
     message = coupon

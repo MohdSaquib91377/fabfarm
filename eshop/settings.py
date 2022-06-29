@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'wishlist',
     'rest_framework_simplejwt.token_blacklist',
     'payment',
-    'banner'
+    'banner',
+    'django_elasticsearch_dsl', # new
 ]
 
 MIDDLEWARE = [
@@ -256,3 +257,11 @@ TWILIO_PHONE_NUMBER = +19804092625
 # Rayzorpay configuration
 RAZOR_KEY_ID = "rzp_test_gA8EySAyVrpp7h"
 RAZOR_KEY_SECRET = "TguJ2I5On52z57ZU3fjFE5aN"
+
+# Elastic Search
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}

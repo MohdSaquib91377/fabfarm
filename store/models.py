@@ -1,3 +1,4 @@
+from itertools import product
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -38,6 +39,8 @@ class SubCategory(TimeStampModel):
     def __str__(self):
         return self.name
      
+    def __str__(self) -> str:
+        return f"{self.name} -> {self.category.name}"
 class Brand(TimeStampModel):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=64,unique=True)
@@ -74,7 +77,7 @@ class Product(TimeStampModel):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return self.name
+        return f"{self.id} -> {self.name} -> {self.sub_category.name} -> {self.category.name}"
 
     
 class Image(TimeStampModel):
@@ -96,4 +99,10 @@ class Image(TimeStampModel):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+class RecentView(TimeStampModel):
+    user = models.ForeignKey("account.CustomUser",on_delete=models.CASCADE,related_name="recent_views")
+    product = models.ForeignKey("Product",on_delete=models.CASCADE,related_name="recent_views")
+    views_counter = models.IntegerField(default=1)
 
+    class Meta:
+        ordering = ["-created_at"]

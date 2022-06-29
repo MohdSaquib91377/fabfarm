@@ -1,4 +1,6 @@
+from pyexpat import model
 from unicodedata import category
+from attr import fields
 from rest_framework import serializers
 
 from store.models import *
@@ -14,13 +16,14 @@ class ImageSerializer(serializers.ModelSerializer):
 
 
 class ProductsSerializer(serializers.ModelSerializer):
+    sub_category_name = serializers.CharField(source="sub_category.name")
     image = serializers.SerializerMethodField("get_images")
     brand = serializers.CharField(source="brand.name", read_only=True)
     maxQuantity = serializers.IntegerField(source = "quantity")
     quantity = serializers.SerializerMethodField("set_qauntity_by_1")
     class Meta:
         model = Product
-        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image"]
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category_name"]
         
     def get_images(self, obj):
         images = obj.images.all()
@@ -30,9 +33,10 @@ class ProductsSerializer(serializers.ModelSerializer):
     def set_qauntity_by_1(self,obj):
         return 1
 
-        
+    
+
 class SubCategoryProductSerializer(serializers.ModelSerializer):
-    products = ProductsSerializer(many=True, read_only=True)
+    products = ProductsSerializer(many=True)
     class Meta:
         model = SubCategory
         fields = ['id', 'name','products']
@@ -48,4 +52,9 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ["id","name","sub_categories"]
 
- 
+
+class RecentViewProductSerializer(serializers.ModelSerializer):
+    product = ProductsSerializer()
+    class Meta:
+        model = RecentView
+        fields ="__all__"
