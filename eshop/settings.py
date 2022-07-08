@@ -1,5 +1,8 @@
+from datetime import timedelta
+from corsheaders.defaults import default_headers
 from pathlib import Path
 import os
+from decouple import config,Csv
 
 # from django.views import View
 #from .base import *
@@ -13,15 +16,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jmkl&v#x9^hpx&5%uq_4e*1yz5=6x17#g(n%-3kjtuwubwpp63'
+SECRET_KEY = config('SECRET_KEY')
 #SECRET_KEY = os.environ['SECRET_KEY'] 
 #EMAIL_HOST_USER = os.environ.get('profession2291@gmail.com')
 #EMAIL_HOST_PASSWORD = os.environ.get()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',default=True,cast=Csv())
 
 
 # Application definition
@@ -45,7 +48,8 @@ INSTALLED_APPS = [
     'wishlist',
     'rest_framework_simplejwt.token_blacklist',
     'payment',
-    'banner'
+    'banner',
+    'django_elasticsearch_dsl', # new
 ]
 
 MIDDLEWARE = [
@@ -92,22 +96,17 @@ REST_FRAMEWORK = {
 }
 
 # JWT configuration
-# Django project settings.py
-
-from datetime import timedelta
-
-
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=config('minutes',cast=int)),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=config('days',cast=int)),
   
 }
-# OTP configuration
 
+# OTP configuration
 OTP = {
     "OTP_EXPIRATION_TIME": timedelta(
-        minutes=1,
-        seconds=0,
+        minutes=config('minutes',cast=int),
+        seconds=config('seconds',cast=int),
     ),
 }
 
@@ -127,36 +126,29 @@ SWAGGER_SETTINGS = {
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-# if DEBUG:
-#     # DATABASES = {
-#     #     'default': {
-#     #     'ENGINE': 'django.db.backends.postgresql',
-#     #     'NAME': 'eshopdb_dev',
-#     #     'USER': 'postgres',
-#     #     'PASSWORD': 'root',
-#     #     'HOST': 'localhost',
-#     #     'PORT': '5432',
-#     #     }
-#     # }
-
-# if DEBUG:
-#     DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-#     }
-# else:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'agri_db',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
+if DEBUG:
+    DATABASES = {
+        'default': {
+        'ENGINE': config('DEV_ENGINE'),
+        'NAME': config('DEV_NAME'),
+        'USER': config('DEV_USER'),
+        'PASSWORD': config('DEV_PASSWORD'),
+        'HOST': config('DEV_HOST'),
+        'PORT': config('DEV_PORT'),
     }
-}
+    }
+
+else:
+    DATABASES = {
+    'default': {
+    'ENGINE': config('PROD_ENGINE'),
+    'NAME': config('PROD_NAME'),
+    'USER': config('PROD_USER'),
+    'PASSWORD': config('PROD_PASSWORD'),
+    'HOST': config('PROD_HOST'),
+    'PORT': config('PROD_PORT'),
+    }
+    }
 
 
 # Password validation
@@ -206,29 +198,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATIC_ROOT = BASE_DIR / 'static'
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Reset REST_FRAMEWORK Default View to Jason View
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': [
-#         'rest_framework.renderers.JSONRenderer',
-#     ],
-#     'DEFAULT_PARSER_CLASSES': [
-#         'rest_framework.parsers.JSONParser',
-#     ]
-# }
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000","http://135.181.204.238:8002"
 ]
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000"
-# ]
-from corsheaders.defaults import default_headers
+
 
 CORS_ALLOW_HEADERS = default_headers + (
     'Access-Control-Allow-Origin',
@@ -239,20 +218,26 @@ AUTH_USER_MODEL = 'account.CustomUser'
 
 
 # Email configuration
-
-#DataFlair
-EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "mohdsaquib91377@gmail.com"
-EMAIL_HOST_PASSWORD = "vtslcsozvekwxrif"
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Twilio configuration
-TWILIO_ACCOUNT_SID = "AC11d4ec11e400e4fd0f50019753129f28"
-TWILIO_AUTH_TOKEN = "96ce666a60aa94679cc6623b1378f252"
-TWILIO_PHONE_NUMBER = +19804092625
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
+TWILIO_PHONE_NUMBER = config('TWILIO_PHONE_NUMBER')
 
 # Rayzorpay configuration
-RAZOR_KEY_ID = "rzp_test_gA8EySAyVrpp7h"
-RAZOR_KEY_SECRET = "TguJ2I5On52z57ZU3fjFE5aN"
+RAZOR_KEY_ID = config('RAZOR_KEY_ID')
+RAZOR_KEY_SECRET = config('RAZOR_KEY_SECRET')
+
+# Elastic Search
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
