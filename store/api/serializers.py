@@ -1,6 +1,9 @@
-from pyexpat import model
-from unicodedata import category
-from attr import fields
+from asyncore import read
+from dataclasses import field
+from itertools import product
+import re
+from statistics import mode
+from this import s
 from rest_framework import serializers
 
 from store.models import *
@@ -11,7 +14,7 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image 
-        fields = "__all__"
+        fields = ["id","image_caption","image"]
 
 
 
@@ -58,3 +61,18 @@ class RecentViewProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecentView
         fields ="__all__"
+
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Brand
+        fields = ["id","name"]
+
+class SearchProductSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(many = False)
+    sub_category = SubCategorySerializer(many=False)
+    brand = BrandSerializer(many = False)
+    images = ImageSerializer(many = True,read_only = True)
+    class Meta:
+        model = Product
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","quantity","description","meta_keywords","meta_description","category","sub_category","brand","images"]
+    
