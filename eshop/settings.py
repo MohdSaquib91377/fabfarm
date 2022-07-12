@@ -22,7 +22,7 @@ SECRET_KEY = config('SECRET_KEY')
 #EMAIL_HOST_PASSWORD = os.environ.get()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG',default=True)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS',default=True,cast=Csv())
 
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'payment',
     'banner',
     'django_elasticsearch_dsl', # new
+    'search.apps.SearchConfig', # new
 ]
 
 MIDDLEWARE = [

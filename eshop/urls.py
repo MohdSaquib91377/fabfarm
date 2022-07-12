@@ -33,6 +33,7 @@ urlpatterns = [
     path('api/v1/wishlist/',include('wishlist.api.urls')),
     path('api/v1/payment/',include('payment.api.urls')),
     path('api/v1/banner/',include('banner.api.urls')),
+    path('api/v1/search/',include('search.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 if settings.DEBUG:

@@ -1,0 +1,11 @@
+# Remove the all migrations files within your project
+find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+find . -path "*/migrations/*.pyc"  -delete
+
+#elasticsearch
+sudo systemctl start elasticsearch.service
+sudo systemctl restart elasticsearch.service
+sudo systemctl stop elasticsearch.service
+
+#To create and populate the Elasticsearch index and mapping, use the search_index command:
+python3 manage.py search_index --rebuild

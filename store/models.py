@@ -1,4 +1,3 @@
-from itertools import product
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -71,7 +70,6 @@ class Product(TimeStampModel):
     sub_category = models.ForeignKey('SubCategory',on_delete=models.CASCADE,related_name="products",null=True)
     #categories = models.ManyToManyField(Category)
     brand = models.ForeignKey(Brand,on_delete=models.CASCADE,related_name="products",null=True)
-
     class Meta:
         db_table = "products"
         ordering = ["-created_at"]
@@ -81,7 +79,7 @@ class Product(TimeStampModel):
 
     
 class Image(TimeStampModel):
-    image = models.ImageField(upload_to='images/products/main')
+    image = models.ImageField(upload_to='images/products/main/')
     image_caption = models.CharField(max_length=64)
     products = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='images', default=None)
 
