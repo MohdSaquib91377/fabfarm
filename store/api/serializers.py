@@ -4,6 +4,7 @@ from itertools import product
 import re
 from statistics import mode
 from this import s
+from unicodedata import category
 from rest_framework import serializers
 
 from store.models import *
@@ -17,8 +18,19 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = ["id","image_caption","image"]
 
 
+class SubCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubCategory
+        fields = ['id', 'name']
+
+class CategorySerializer(serializers.ModelSerializer):
+    sub_categories = SubCategorySerializer(many=True, read_only=True)
+    class Meta:
+        model = Category
+        fields = ["id","name","sub_categories"]
 
 class ProductsSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
     sub_category_name = serializers.CharField(source="sub_category.name")
     image = serializers.SerializerMethodField("get_images")
     brand = serializers.CharField(source="brand.name", read_only=True)
@@ -26,7 +38,7 @@ class ProductsSerializer(serializers.ModelSerializer):
     quantity = serializers.SerializerMethodField("set_qauntity_by_1")
     class Meta:
         model = Product
-        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category_name"]
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category_name","category"]
         
     def get_images(self, obj):
         images = obj.images.all()
@@ -44,16 +56,6 @@ class SubCategoryProductSerializer(serializers.ModelSerializer):
         model = SubCategory
         fields = ['id', 'name','products']
 
-class SubCategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SubCategory
-        fields = ['id', 'name']
-
-class CategorySerializer(serializers.ModelSerializer):
-    sub_categories = SubCategorySerializer(many=True, read_only=True)
-    class Meta:
-        model = Category
-        fields = ["id","name","sub_categories"]
 
 
 class RecentViewProductSerializer(serializers.ModelSerializer):
