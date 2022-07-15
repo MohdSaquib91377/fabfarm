@@ -13,6 +13,6 @@ class OrderAdmin(admin.ModelAdmin):
 admin.site.register(Order,OrderAdmin)
 
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ["order","product","price","quantity","status"]
+    list_display = ["order","product","id","price","quantity","status"]
 
 admin.site.register(OrderItem,OrderItemAdmin)

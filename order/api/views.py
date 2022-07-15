@@ -15,6 +15,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from payment.helpers import create_razorpay_order
+from order.helpers import update_order_status
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     @swagger_auto_schema(tags = ['order'],request_body = OrderSerializer)
@@ -137,6 +138,9 @@ class OrderCancelAPIView(APIView):
             product = Product.objects.filter(pk= order_item.product.id).first()
             product.quantity += order_item.quantity
             product.save()
+
+            # update Order status as well
+            update_order_status(order_item.order.id)
 
             return Response({"status":"200","message":"Order Cancel Successfully"},status = status.HTTP_200_OK)
 
