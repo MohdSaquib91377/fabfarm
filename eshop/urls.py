@@ -15,7 +15,7 @@ schema_view = get_schema_view(
       default_version='v1',
       description="Test description",
 ),
-   # url='https://fab-farm.datavivservers.in/api/v1/',
+   url='https://fab-farm.datavivservers.in/api/v1/',
    public=True,
    permission_classes=[permissions.AllowAny],
 )
