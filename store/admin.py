@@ -7,9 +7,9 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'slug','is_active','meta_keywords','meta_description']    
 admin.site.register(Category, CategoryAdmin)
 
-# class SubCategoryAdmin(admin.ModelAdmin):    
-#     list_display = ['id', 'name','category', 'slug','is_active','meta_keywords','meta_description']    
-admin.site.register(SubCategory)
+class SubCategoryAdmin(admin.ModelAdmin):    
+    list_display = ['id', 'name','category', 'slug','is_active','meta_keywords','meta_description']    
+admin.site.register(SubCategory,SubCategoryAdmin)
 
 class BrandAdmin(admin.ModelAdmin):    
     list_display = ['id', 'name', 'slug','meta_keywords','meta_description']
@@ -20,6 +20,7 @@ class ImageAdmin(admin.StackedInline):
 
 class ProductAdmin(admin.ModelAdmin):    
     inlines = [ImageAdmin]
+
     class Meta:
         model = Product
 
@@ -30,4 +31,6 @@ class RecentViewAdmin(admin.ModelAdmin):
     list_display = ["id","product","user","views_counter"]
 
 admin.site.register(RecentView, RecentViewAdmin)
+
+
 
