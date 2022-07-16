@@ -207,10 +207,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000","http://135.181.204.238:8002"
-]
-
+CSRF_TRUSTED_ORIGINS = ['https://fab-farm.datavivservers.in']
 
 CORS_ALLOW_HEADERS = default_headers + (
     'Access-Control-Allow-Origin',
