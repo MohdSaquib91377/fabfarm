@@ -15,3 +15,6 @@ def update_order_status(order_id):
     if total_number_of_items.count() > 0 and number_of_items_cancel.count() > 0:
         if total_number_of_items.count() == number_of_items_cancel.count():
             Order.objects.filter(id = order_id).update(order_status = "order_cancelled")
+            return True
+        else:
+            return False

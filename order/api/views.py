@@ -1,3 +1,4 @@
+import re
 from rest_framework.response import Response
 from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer
 from rest_framework.views import APIView
@@ -16,6 +17,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from payment.helpers import create_razorpay_order
 from order.helpers import update_order_status
+from services.email import *
+
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     @swagger_auto_schema(tags = ['order'],request_body = OrderSerializer)
@@ -84,6 +87,10 @@ class OrderAPIView(APIView):
 
                 # Clear User Cart
                 Cart.objects.filter(user = request.user).delete()
+
+                # Trigger mail for booking confirmation
+                send_mail.delay("You have placed your order","you can check status of your order by using our delivery features,you will receive an order confirmation e-mail with details of your order",[request.user.email_or_mobile])
+
                 return Response(
                     ordered_response
                     ,status = status.HTTP_201_CREATED if is_razor_pay_mode else status.HTTP_200_OK
@@ -140,8 +147,11 @@ class OrderCancelAPIView(APIView):
             product.save()
 
             # update Order status as well
-            update_order_status(order_item.order.id)
-
+            is_all_items_cancelled = update_order_status(order_item.order.id)
+            if is_all_items_cancelled:
+                send_mail.delay("your have cancelled your order","We regret to hear of your cancellation. If you are dissatisfied with our customer service, please let us know, and we will connect you with a new agent. We have received your cancellation request. We're sorry to hear you are leaving",[request.user.email_or_mobile])
+            else:
+                send_mail.delay("your have cancelled some of item from your order","We regret to hear of your cancellation. If you are dissatisfied with our customer service, please let us know, and we will connect you with a new agent. We have received your cancellation request. We're sorry to hear you are leaving",[request.user.email_or_mobile])
             return Response({"status":"200","message":"Order Cancel Successfully"},status = status.HTTP_200_OK)
 
         except Exception as e:
