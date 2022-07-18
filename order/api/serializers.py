@@ -11,7 +11,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ["full_name","city","state","country","pincode","locality","landmark","address","alternate_number","payment_mode","message","user","coupon"]
-
+        extra_fields = {"message":{"required": False, "allow_null": True}}
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()

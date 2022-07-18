@@ -1,4 +1,5 @@
 from itertools import product
+from this import d
 from store.models import *
 from rest_framework.response import Response
 from rest_framework import status
@@ -30,3 +31,14 @@ def get_recommed_products(product_id):
     product_querysets = Product.objects.select_related("sub_category").filter(sub_category_id = product_obj.sub_category_id)
     product_serializers = ProductsSerializer(product_querysets,many = True)
     return product_serializers.data
+
+
+def get_product_list(querysets):
+    product_object = dict()
+    products = list()
+    for queryset in querysets:
+        for k,v in queryset.items():
+            for product in v:
+                products.append(product)
+    return products
+
