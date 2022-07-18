@@ -8,7 +8,7 @@ class Page(TimeStampModel):
         ("Home","Home"),
         ("About","About"),
         ("Contact","Contact"),
-        ("Shop","Shop"),
+        ("shop","shop"),
         
         )
 
