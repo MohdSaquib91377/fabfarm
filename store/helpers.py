@@ -37,8 +37,7 @@ def get_product_list(querysets):
     product_object = dict()
     products = list()
     for queryset in querysets:
-        for k,v in queryset.items():
-            for product in v:
+        for product in queryset["products"]:
                 products.append(product)
     return products
 
