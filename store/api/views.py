@@ -1,4 +1,5 @@
 from ast import Sub
+from lib2to3.pytree import convert
 from unicodedata import category
 from rest_framework.views import APIView
 from store.models import *
@@ -10,7 +11,8 @@ from rest_framework import status
 from rest_framework import generics
 # from store.helpers import add_recent_views_product
 from rest_framework.permissions import IsAuthenticated
-from store.helpers import get_recommed_products,add_recent_views_product
+from store.helpers import get_recommed_products,add_recent_views_product,get_product_list
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class CategoryProductView(APIView):    
@@ -75,9 +77,11 @@ class MainCategoryDetailView(APIView):
         queryset = SubCategory.objects.select_related("category").filter(category_id = category_id)
         serializer = SubCategoryProductSerializer(queryset,many=True)
         if serializer.data:
-            return Response(serializer.data)
+            products = get_product_list(serializer.data)
+            return Response(products)
         queryset = Product.objects.select_related("category").filter(category_id = category_id)
-        serializer = ProductsSerializer(queryset,many=True)
+        serializer = SubCategoryProductSerializer(queryset,many=True)
         if serializer.data:
-            return Response(serializer.data)
+            products = get_product_list(serializer.data)
+            return Response(products)
         return Response({"status":"204","message":"Comming Soon"},status = status.HTTP_204_NO_CONTENT)
