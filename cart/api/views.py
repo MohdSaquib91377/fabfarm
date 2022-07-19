@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
-from.serializers import CartSerializer,CreateCartSerializer,DeleteCartSerializer
+from.serializers import CartSerializer,CreateCartSerializer,UpdateDeleteCartSerializer
 from rest_framework import status
 from store.helpers import get_product_object
 from cart.helpers import *
@@ -35,15 +35,19 @@ class AddToCartApiView(APIView):
                         data = product
                         if serializer.is_valid():
                             product = get_product_object(data['product_id'])
-                            if int(data['quantity']) <= int(product.quantity):
-                                if Cart.objects.filter(user = request.user, product = product).exists():
-                                    cart = Cart.objects.filter(user = request.user, product = product).first()
-                                    cart.quantity += int(data["quantity"])
+                            cart = Cart.objects.filter(user = request.user, product = product).first()
+                            if cart:
+                                cart.quantity += int(data["quantity"])
+                                if cart.quantity <= int(product.quantity): 
                                     cart.save()
-                                else:
-                                    serializer.save(user = request.user) 
-                            else:
+                                    return Response(
+                                        {"status": "200", "message": "Product Added Into Cart !!"},
+                                                    status=200,
+                                            )  
                                 return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+
+                            else:
+                                serializer.save(user = request.user) 
                         else:
                             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
                     
@@ -62,8 +66,31 @@ class AddToCartApiView(APIView):
                                 )  
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
-    
-    @swagger_auto_schema(tags = ['cart'],request_body = DeleteCartSerializer)
+
+    @swagger_auto_schema(tags = ['cart'],request_body = UpdateDeleteCartSerializer)
+    def put(self, request,*args, **kwargs):
+        serializer = UpdateDeleteCartSerializer(data = request.data)
+        product = get_product_object(request.data['product_id'])
+        if serializer.is_valid():
+            cart = Cart.objects.filter(product_id = product.id).first()
+            if cart:
+                if serializer.validated_data.get("action") in ["true","1"]:
+                    cart.quantity += 1
+                    if cart.quantity <= int(product.quantity): 
+                        cart.save()
+                    else:
+                        return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+                else:     
+                    cart.quantity -= 1
+                    if cart.quantity == 0:
+                        cart.delete()
+                        return Response({"status":"200","message":"Cart Deleted SuccessFully"},status = 204)
+                    cart.save()
+                return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
+            return Response({"status":"400","message":"Cart not Found Associated Product"},status = status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors)
+
+    @swagger_auto_schema(tags = ['cart'],request_body = UpdateDeleteCartSerializer)
     def delete(self,request, *args, **kwargs):
         try:
             product = get_product_object(request.data.get('product_id'))
