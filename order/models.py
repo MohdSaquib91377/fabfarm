@@ -10,15 +10,24 @@ from coupon.models import *
 class Order(TimeStampModel):
 
     payment_choices = (
+
         ("payment_failed","payment failed"),
         ("payment_success","payment success"),
-        ("payment_pending","payment pending")
+        ("payment_pending","payment pending"),
+        ("partial_payment_refund_in_progress", "Partial Payment Refund In Progress"),
+        ("payment_refund_full", "Payment Refund Full"),
+        ("payment_refund_partial", "Payment Refund Partial"),
+                                                   
         )
 
     order_choises = (
+        
         ("order_cancelled","order cancelled"),
         ("order_pending","order pending"),
         ("order_success","order success"),
+        ("partial_order_in_progress","partial order in progress"),
+        ("partial_order","partial_order"),
+
     )
     user = models.ForeignKey('account.CustomUser',on_delete = models.CASCADE,related_name = "orders")
     full_name = models.CharField(max_length=24)
@@ -35,7 +44,7 @@ class Order(TimeStampModel):
     payment_id = models.CharField(max_length=64,null=True)
     message = models.TextField(null = True)
     tracking_no = models.CharField(max_length=64,null = True)
-    order_status = models.CharField(choices = order_choises,default = "order_pending",max_length = 16)
+    order_status = models.CharField(choices = order_choises,default = "order_pending",max_length = 64)
     # Coupon
     coupon = models.ForeignKey('coupon.Coupon',on_delete = models.CASCADE,related_name="order",null = True)
     discounted_price = models.FloatField(default = 0)
@@ -47,7 +56,7 @@ class Order(TimeStampModel):
     amount_due = models.PositiveBigIntegerField(default = 0,null = True,blank = True)
     amount_paid = models.PositiveBigIntegerField(default = 0,null = True,blank = True)
     attempts = models.PositiveIntegerField(default=0, blank=True, null=True)
-    payment_status = models.CharField(choices = payment_choices,default = "payment_pending",max_length = 16)
+    payment_status = models.CharField(choices = payment_choices,default = "payment_pending",max_length = 64)
 
     def __str__(self):
             return f"{self.id}"
@@ -65,8 +74,12 @@ class OrderItem(TimeStampModel):
         ("Completed","Completed"),
         ("Packed","Packed"),
         ("Cancel","Cancel"),
+        ("Delivered","Delivered"),
+        ("refund_in_progress","Refund In Progress"),
+        ("Refund","Refund"),
 
         )
+
     status = models.CharField(choices=order_status,default = "Pendding",max_length = 64)
 
     def __str__(self):

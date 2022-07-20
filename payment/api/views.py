@@ -1,12 +1,16 @@
+from re import A
+from weakref import ref
 from rest_framework.views import APIView
-from .serializers import PaymentSuccessSerializer, PaymentFailureSerializer
+from .serializers import PaymentSuccessSerializer, PaymentFailureSerializer,RefundSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from payment.helpers import verify_razorpay_signature,payment_signature_varification,get_razorpay_client,fetch_order_from_razor_pay
+from payment.helpers import verify_razorpay_signature,payment_signature_varification,get_razorpay_client,fetch_order_from_razor_pay,create_refund,get_payment_object_by_order_id
 from order.models import *
 from payment.models import *
 from order.helpers import get_order_object
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.permissions import IsAuthenticated
+from payment.models import *
 
 class PaymentSuccessAPIView(APIView):
 
@@ -74,3 +78,68 @@ class PaymentFailureAPIView(APIView):
                 "message":"payment failed due to inactivity"
             })
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+class RequestRefundAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request, order_item,*args, **kwargs):
+        serializer = RefundSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        found_order_item = OrderItem.objects.filter(id=order_item).first()
+        if not found_order_item:
+            return Response({"status":"400","message":"order item not found"},status = 400)
+
+        # Check if order item is develived 
+        if not found_order_item.satus in ["Delivered"]:
+            return Response({"status":"400","message":"Can not refund because order item is not delivered"},status =400)
+
+        # Update order item status
+        found_order_item.status = "refund_in_progress"
+        found_order_item.save()
+
+        # Update Order status as well
+        order = found_order_item.order
+        order.order_status = "partial_order_in_progress"
+        order.payment_status = "partial_payment_refund_in_progress"
+        order.save()
+
+        # Create Refund and notify razorpay
+        refund = create_refund(order,found_order_item.product.price)
+
+        '''
+        {
+        "id": "rfnd_FP8QHiV938haTz",
+        "entity": "refund",
+        "amount": 500100,
+        "receipt": "Receipt No. 31",
+        "currency": "INR",
+        "payment_id": "pay_29QQoUBi66xm2f",
+        "notes": []
+        "receipt": null,
+        "acquirer_data": {
+            "arn": null
+        },
+        "created_at": 1597078866,
+        "batch_id": null,
+        "status": "processed",
+        "speed_processed": "normal",
+        "speed_requested": "normal"
+        }
+        ''' 
+
+        # Create Refund in Refund Model
+        refund_obj = Refund()
+        refund_obj.order = order
+        refund_obj.order = order.user
+        refund_obj.Payment = get_payment_object_by_order_id(order.id)
+
+        # razorpay responbse
+        refund_obj.razorpay_refund_id = refund["id"]
+        refund_obj.amount = refund["amount"] / 100
+        refund_obj.speed = refund["speed_processed"]
+        refund_obj.speed = refund["speed_requested"]
+        refund_obj.status = refund["status"]
+        refund_obj.save()
+        return Response({"status": "success","message": f"Refund of Amount <b>INR {int(found_order_item.price):,}</b> has been initiated for Booking ID <b>{order.id}</b>.<br/>Please access the payment gateway to check the respective order for more details."})
+
+
+

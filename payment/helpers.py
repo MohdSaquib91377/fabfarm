@@ -1,3 +1,6 @@
+from weakref import ref
+from xmlrpc import client
+from payment.models import Payment
 import razorpay
 from django.conf import settings
 import hashlib
@@ -45,4 +48,22 @@ def payment_signature_varification(data:dict):
 def fetch_order_from_razor_pay(order_id):
     razorpay_order = get_razorpay_client().order.fetch(order_id)
     return razorpay_order
+
+def get_payment_object_by_order_id(order_id):
+    payment = Payment.objects.filter(id=order_id).first()
+    return payment.razorpay_payment_id
+
+
+# Create Refund for OrderItem
+def create_refund(order,order_item_price):
+    client = get_razorpay_client()
+    refund = client.payment.refund(get_payment_object_by_order_id(order.id),{
+    "amount": int(order_item_price*100),
+    "speed": "normal",
+    "notes": {
+        "notes_key_1": "Refund for orderitem",
+    },
+    "receipt": f"{order.id}"
+    })
+    return refund
 
