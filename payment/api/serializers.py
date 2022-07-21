@@ -20,3 +20,7 @@ class PaymentFailureSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Payment.objects.create(**validated_data)
+
+class RefundSerializer(serializers.Serializer):
+    reason = serializers.CharField(max_length=128)
+    
