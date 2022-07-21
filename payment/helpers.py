@@ -33,7 +33,6 @@ def create_razorpay_order(ordered):
 
     
 # Verify razorpay Signature🔗
-
 def verify_razorpay_signature(data:dict,key=settings.RAZOR_KEY_SECRET):
     message = f"{data.get('razorpay_order_id', '')}|{data.get('razorpay_payment_id','')}"
     return hmac.new(
@@ -50,7 +49,7 @@ def fetch_order_from_razor_pay(order_id):
     return razorpay_order
 
 def get_payment_object_by_order_id(order_id):
-    payment = Payment.objects.filter(id=order_id).first()
+    payment = Payment.objects.filter(order_id=order_id).first()
     return payment.razorpay_payment_id
 
 
@@ -60,10 +59,6 @@ def create_refund(order,order_item_price):
     refund = client.payment.refund(get_payment_object_by_order_id(order.id),{
     "amount": int(order_item_price*100),
     "speed": "normal",
-    "notes": {
-        "notes_key_1": "Refund for orderitem",
-    },
-    "receipt": f"{order.id}"
     })
     return refund
 

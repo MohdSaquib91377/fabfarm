@@ -1,7 +1,7 @@
 from distutils.log import error
 from statistics import mode
 from account.models import TimeStampModel,CustomUser
-from order.models import Order
+from order.models import Order,OrderItem
 from django.db import models
 from account.models import CustomUser
 
@@ -33,7 +33,8 @@ class Payment(TimeStampModel):
 class Refund(TimeStampModel):
     razorpay_refund_id = models.CharField(max_length=255)
     order = models.ForeignKey(Order, on_delete=models.CASCADE,related_name="refunds",null=True, blank=True)
-    Payment = models.ForeignKey(Payment, on_delete=models.CASCADE,related_name="refunds",null=True, blank=True)
+    order_item = models.ForeignKey(OrderItem, on_delete=models.CASCADE,null=True, blank=True)
+    payment = models.ForeignKey(Payment, on_delete=models.CASCADE,related_name="refunds",null=True, blank=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE,related_name="refunds",null=True, blank=True)
     amount = models.FloatField()
     speed = models.CharField(max_length=50, null=True, blank=True)

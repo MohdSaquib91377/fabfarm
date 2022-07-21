@@ -1,3 +1,4 @@
+from logging import exception
 from re import A
 from weakref import ref
 from rest_framework.views import APIView
@@ -40,8 +41,11 @@ class PaymentSuccessAPIView(APIView):
             order.amount_paid = razorpay_order_response['amount_paid']
             order.attempts = razorpay_order_response['attempts']
             order.payment_status = "payment_success"
-            order.order_status = "order_success"
+            order.order_status = "order_pending"
             order.save()
+
+            
+            
             return Response({
                 "status":"200",
                 "message":"Payment Verification Successfull"
@@ -82,64 +86,75 @@ class PaymentFailureAPIView(APIView):
 class RequestRefundAPIView(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request, order_item,*args, **kwargs):
-        serializer = RefundSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        found_order_item = OrderItem.objects.filter(id=order_item).first()
-        if not found_order_item:
-            return Response({"status":"400","message":"order item not found"},status = 400)
+        try:
+            
+            serializer = RefundSerializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            found_order_item = OrderItem.objects.filter(id=order_item).first()
+            if not found_order_item:
+                return Response({"status":"400","message":"order item not found"},status = 400)
 
-        # Check if order item is develived 
-        if not found_order_item.satus in ["Delivered"]:
-            return Response({"status":"400","message":"Can not refund because order item is not delivered"},status =400)
+            # Check if order item is develived 
+            if not found_order_item.status in ["Delivered"]:
+                if found_order_item.status in ["refund_in_progress"]:
+                    return Response({"status":"400","message":"Refund in progress"},status =400)
+                return Response({"status":"400","message":"Can not refund because order item is not delivered"},status =400)
 
-        # Update order item status
-        found_order_item.status = "refund_in_progress"
-        found_order_item.save()
+               # Check if order item is develived 
+            if found_order_item.status in ["Refund"]:
+                return Response({"status":"400","message":"Can not refund because order item is already refund"},status =400)
+            
 
-        # Update Order status as well
-        order = found_order_item.order
-        order.order_status = "partial_order_in_progress"
-        order.payment_status = "partial_payment_refund_in_progress"
-        order.save()
+            # Create Refund and notify razorpay
+            refund = create_refund(found_order_item.order,int(found_order_item.product.price)*(found_order_item.quantity))
 
-        # Create Refund and notify razorpay
-        refund = create_refund(order,found_order_item.product.price)
+            '''
+            {
+            "id": "rfnd_FP8QHiV938haTz",
+            "entity": "refund",
+            "amount": 500100,
+            "receipt": "Receipt No. 31",
+            "currency": "INR",
+            "payment_id": "pay_29QQoUBi66xm2f",
+            "notes": []
+            "receipt": null,
+            "acquirer_data": {
+                "arn": null
+            },
+            "created_at": 1597078866,
+            "batch_id": null,
+            "status": "processed",
+            "speed_processed": "normal",
+            "speed_requested": "normal"
+            }
+            ''' 
+            # Create Refund in Refund Model
+            refund_obj = Refund()
+            refund_obj.order = found_order_item.order
+            refund_obj.order_item = found_order_item
+            refund_obj.user = found_order_item.order.user
+            refund_obj.payment = Payment.objects.filter(order_id=found_order_item.order.id).first()
 
-        '''
-        {
-        "id": "rfnd_FP8QHiV938haTz",
-        "entity": "refund",
-        "amount": 500100,
-        "receipt": "Receipt No. 31",
-        "currency": "INR",
-        "payment_id": "pay_29QQoUBi66xm2f",
-        "notes": []
-        "receipt": null,
-        "acquirer_data": {
-            "arn": null
-        },
-        "created_at": 1597078866,
-        "batch_id": null,
-        "status": "processed",
-        "speed_processed": "normal",
-        "speed_requested": "normal"
-        }
-        ''' 
+            # razorpay responbse
+            refund_obj.razorpay_refund_id = refund["id"]
+            refund_obj.amount = refund["amount"] / 100
+            refund_obj.speed_processed = refund["speed_processed"]
+            refund_obj.speed_requested = refund["speed_requested"]
+            refund_obj.status = refund["status"]
+            refund_obj.save()
 
-        # Create Refund in Refund Model
-        refund_obj = Refund()
-        refund_obj.order = order
-        refund_obj.order = order.user
-        refund_obj.Payment = get_payment_object_by_order_id(order.id)
+            # Update order item status
+            found_order_item.status = "refund_in_progress"
+            found_order_item.save()
 
-        # razorpay responbse
-        refund_obj.razorpay_refund_id = refund["id"]
-        refund_obj.amount = refund["amount"] / 100
-        refund_obj.speed = refund["speed_processed"]
-        refund_obj.speed = refund["speed_requested"]
-        refund_obj.status = refund["status"]
-        refund_obj.save()
-        return Response({"status": "success","message": f"Refund of Amount <b>INR {int(found_order_item.price):,}</b> has been initiated for Booking ID <b>{order.id}</b>.<br/>Please access the payment gateway to check the respective order for more details."})
-
+            # Update Order status as well
+            order = found_order_item.order
+            order.order_status = "partial_order_in_progress"
+            order.payment_status = "partial_payment_refund_in_progress"
+            order.save()
+            return Response({"status": "success","message": f"Refund of Amount <b>INR {int(found_order_item.price):,}</b> has been initiated for Booking ID <b>{order.id}</b>.<br/>Please access the payment gateway to check the respective order for more details."})
+        
+        except Exception as e:
+            return Response({"error":f"{e}"})
 
 
