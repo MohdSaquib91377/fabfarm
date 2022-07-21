@@ -40,11 +40,8 @@ class AddToCartApiView(APIView):
                                 cart.quantity += int(data["quantity"])
                                 if cart.quantity <= int(product.quantity): 
                                     cart.save()
-                                    return Response(
-                                        {"status": "200", "message": "Product Added Into Cart !!"},
-                                                    status=200,
-                                            )  
-                                return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+                                else:   
+                                    return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
 
                             else:
                                 serializer.save(user = request.user) 
@@ -56,6 +53,10 @@ class AddToCartApiView(APIView):
                             {"status": "failed", "message": "send data in array of json"},
                             status=400,
                         )   
+                return Response(
+                                {"status": "200", "message": "Product Added Into Cart !!"},
+                                            status=200,
+                                )  
             else:
                 serializer = CreateCartSerializer(data = request.data)
                 if not serializer.is_valid():
