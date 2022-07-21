@@ -1815,3 +1815,109 @@ User information: uid=0 euid=0 gid=0 egid=0
   warnings.warn('''Using settings.DEBUG leads to a memory
 
 [2022-07-19 13:16:17,534: INFO/MainProcess] celery@Dataviv-TS140 ready.
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-20 18:03:38,513: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-20 18:03:38,515: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-20 18:03:39,521: INFO/MainProcess] mingle: all alone
+[2022-07-20 18:03:39,534: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-20 18:03:39,535: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-21 18:05:01,936: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-21 18:05:01,938: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-21 18:05:02,943: INFO/MainProcess] mingle: all alone
+[2022-07-21 18:05:02,958: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-21 18:05:02,958: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-21 18:06:30,289: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-21 18:06:30,290: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-21 18:06:31,296: INFO/MainProcess] mingle: all alone
+[2022-07-21 18:06:31,316: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-21 18:06:31,317: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-21 18:08:59,479: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-21 18:08:59,481: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-21 18:09:00,487: INFO/MainProcess] mingle: all alone
+[2022-07-21 18:09:00,498: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-21 18:09:00,498: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-21 19:05:40,968: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-21 19:05:40,970: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-21 19:05:41,975: INFO/MainProcess] mingle: all alone
+[2022-07-21 19:05:41,986: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-21 19:05:41,986: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-21 19:06:28,081: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-21 19:06:28,083: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-21 19:06:29,089: INFO/MainProcess] mingle: all alone
+[2022-07-21 19:06:29,095: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-21 19:06:29,095: INFO/MainProcess] celery@Dataviv-TS140 ready.
