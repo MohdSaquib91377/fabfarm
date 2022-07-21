@@ -85,6 +85,7 @@ class PaymentFailureAPIView(APIView):
         
 class RequestRefundAPIView(APIView):
     permission_classes = [IsAuthenticated]
+    @swagger_auto_schema(tags = ['payment'],request_body = RefundSerializer)
     def post(self, request, order_item,*args, **kwargs):
         try:
             
