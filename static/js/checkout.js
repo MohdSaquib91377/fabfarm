@@ -2,7 +2,7 @@
 
 async function createorder(url, data = {}){
 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1OTk2OTc4LCJpYXQiOjE2NTU5OTMzNzgsImp0aSI6ImYzZGJlMWZmN2Q4YTQ4OTA5N2RjODA1Y2YyNDQ3YWM4IiwidXNlcl9pZCI6Mn0.Kc28LQ2iSTxLklkRQVhF42XYA9W6_mhnJWNF2VCytio"
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NDA3MTI0LCJpYXQiOjE2NTg0MDM1MjQsImp0aSI6IjZkM2EzNjBlYjg3MzQxMWJiODYyMDAxODdlNTBkY2I3IiwidXNlcl9pZCI6MX0.jZXL-5MtTImxEZxV05t6CYkSCjVce87ag_ondUmdSe0"
     const response = await fetch(url,{
     method: 'post',
     headers: {
@@ -39,7 +39,7 @@ document.getElementById('rzp-btn').onclick = function(e){
     createorder(url,data).then(function(data){
         if(data.status == "200"){
             var options = {
-                "key": "rzp_test_dDKHklaSWC4N3X", // Enter the Key ID generated from the Dashboard
+                "key": "rzp_test_CnOpGNtcdPZYld", // Enter the Key ID generated from the Dashboard
                 "amount": `${data.amount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",
