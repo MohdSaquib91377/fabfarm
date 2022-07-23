@@ -25,6 +25,7 @@ class OrderAPIView(APIView):
     @method_decorator(csrf_exempt, name='dispatch')         
     def post(self,request,*args, **kwargs):
         try:
+            print("post-------------------------------->")
             is_razor_pay_mode = False
             ordered_response = dict()
             

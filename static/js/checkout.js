@@ -1,8 +1,8 @@
 
 
+window.localStorage.setItem("token_id","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NTgxMzY1LCJpYXQiOjE2NTg1Nzc3NjUsImp0aSI6IjBkZGEwYTEwOTBmZDQ5ZmU4MTA0ZGY3YzkyN2M3NTJhIiwidXNlcl9pZCI6MX0.2sHLT-ZvIry7cU5YK9pBxcAqb9X9xRst7WjmJa3L8yc")
 async function createorder(url, data = {}){
-
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4NDA3MTI0LCJpYXQiOjE2NTg0MDM1MjQsImp0aSI6IjZkM2EzNjBlYjg3MzQxMWJiODYyMDAxODdlNTBkY2I3IiwidXNlcl9pZCI6MX0.jZXL-5MtTImxEZxV05t6CYkSCjVce87ag_ondUmdSe0"
+    var token = window.localStorage.getItem("token_id")
     const response = await fetch(url,{
     method: 'post',
     headers: {
@@ -22,7 +22,7 @@ async function createorder(url, data = {}){
 
 document.getElementById('rzp-btn').onclick = function(e){
     e.preventDefault();
-    let url = "http://localhost:8000/api/v1/order/place-order/"
+    let url = "https://fab-farm.datavivservers.in/api/v1/order/place-order/"
     var data = {
         address: "dhsdjdsfbhjsfhjs",
         alternate_number: "123456788",

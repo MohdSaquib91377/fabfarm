@@ -5,8 +5,8 @@ import razorpay
 from django.conf import settings
 import hashlib
 import hmac
-
-
+from order.models import *
+from payment.models import *
 def get_razorpay_client():
     client = razorpay.Client(auth = (settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
     return client
@@ -62,3 +62,122 @@ def create_refund(order,order_item_price):
     })
     return refund
 
+def update_order(payload):
+    print("update_order")
+    '''
+                {
+            "entity": "event",
+            "account_id": "acc_Ja7clXrWRXJTJC",
+            "event": "refund.processed",
+            "contains": [
+                "refund",
+                "payment"
+            ],
+            "payload": {
+                "refund": {
+                "entity": {
+                    "id": "rfnd_JwiKLVZkhBuf5R",
+                    "entity": "refund",
+                    "amount": 50000,
+                    "currency": "INR",
+                    "payment_id": "pay_JwiFztYKfUAIUq",
+                    "notes": [],
+                    "receipt": null,
+                    "acquirer_data": {
+                    "rrn": null
+                    },
+                    "created_at": 1658558877,
+                    "batch_id": null,
+                    "status": "processed",
+                    "speed_processed": "normal",
+                    "speed_requested": "normal"
+                }
+                },
+                "payment": {
+                "entity": {
+                    "id": "pay_JwiFztYKfUAIUq",
+                    "entity": "payment",
+                    "amount": 150000,
+                    "currency": "INR",
+                    "status": "captured",
+                    "order_id": "order_JwiFvS5FddS8sL",
+                    "invoice_id": null,
+                    "international": false,
+                    "method": "upi",
+                    "amount_refunded": 50000,
+                    "refund_status": "partial",
+                    "captured": true,
+                    "description": "Test Transaction",
+                    "card_id": null,
+                    "bank": null,
+                    "wallet": null,
+                    "vpa": "success@razorpay",
+                    "email": "gaurav.kumar@example.com",
+                    "contact": "+919999999999",
+                    "notes": {
+                    "address": "Razorpay Corporate Office"
+                    },
+                    "fee": 3540,
+                    "tax": 540,
+                    "error_code": null,
+                    "error_description": null,
+                    "error_source": null,
+                    "error_step": null,
+                    "error_reason": null,
+                    "acquirer_data": {
+                    "rrn": "152939349384",
+                    "upi_transaction_id": "5FFBE4C7233FEEA010BAFE5698B379E8"
+                    },
+                    "created_at": 1658558630
+                }
+                }
+            },
+            "created_at": 1658558877
+            }	'''
+    razorpay_refund = payload['refund']['entity']
+    refund = Refund.objects.filter(razorpay_refund_id = razorpay_refund['id']).first()
+    if refund:
+        '''
+                "id": "rfnd_JwiKLVZkhBuf5R",
+                "entity": "refund",
+                "amount": 50000,
+                "currency": "INR",
+                "payment_id": "pay_JwiFztYKfUAIUq",
+                "notes": [],
+                "receipt": null,
+                "acquirer_data": {
+                "rrn": null
+                },
+                "created_at": 1658558877,
+                "batch_id": null,
+                "status": "processed",
+                "speed_processed": "normal",
+                "speed_requested": "normal"
+        '''
+        # Refund failed
+        if razorpay_refund["status"] == 'failed':
+            refund.order.order_status = "partial_refund_failed"
+            refund.save()
+            return ""
+
+        # Refund Full
+        elif int(refund.order.total_price) - razorpay_refund['amount'] / 100<= 0:
+            refund.order.order_status = "order_cancelled"
+            refund.order.payment_status = "payment_refund_full"
+            refund.order_item.status = "Refund"
+            
+        # Refund proccess
+        else:
+            refund.order.order_status = "partial_order"
+            refund.order.payment_status = "payment_refund_partial"
+            refund.order_item.status = "Refund"
+
+        refund.status = razorpay_refund['status']
+        refund.speed_requested = razorpay_refund["speed_requested"]
+        refund.speed_processed = razorpay_refund["speed_processed"]
+        refund.amount = razorpay_refund["amount"] / 100
+        refund.save()
+        refund.order.save()
+        refund.order_item.save()
+        
+        

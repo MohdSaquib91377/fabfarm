@@ -13,6 +13,7 @@ from django.http import Http404
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
+import this
 
 class RegisterApiView(APIView):
     @swagger_auto_schema(tags = ['account'],request_body = RegisterSerializer)

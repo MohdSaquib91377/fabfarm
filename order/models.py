@@ -17,7 +17,7 @@ class Order(TimeStampModel):
         ("partial_payment_refund_in_progress", "Partial Payment Refund In Progress"),
         ("payment_refund_full", "Payment Refund Full"),
         ("payment_refund_partial", "Payment Refund Partial"),
-                                                   
+
         )
 
     order_choises = (
@@ -27,6 +27,7 @@ class Order(TimeStampModel):
         ("order_success","order success"),
         ("partial_order_in_progress","partial order in progress"),
         ("partial_order","partial_order"),
+        ("partial_refund_failed","partial refund failed")
 
     )
     user = models.ForeignKey('account.CustomUser',on_delete = models.CASCADE,related_name = "orders")
@@ -45,6 +46,7 @@ class Order(TimeStampModel):
     message = models.TextField(null = True)
     tracking_no = models.CharField(max_length=64,null = True)
     order_status = models.CharField(choices = order_choises,default = "order_pending",max_length = 64)
+    
     # Coupon
     coupon = models.ForeignKey('coupon.Coupon',on_delete = models.CASCADE,related_name="order",null = True)
     discounted_price = models.FloatField(default = 0)
@@ -77,6 +79,7 @@ class OrderItem(TimeStampModel):
         ("Delivered","Delivered"),
         ("refund_in_progress","Refund In Progress"),
         ("Refund","Refund"),
+        ("refund_failed","Refund Failed"),
 
         )
 

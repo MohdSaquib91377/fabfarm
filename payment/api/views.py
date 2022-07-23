@@ -5,17 +5,20 @@ from rest_framework.views import APIView
 from .serializers import PaymentSuccessSerializer, PaymentFailureSerializer,RefundSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from payment.helpers import verify_razorpay_signature,payment_signature_varification,get_razorpay_client,fetch_order_from_razor_pay,create_refund,get_payment_object_by_order_id
+from payment.helpers import verify_razorpay_signature,payment_signature_varification,get_razorpay_client,fetch_order_from_razor_pay,create_refund,get_payment_object_by_order_id,update_order
 from order.models import *
 from payment.models import *
 from order.helpers import get_order_object
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 from payment.models import *
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import authentication_classes, permission_classes
+import json
 
 class PaymentSuccessAPIView(APIView):
-
+    permission_classes = [IsAuthenticated]
     @swagger_auto_schema(tags = ['payment'],request_body = PaymentSuccessSerializer)
     def post(self, request, *args, **kwargs):
         serializer = PaymentSuccessSerializer(data=request.data)
@@ -83,7 +86,7 @@ class PaymentFailureAPIView(APIView):
                 "message":"payment failed due to inactivity"
             })
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
 class RequestRefundAPIView(APIView):
     permission_classes = [IsAuthenticated]
     @swagger_auto_schema(tags = ['payment'],request_body = RefundSerializer)
@@ -159,12 +162,26 @@ class RequestRefundAPIView(APIView):
         except Exception as e:
             return Response({"error":f"{e}"})
 
+class RefundRazorpayWebhook(APIView):
+    permission_classes = (AllowAny,) #disables permission
+    def post(self,request,*args,**kwargs):
+        
+        webhook_body = request.body.decode("utf-8")
+        webhook_signature = request.headers["X-Razorpay-Signature"]
+        webhook_secret = settings.RAZORPAY_WEBHOOK_KEY_SECRET
+        client = get_razorpay_client()
+        if not client.utility.verify_webhook_signature(webhook_body, webhook_signature, webhook_secret):
+            return Response({"status":400,"message":"not authorized webhook"})
+        print("comes in try block ----------------------------------------------><---------------------")
+        json_data = json.loads(webhook_body)
 
-# class RefundRazorpayWebhook(APIView):
-#     def post(self,request,*args,**kwargs):
-#         try:
-#             sign = request.Meta.get("X-Razorpay-Signature")
-#             body = request.body.decode("utf-8")
-#             secret = settings.RAZORPAY_WEBHOOK_KEY_SECRET
-#         except Exception as e:
-#             return Response({"status":"400","message":f"{e}"},status=400)
+        if json_data['entity'] != "event":
+            return Response({"message":"not authorized webhook bcz event not came"})
+        if json_data["event"] in ["refund.processed","refund.failed"]:
+            payload = json_data["payload"]
+            print("plz call")
+            update_order(payload)
+
+            return Response({"status":"200","message":"success"},status = 200)
+        return Response({"status":"200"})
+    

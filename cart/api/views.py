@@ -71,7 +71,7 @@ class AddToCartApiView(APIView):
     @swagger_auto_schema(tags = ['cart'],request_body = UpdateDeleteCartSerializer)
     def put(self, request,*args, **kwargs):
         serializer = UpdateDeleteCartSerializer(data = request.data)
-        product = get_product_object(request.data['product_id'])
+        product = get_product_object(request.data.get('product_id'))
         if serializer.is_valid():
             cart = Cart.objects.filter(product_id = product.id).first()
             if cart:
