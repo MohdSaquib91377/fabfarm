@@ -19,8 +19,13 @@ class WishListAPIView(APIView):
     @swagger_auto_schema(tags = ['wishlist'],request_body = WishListCreateDeleteSerializer)
     def post(self,request,*args, **kwargs):
         serializer = WishListCreateDeleteSerializer(data = request.data)
-        serializer.is_valid(raise_exception = True)
         product = Product.objects.filter(id = request.data['product_id']).first()
+        serializer.is_valid(raise_exception = True)
+        found_wishlist = Wishlist.objects.filter(product = product,user=request.user).first()
+        if found_wishlist:
+            found_wishlist.delete()
+            return Response({"status":"200","message":"You dont have permission to remove product from wishlist"},status=201)
+
         serializer.save(user = self.request.user,product = product)
         return Response({"status": "200","message":"Product added into wishlist"},status =200)
     
