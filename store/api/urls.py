@@ -6,4 +6,6 @@ urlpatterns = [
     path('category-details/<category_id>/',views.CategoryDetailsView.as_view(),name='category-details'),
     path('parent-category-details/<category_id>/',views.MainCategoryDetailView.as_view(),name='category-details'),
     path('product-details/<product_id>/', views.ProductDetailsView.as_view(),name='product-details'),    
+    path('contact-us/', views.ContactUsAPI.as_view(),name='contact-us'),    
+
 ]

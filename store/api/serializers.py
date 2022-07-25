@@ -1,10 +1,4 @@
-from asyncore import read
-from dataclasses import field
-from itertools import product
 import re
-from statistics import mode
-from this import s
-from unicodedata import category
 from rest_framework import serializers
 
 from store.models import *
@@ -77,4 +71,10 @@ class SearchProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","quantity","description","meta_keywords","meta_description","category","sub_category","brand","images"]
-    
+
+
+class ContactUsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContactUs
+        fields = "__all__"

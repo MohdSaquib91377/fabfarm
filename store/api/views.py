@@ -1,17 +1,15 @@
-from ast import Sub
-from lib2to3.pytree import convert
-from unicodedata import category
 from rest_framework.views import APIView
 from store.models import *
 from rest_framework.response import Response
 from django.utils.decorators import method_decorator
-from .serializers import SubCategoryProductSerializer,ProductsSerializer,CategorySerializer,RecentViewProductSerializer
+from .serializers import SubCategoryProductSerializer,ProductsSerializer,CategorySerializer,RecentViewProductSerializer,ContactUsSerializer
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework import generics
 # from store.helpers import add_recent_views_product
 from rest_framework.permissions import IsAuthenticated
 from store.helpers import get_recommed_products,add_recent_views_product,get_product_list
+from drf_yasg.utils import swagger_auto_schema
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -85,3 +83,9 @@ class MainCategoryDetailView(APIView):
             products = get_product_list(serializer.data)
             return Response(products)
         return Response({"status":"204","message":"Comming Soon"},status = status.HTTP_204_NO_CONTENT)
+
+@swagger_auto_schema(tags = ['store'],request_body = ContactUsSerializer)
+class ContactUsAPI(generics.ListCreateAPIView):
+    serializer_class=ContactUsSerializer
+    queryset =  ContactUs.objects.all()
+    

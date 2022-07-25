@@ -104,3 +104,14 @@ class RecentView(TimeStampModel):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+class ContactUs(TimeStampModel):
+    full_name = models.CharField(max_length=64)
+    email = models.EmailField(max_length=64)
+    message = models.TextField(max_length=255, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        db_table = "contact_us"
+        verbose_name_plural = "Contact us"
