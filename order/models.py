@@ -39,7 +39,7 @@ class Order(TimeStampModel):
     locality = models.CharField(max_length = 64)
     landmark = models.CharField(max_length = 64,null = True)
     address = models.TextField()
-    alternate_number = models.IntegerField()
+    alternate_number = models.BigIntegerField()
     total_price = models.FloatField(null=True)
     payment_mode = models.CharField(max_length=64,null = True)
     payment_id = models.CharField(max_length=64,null=True)
