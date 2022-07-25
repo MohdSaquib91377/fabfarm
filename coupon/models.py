@@ -23,6 +23,7 @@ class Coupon(TimeStampModel):
         return self.couponCode
 
     def clean(self):
-        if self.startDateTime > self.expiryDateTime:
-            raise ValidationError("startDateTime must be less than expiryDateTime")
+        if self.startDateTime and self.expiryDateTime is not None:
+            if self.startDateTime > self.expiryDateTime:
+                raise ValidationError("startDateTime must be less than expiryDateTime")
         super(Coupon, self).clean()
