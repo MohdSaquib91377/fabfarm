@@ -1,3 +1,4 @@
+from ast import Sub
 import re
 from rest_framework import serializers
 
@@ -25,14 +26,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductsSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
-    sub_category_name = serializers.CharField(source="sub_category.name")
+    sub_category = SubCategorySerializer()
     image = serializers.SerializerMethodField("get_images")
     brand = serializers.CharField(source="brand.name", read_only=True)
     maxQuantity = serializers.IntegerField(source = "quantity")
     quantity = serializers.SerializerMethodField("set_qauntity_by_1")
     class Meta:
         model = Product
-        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category_name","category"]
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category"]
         
     def get_images(self, obj):
         images = obj.images.all()
