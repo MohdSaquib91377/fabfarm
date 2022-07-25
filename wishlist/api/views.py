@@ -24,7 +24,7 @@ class WishListAPIView(APIView):
         found_wishlist = Wishlist.objects.filter(product = product,user=request.user).first()
         if found_wishlist:
             found_wishlist.delete()
-            return Response({"status":"200","message":"You dont have permission to remove product from wishlist"},status=201)
+            return Response({"status":"200","message":"Product removed from wishlist"},status=201)
 
         serializer.save(user = self.request.user,product = product)
         return Response({"status": "200","message":"Product added into wishlist"},status =200)
