@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from account.models import TimeStampModel
 import PIL.Image
 from account.models import *
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=64)
@@ -58,11 +59,11 @@ class Product(TimeStampModel):
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=64,unique=True, help_text="Unique value for product page URL,created from name")    
     sku = models.CharField(max_length=64)
-    price = models.DecimalField(max_digits=9,decimal_places=2)
-    old_price = models.DecimalField(max_digits=9,decimal_places=2,blank=True,default=0.00)
+    price = models.FloatField(validators=[MinValueValidator(0.0)],default=0.0)
+    old_price = models.FloatField(validators=[MinValueValidator(0.0)],default=0.0,blank=True)
     is_active = models.BooleanField(default=True)
     is_bestseller = models.BooleanField(default=False)
-    quantity = models.IntegerField()
+    quantity = models.PositiveIntegerField()
     description = models.TextField()
     meta_keywords = models.CharField("Meta Keywords",max_length=225, help_text="Comma-delimited set of SEO keywords for meta tag")
     meta_description = models.CharField("Meta Description",max_length=255, help_text="Content for description meta tag")
