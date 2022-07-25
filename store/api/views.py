@@ -1,3 +1,5 @@
+from multiprocessing import context
+import re
 from rest_framework.views import APIView
 from store.models import *
 from rest_framework.response import Response
@@ -16,9 +18,8 @@ from drf_yasg.utils import swagger_auto_schema
 class CategoryProductView(APIView):    
     def get(self,request,*args, **kwargs):
         try:
-
             queryset = SubCategory.objects.all()
-            serializer = SubCategoryProductSerializer(queryset,many=True)
+            serializer = SubCategoryProductSerializer(queryset,many=True,context={"user":request.user if request.user.id else None})
             return Response(serializer.data) 
 
         except Exception as e:

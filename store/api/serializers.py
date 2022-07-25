@@ -1,7 +1,9 @@
+from __future__ import with_statement
 from ast import Sub
+from itertools import product
 import re
 from rest_framework import serializers
-
+from wishlist.models import *
 from store.models import *
 from account.api.serializers import UserSerializer
 
@@ -47,11 +49,21 @@ class ProductsSerializer(serializers.ModelSerializer):
 
 class SubCategoryProductSerializer(serializers.ModelSerializer):
     products = ProductsSerializer(many=True)
+    is_product_in_wishlist_for_current_user = serializers.SerializerMethodField("get_cuurent_user_wishlist")
     class Meta:
         model = SubCategory
-        fields = ["id", "name", "products"]
+        fields = ["id", "name", "products","is_product_in_wishlist_for_current_user"]
 
-
+    def get_cuurent_user_wishlist(self, obj):
+        user = self.context['user']
+        if user is not None:
+            products = obj.products.filter()
+            for product in products:
+                if Wishlist.objects.filter(product_id=product.id, user=user).exists():
+                    return True
+                else:
+                    return False
+        
 
 class RecentViewProductSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
