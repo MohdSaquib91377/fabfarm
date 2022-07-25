@@ -102,7 +102,7 @@ REST_FRAMEWORK = {
 
 # JWT configuration
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=config('minutes',cast=int)),
+    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=config('seconds',cast=int)),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=config('days',cast=int)),
   
 }
