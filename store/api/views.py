@@ -41,7 +41,7 @@ class CategoryDetailsView(APIView):
     def get(self,request,category_id,*args, **kwargs):
         try:
             queryset = Product.objects.select_related('sub_category').filter(sub_category_id=category_id)
-            serializer = ProductsSerializer(queryset,many=True)
+            serializer = ProductsSerializer(queryset,many=True,context={"user":request.user if request.user.id else None})
             return Response(serializer.data)
 
         except Exception as e:
@@ -53,7 +53,7 @@ class ProductDetailsView(APIView):
         try:
 
             queryset = Product.objects.filter(pk=product_id)
-            serializer = ProductsSerializer(queryset,many=True)  
+            serializer = ProductsSerializer(queryset,many=True,context={"user":request.user if request.user.id else None})  
       
             # Query -> Recommend similar products and append to serilizer
             product_recommend_lists = get_recommed_products(product_id)
@@ -74,12 +74,12 @@ class ProductDetailsView(APIView):
 class MainCategoryDetailView(APIView):
     def get(self,request,category_id,*args,**kwargs):
         queryset = SubCategory.objects.select_related("category").filter(category_id = category_id)
-        serializer = SubCategoryProductSerializer(queryset,many=True)
+        serializer = SubCategoryProductSerializer(queryset,many=True,context={"user":request.user if request.user.id else None})
         if serializer.data:
             products = get_product_list(serializer.data)
             return Response(products)
         queryset = Product.objects.select_related("category").filter(category_id = category_id)
-        serializer = SubCategoryProductSerializer(queryset,many=True)
+        serializer = SubCategoryProductSerializer(queryset,many=True,context={"user":request.user if request.user.id else None})
         if serializer.data:
             products = get_product_list(serializer.data)
             return Response(products)

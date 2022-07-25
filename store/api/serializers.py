@@ -33,9 +33,11 @@ class ProductsSerializer(serializers.ModelSerializer):
     brand = serializers.CharField(source="brand.name", read_only=True)
     maxQuantity = serializers.IntegerField(source = "quantity")
     quantity = serializers.SerializerMethodField("set_qauntity_by_1")
+    is_product_in_wishlist_for_current_user = serializers.SerializerMethodField("get_cuurent_user_wishlist")
+
     class Meta:
         model = Product
-        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category"]
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category","is_product_in_wishlist_for_current_user"]
         
     def get_images(self, obj):
         images = obj.images.all()
@@ -45,8 +47,15 @@ class ProductsSerializer(serializers.ModelSerializer):
     def set_qauntity_by_1(self,obj):
         return 1
 
-    
-
+    def get_cuurent_user_wishlist(self, obj):
+        user = self.context.get('user')
+        if user is not None:
+            if Wishlist.objects.filter(product_id=obj.id, user=user).exists():
+                return True
+            else:
+                return False
+        
+        
 class SubCategoryProductSerializer(serializers.ModelSerializer):
     products = ProductsSerializer(many=True)
     is_product_in_wishlist_for_current_user = serializers.SerializerMethodField("get_cuurent_user_wishlist")
@@ -55,7 +64,7 @@ class SubCategoryProductSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "products","is_product_in_wishlist_for_current_user"]
 
     def get_cuurent_user_wishlist(self, obj):
-        user = self.context['user']
+        user = self.context.get('user')
         if user is not None:
             products = obj.products.filter()
             for product in products:
