@@ -47,7 +47,9 @@ class OrderAPIView(APIView):
                     order = serializer.save(
                     user = request.user,
                     tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
-                    total_price = cart_total,total_amount_payble = total_amount_payble,discounted_price = discount_amount,coupon = message)
+                    total_price = cart_total,total_amount_payble = total_amount_payble,discounted_price = discount_amount,coupon = message,
+                    alternate_number = int(data.get('alternate_number'))
+                    )
                     ordered_response["total_price"] = cart_total
                     ordered_response["discount_amount"] = discount_amount
                     ordered_response["total_amount_payble"] = total_amount_payble               
@@ -58,7 +60,10 @@ class OrderAPIView(APIView):
                     order = serializer.save(
                     user = request.user,
                     tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
-                    total_price = cart_total,total_amount_payble = cart_total)
+                    total_price = cart_total,total_amount_payble = cart_total,
+                    alternate_number = int(data.get('alternate_number'))
+                    
+                    )
                     ordered_response["total_price"] = cart_total
 
                 ordered_response["status"] = "200"
@@ -80,9 +85,10 @@ class OrderAPIView(APIView):
                     # Create Order Item
 
                     OrderItem.objects.create(product = item.product, order_id = order.pk,price = item.product.price,quantity=item.quantity)
-                  
+                    
                     # To Decrease the product quantity from available stock
                     product_obj = Product.objects.filter(pk = item.product.pk).first()
+                
                     product_obj.quantity = product_obj.quantity - item.quantity
                     product_obj.save()
 
@@ -98,7 +104,7 @@ class OrderAPIView(APIView):
                     )
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"status":"400","message":f"{e}"},status=400)
 
     def get(self,request,*args,**kwargs):
         permission_classes = [permissions.IsAuthenticated]
