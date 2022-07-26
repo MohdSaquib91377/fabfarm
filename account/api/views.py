@@ -161,4 +161,32 @@ class LogoutAPIView(generics.GenericAPIView):
         serializer = self.serializer_class(data = request.data)
         serializer.is_valid(raise_exception = True)
         serializer.save()
-        return Response({"status":"204","message":"logout  successfully"})
+        return Response({"status":"204","message":"logout  successfully"},status=status.HTTP_400_BAD_REQUEST)
+       
+
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.views import TokenViewBase
+from rest_framework_simplejwt.serializers import TokenRefreshSerializer
+from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
+class InvalidUser(AuthenticationFailed):
+    status_code = status.HTTP_403_FORBIDDEN
+    default_detail = ('Credentials is invalid or expired')
+    default_code = 'user_credentials_not_valid'
+
+class CustomTokenRefreshView(TokenViewBase):
+    """
+    Takes a set of user credentials and returns an access and refresh JSON web
+    token pair to prove the authentication of those credentials.
+    """
+    serializer_class = TokenRefreshSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except AuthenticationFailed as e:
+            raise InvalidUser(e.args[0])
+        except TokenError as e:
+            raise InvalidUser(e.args[0])
+
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
