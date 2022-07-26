@@ -86,7 +86,7 @@ class MainCategoryDetailView(APIView):
         return Response({"status":"204","message":"Comming Soon"},status = status.HTTP_204_NO_CONTENT)
 
 @swagger_auto_schema(tags = ['store'],request_body = ContactUsSerializer)
-class ContactUsAPI(generics.ListCreateAPIView):
+class ContactUsAPI(generics.CreateAPIView):
     serializer_class=ContactUsSerializer
     queryset =  ContactUs.objects.all()
     
