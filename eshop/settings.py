@@ -101,12 +101,18 @@ REST_FRAMEWORK = {
 }
 
 # JWT configuration
-SIMPLE_JWT = {
+if not DEBUG:
+    SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(seconds=config('seconds',cast=int)),
-    'REFRESH_TOKEN_LIFETIME': timedelta(seconds=config('seconds',cast=int)),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=config('days',cast=int)),
   
-}
-
+    }
+else:
+      SIMPLE_JWT = {
+        'ACCESS_TOKEN_LIFETIME': timedelta(minutes=config('minutes',cast=int)),
+        'REFRESH_TOKEN_LIFETIME': timedelta(days=config('days',cast=int)),
+    
+    }
 # OTP configuration
 OTP = {
     "OTP_EXPIRATION_TIME": timedelta(
