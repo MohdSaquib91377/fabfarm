@@ -6866,3 +6866,29 @@ User information: uid=0 euid=0 gid=0 egid=0
   warnings.warn('''Using settings.DEBUG leads to a memory
 
 [2022-07-26 16:36:01,947: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-07-26 17:06:50,271: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-07-26 17:06:50,274: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 17:06:51,279: INFO/MainProcess] mingle: all alone
+[2022-07-26 17:06:51,285: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 17:06:51,285: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-07-26 17:54:32,796: INFO/MainProcess] Task send_mail[37360f67-ed62-4713-80d1-0a7e57d86fad] received
+[2022-07-26 17:54:36,448: INFO/ForkPoolWorker-4] Task send_mail[37360f67-ed62-4713-80d1-0a7e57d86fad] succeeded in 3.651183958980255s: None
+[2022-07-26 17:56:59,788: INFO/MainProcess] Task send_mail[cb4d0265-9d27-42c3-844f-78a545be93a3] received
+[2022-07-26 17:57:02,710: INFO/ForkPoolWorker-4] Task send_mail[cb4d0265-9d27-42c3-844f-78a545be93a3] succeeded in 2.922210700926371s: None
+[2022-07-26 17:58:13,007: INFO/MainProcess] Task send_mail[df39505b-82e2-4757-910d-b4d7f50e104c] received
+[2022-07-26 17:58:15,859: INFO/ForkPoolWorker-4] Task send_mail[df39505b-82e2-4757-910d-b4d7f50e104c] succeeded in 2.851883972994983s: None
+[2022-07-26 18:03:10,342: INFO/MainProcess] Task send_mail[c5336196-7ed1-4499-89b9-759b46a5be38] received
+[2022-07-26 18:03:13,497: INFO/ForkPoolWorker-4] Task send_mail[c5336196-7ed1-4499-89b9-759b46a5be38] succeeded in 3.154066518996842s: None

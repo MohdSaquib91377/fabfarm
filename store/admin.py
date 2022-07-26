@@ -18,7 +18,8 @@ admin.site.register(Brand, BrandAdmin)
 class ImageAdmin(admin.StackedInline): 
     model = Image
 
-class ProductAdmin(admin.ModelAdmin):    
+class ProductAdmin(admin.ModelAdmin): 
+    list_display = ["id","name","description","price","quantity","category","sub_category","brand"]   
     inlines = [ImageAdmin]
 
     class Meta:
