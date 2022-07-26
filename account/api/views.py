@@ -161,7 +161,7 @@ class LogoutAPIView(generics.GenericAPIView):
         serializer = self.serializer_class(data = request.data)
         serializer.is_valid(raise_exception = True)
         serializer.save()
-        return Response({"status":"204","message":"logout  successfully"},status=status.HTTP_400_BAD_REQUEST)
+        return Response({"status":"200","message":"logout  successfully"},status=status.HTTP_200_OK)
        
 
 from rest_framework.exceptions import AuthenticationFailed
