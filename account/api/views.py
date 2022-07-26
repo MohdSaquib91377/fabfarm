@@ -1,4 +1,5 @@
 import email
+from re import A
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
@@ -14,6 +15,11 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
 import this
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.views import TokenViewBase
+from rest_framework_simplejwt.serializers import TokenRefreshSerializer
+from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
+
 
 class RegisterApiView(APIView):
     @swagger_auto_schema(tags = ['account'],request_body = RegisterSerializer)
@@ -164,10 +170,7 @@ class LogoutAPIView(generics.GenericAPIView):
         return Response({"status":"200","message":"logout  successfully"},status=status.HTTP_200_OK)
        
 
-from rest_framework.exceptions import AuthenticationFailed
-from rest_framework_simplejwt.views import TokenViewBase
-from rest_framework_simplejwt.serializers import TokenRefreshSerializer
-from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
+
 class InvalidUser(AuthenticationFailed):
     status_code = status.HTTP_403_FORBIDDEN
     default_detail = ('Credentials is invalid or expired')
@@ -190,3 +193,8 @@ class CustomTokenRefreshView(TokenViewBase):
             raise InvalidUser(e.args[0])
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
+
+class ChangePasswordAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        pass    

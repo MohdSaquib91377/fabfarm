@@ -1,4 +1,5 @@
 from pyexpat import model
+from ssl import VerifyFlags
 from rest_framework import serializers
 from account.models  import CustomUser
 from rest_framework_simplejwt.tokens import RefreshToken,TokenError
@@ -47,3 +48,8 @@ class LogoutSerializer(serializers.Serializer):
         except TokenError:
             self.fail('bad_token')
 
+class ChangePasswordSerializer(serializers.Serializer):
+    current_password = serializers.CharField(max_length=64)
+    new_password = serializers.CharField(max_length=64)
+    confirm_password = serializers.CharField(max_length=64)
+    Verify_otp = serializers.CharField(max_length=64)
