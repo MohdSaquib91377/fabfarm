@@ -1,12 +1,14 @@
 import email
+from math import perm
+from msilib.schema import ServiceInstall
 from re import A
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
 from services.otp import send_twilio_sms
-from .serializers import RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,LoginSerializer,LogoutSerializer
+from .serializers import ChangePasswordSerializer, RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,LoginSerializer,LogoutSerializer
 from account.models import CustomUser
-from account.helpers import get_tokens_for_user
+from account.helpers import get_tokens_for_user,verify_otp
 from rest_framework import status
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
@@ -196,5 +198,9 @@ class CustomTokenRefreshView(TokenViewBase):
 
 
 class ChangePasswordAPIView(APIView):
+    permission_classes = [IsAuthenticated]
     def post(self, request, *args, **kwargs):
-        pass    
+        serializer = ChangePasswordSerializer(data = request.data)
+        serializer.is_valid(raise_exception = True) 
+
+        # verify otp   

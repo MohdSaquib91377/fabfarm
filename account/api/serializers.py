@@ -52,4 +52,5 @@ class ChangePasswordSerializer(serializers.Serializer):
     current_password = serializers.CharField(max_length=64)
     new_password = serializers.CharField(max_length=64)
     confirm_password = serializers.CharField(max_length=64)
-    Verify_otp = serializers.CharField(max_length=64)
+    otp = serializers.CharField(max_length=64)
+    txn_id = serializers.CharField(max_length=64)
