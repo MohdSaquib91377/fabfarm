@@ -3,16 +3,7 @@ from account.models import TimeStampModel
 # Create your models here.
 
 class Page(TimeStampModel):
-    PAGES_CHOICES = (
-        
-        ("Home","Home"),
-        ("About","About"),
-        ("Contact","Contact"),
-        ("shop","shop"),
-        
-        )
-
-    page = models.CharField(choices = PAGES_CHOICES,default = "Home",max_length = 64)
+    page = models.CharField(max_length = 64,null=True, blank=True)
 
     def __str__(self):
         return self.page
