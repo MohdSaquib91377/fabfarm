@@ -74,12 +74,12 @@ class AddToCartApiView(APIView):
         serializer = UpdateDeleteCartSerializer(data = request.data)
         product = get_product_object(request.data.get('product_id'))
         if serializer.is_valid():
-            cart = Cart.objects.filter(product_id = product.id).first()
+            cart = Cart.objects.filter(product_id = product.id,user = request.user).first()
             if cart:
                 if serializer.validated_data.get("action") in ["true","1"]:
                     cart.quantity += 1
                     if cart.quantity <= int(product.quantity): 
-                        cart.save()
+                        cart.save(update_fields=['quantity'])
                         return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
 
                     else:
@@ -91,8 +91,11 @@ class AddToCartApiView(APIView):
                         return Response({"status":"200","message":"Cart Deleted SuccessFully"},status = 204)
                     cart.save()
                     return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
-            Cart.objects.create(user=request.user, quantity=1, product=product)
-            return Response({"status":"200","message":"Product added in cart successfully"},status = 200)
+            if serializer.validated_data.get("action") in ["true","1"]:
+                Cart.objects.create(user=request.user, quantity=1, product=product)
+                return Response({"status":"200","message":"Product added in cart successfully"},status = 200)
+            else:
+                return Response({"status":"404","message":"can not decrement product bcz it's not in cart"},status=404)
         return Response(serializer.errors)
 
     @swagger_auto_schema(tags = ['cart'],request_body = UpdateDeleteCartSerializer)
