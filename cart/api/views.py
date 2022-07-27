@@ -80,6 +80,8 @@ class AddToCartApiView(APIView):
                     cart.quantity += 1
                     if cart.quantity <= int(product.quantity): 
                         cart.save()
+                        return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
+
                     else:
                         return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
                 else:     
@@ -88,7 +90,7 @@ class AddToCartApiView(APIView):
                         cart.delete()
                         return Response({"status":"200","message":"Cart Deleted SuccessFully"},status = 204)
                     cart.save()
-                return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
+                    return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
             Cart.objects.create(user=request.user, quantity=1, product=product)
             return Response({"status":"200","message":"Product added in cart successfully"},status = 200)
         return Response(serializer.errors)
