@@ -1,3 +1,4 @@
+import re
 from rest_framework.views import APIView
 from cart.models import *
 from rest_framework.response import Response
@@ -88,7 +89,8 @@ class AddToCartApiView(APIView):
                         return Response({"status":"200","message":"Cart Deleted SuccessFully"},status = 204)
                     cart.save()
                 return Response({"status":"200","message":"Cart updated SuccessFully"},status = 200)
-            return Response({"status":"400","message":"Cart not Found Associated Product"},status = status.HTTP_400_BAD_REQUEST)
+            Cart.objects.create(user=request.user, quantity=1, product=product)
+            return Response({"status":"200","message":"Product added in cart successfully"},status = 200)
         return Response(serializer.errors)
 
     @swagger_auto_schema(tags = ['cart'],request_body = UpdateDeleteCartSerializer)
