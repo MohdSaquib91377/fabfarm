@@ -14,7 +14,7 @@ def verify_otp(data):
     is_otp_found = CustomUser.objects.filter(id = data['txn_id'] ,otp = data['otp']).first()
     if is_otp_found:
         if not is_otp_found.is_expired:
-            CustomUser.objects.filter(id = data['id'],otp = data['otp']).update(is_verified=True)
+            CustomUser.objects.filter(id = data['txn_id'],otp = data['otp']).update(is_verified=True)
             return msg,status
 
         msg = "otp expired"
