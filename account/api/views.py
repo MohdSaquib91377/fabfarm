@@ -1,6 +1,7 @@
 import email
 from math import perm
 from re import A
+import re
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
@@ -86,6 +87,8 @@ class VerifyOTPApiView(APIView):
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class SendOTPAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
     @swagger_auto_schema(tags = ['account'],request_body = SendOTPSerializer)
     def post(self, request, *args, **kwargs):
         try:
@@ -147,18 +150,6 @@ class LoginApiView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
-    @swagger_auto_schema(tags = ['account'],request_body = LoginSerializer)       
-    def put(self, request, *args, **kwargs):
-        try:
-            instance = self.get_object(request.data.get("email_or_mobile"))
-            serializer = LoginSerializer(instance, data=request.data)
-            if serializer.is_valid():
-                password = make_password(request.data.get("password"))
-                serializer.save(password=password)
-                return Response({"status":"200","message":"Password update successfully"})
-            return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class LogoutAPIView(generics.GenericAPIView):
     serializer_class = LogoutSerializer
@@ -198,8 +189,25 @@ class CustomTokenRefreshView(TokenViewBase):
 
 class ChangePasswordAPIView(APIView):
     permission_classes = [IsAuthenticated]
-    def post(self, request, *args, **kwargs):
+    @swagger_auto_schema(tags = ['account'],request_body = ChangePasswordSerializer)       
+    def put(self, request, *args, **kwargs):
         serializer = ChangePasswordSerializer(data = request.data)
         serializer.is_valid(raise_exception = True) 
 
-        # verify otp   
+        # verify otp    
+        msg,status = verify_otp({"txn_id":serializer.validated_data["txn_id"],"otp":serializer.validated_data["otp"]})   
+        if status == 404:
+            return Response({"status":"404","message":f"{msg}"},status=404)
+
+        if status == 400:
+            return Response({"status":"400","message":f"{msg}"},status=400)
+
+        if not request.user.check_password(serializer.validated_data["current_password"]):
+            return Response({"status":"400","message":f"old password is not match"},status=401) 
+
+        if serializer.validated_data["new_password"] != serializer.validated_data["confirm_password"]:
+            return Response({"status":"400","message":f"new password or confirm password does not match "},status=400) 
+        # make hash password
+        request.user.set_password(serializer.validated_data["new_password"])
+        request.user.save()
+        return Response({"status":"200","message":f"password changed successfully"},status=200) 
