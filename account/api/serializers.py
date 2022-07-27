@@ -1,3 +1,5 @@
+from asyncio.format_helpers import extract_stack
+from dataclasses import field
 from pyexpat import model
 from ssl import VerifyFlags
 from rest_framework import serializers
@@ -54,3 +56,10 @@ class ChangePasswordSerializer(serializers.Serializer):
     confirm_password = serializers.CharField(max_length=64)
     otp = serializers.CharField(max_length=64)
     txn_id = serializers.CharField(max_length=64)
+
+class ListUpdateProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ["fullname","gender"]
+
+        

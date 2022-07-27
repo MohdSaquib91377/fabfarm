@@ -1,12 +1,15 @@
 import email
+from http import server
+from logging import raiseExceptions
 from math import perm
 from re import A
 import re
+from urllib import request
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
 from services.otp import send_twilio_sms
-from .serializers import ChangePasswordSerializer, RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,LoginSerializer,LogoutSerializer
+from .serializers import ChangePasswordSerializer, RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer
 from account.models import CustomUser
 from account.helpers import get_tokens_for_user,verify_otp
 from rest_framework import status
@@ -211,3 +214,20 @@ class ChangePasswordAPIView(APIView):
         request.user.set_password(serializer.validated_data["new_password"])
         request.user.save()
         return Response({"status":"200","message":f"password changed successfully"},status=200) 
+
+
+class ListUpdateUpdateProfileAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ListUpdateProfileSerializer
+
+    def get(self, request,*args, **kwargs):
+        serializer = self.serializer_class(request.user)
+        return Response(serializer.data)
+
+    @swagger_auto_schema(tags = ['account'],request_body = ListUpdateProfileSerializer)       
+    def patch(self, request, *args, **kwargs):
+        serializer = self.serializer_class(request.user,data=request.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)

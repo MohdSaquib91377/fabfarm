@@ -3,6 +3,7 @@ from account.api import views
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
+
 urlpatterns = [
     path('register/', views.RegisterApiView.as_view(),name='register'),
     path('verify-otp/',views.VerifyOTPApiView.as_view(),name='verify-otp'),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('logout/',views.LogoutAPIView.as_view(),name='logout'),
     path('api/token/refresh/', views.CustomTokenRefreshView.as_view(), name='token_refresh'),
     path('change-password/',views.ChangePasswordAPIView.as_view(), name='change-password'),
+    path("list-update-profile/",views.ListUpdateUpdateProfileAPIView.as_view(), name='create-update-profile'),
     
    
 ]

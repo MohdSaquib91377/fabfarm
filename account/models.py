@@ -1,3 +1,5 @@
+from email.policy import default
+from sre_constants import CH_LOCALE
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
@@ -16,6 +18,10 @@ class TimeStampModel(models.Model):
         abstract = True
 
 class CustomUser(AbstractBaseUser, PermissionsMixin,TimeStampModel):
+    GENDER_CHOICES = (
+        ("male","Male"),
+        ("female","Female"),
+    )
     email_or_mobile = models.CharField(max_length=64,unique=True)
     fullname = models.CharField(_('full name'), max_length=64)
     is_verified = models.BooleanField(_('verified'),default=False)
@@ -25,6 +31,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin,TimeStampModel):
     is_active = models.BooleanField(default=True)
     USERNAME_FIELD = 'email_or_mobile'
     REQUIRED_FIELDS = []
+
+    # personal information
+    gender = models.CharField(_('gender'), max_length=64, blank=True, null=True,choices=GENDER_CHOICES,default="male")
 
     objects = CustomUserManager()
 
