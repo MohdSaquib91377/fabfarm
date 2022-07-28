@@ -31,7 +31,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin,TimeStampModel):
     is_active = models.BooleanField(default=True)
     USERNAME_FIELD = 'email_or_mobile'
     REQUIRED_FIELDS = []
-
+    # mobile field
+    mobile = models.PositiveBigIntegerField(null=True, blank=True)
+    is_mobile_verified = models.BooleanField(default=False)
     # personal information
     gender = models.CharField(_('gender'), max_length=64, blank=True, null=True,choices=GENDER_CHOICES,default="male")
 
