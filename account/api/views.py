@@ -143,7 +143,12 @@ class LoginApiView(APIView):
                     user.save()
                     #Generate Token
                     token = get_tokens_for_user(user)
-                    return Response({"status":"200","message":"Login Successfully","data":token})
+                    user_info = {
+                        "fullname": user.fullname,
+                        "email_or_mobile": user.email_or_mobile
+
+                    }
+                    return Response({"status":"200","message":"Login Successfully","data":token,"user_info":user_info})
                 elif user:
                     return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
                 else:
