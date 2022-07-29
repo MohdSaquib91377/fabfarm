@@ -112,7 +112,8 @@ class OrderAPIView(APIView):
             if not Order.objects.filter(user = request.user).exists():
                 return Response({"status":"400","message":f"{request.user} your orders not found"},status=status.HTTP_400_BAD_REQUEST)
             current_user_order = Order.objects.filter(user=request.user).first()
-            order_queryset = OrderItem.objects.filter(order_id=current_user_order.id)
+            order_list = Order.objects.filter(user=request.user).values_list("id")
+            order_queryset = OrderItem.objects.filter(order_id__in = order_list)
             serializer = OrderItemSerializer(order_queryset, many = True)
             return Response(serializer.data,status = status.HTTP_200_OK)
         except Exception as e:
