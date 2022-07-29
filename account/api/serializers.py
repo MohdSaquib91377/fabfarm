@@ -1,7 +1,9 @@
 from asyncio.format_helpers import extract_stack
-from dataclasses import field
+from dataclasses import field, fields
 from pyexpat import model
+from re import M
 from ssl import VerifyFlags
+from statistics import mode
 from rest_framework import serializers
 from account.models  import CustomUser
 from rest_framework_simplejwt.tokens import RefreshToken,TokenError
@@ -72,3 +74,17 @@ class UpdateEmailSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ["new_email_otp","exists_email_otp","password"]
+
+class MobileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ["mobile"]
+
+class UpdateMobileSerializer(serializers.ModelSerializer):
+    new_mobile_otp = serializers.CharField(max_length=64)
+    exists_email_or_mobile_otp = serializers.CharField(max_length=64)
+
+    class Meta:
+        model = CustomUser
+        fields = ["new_mobile_otp", "exists_email_or_mobile_otp", "password"]
+        

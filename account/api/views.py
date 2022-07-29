@@ -1,14 +1,13 @@
-from dataclasses import dataclass
-from urllib import request
-from wsgiref import validate
+from re import S
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
 from services.otp import send_twilio_sms
 from .serializers import (ChangePasswordSerializer, RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,
-                            LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,UpdateEmailSerializer)
+                            LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,UpdateEmailSerializer,MobileSerializer,UpdateMobileSerializer)
 from account.models import CustomUser
-from account.helpers import get_tokens_for_user,verify_otp,send_otp_on_entered_email_or_exists_one,verify_updated_email_or_exists_one
+from account.helpers import (get_tokens_for_user,verify_otp,send_otp_on_entered_email_or_exists_one,
+                            verify_updated_email_or_exists_one,send_otp_on_entered_mobile_or_exists_one,verify_and_update_mobile)
 from rest_framework import status
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
@@ -263,4 +262,34 @@ class UpdateEmailAPIView(APIView):
             return Response({"status":"400","message":f"{msg}"},status=400)
 
         return Response({"status":f"{status}", "message":f"{msg}"},status=200)
-       
+
+class UpdateMobileAPIView(APIView):
+    serializer_class = UpdateMobileSerializer
+    permission_classes = [IsAuthenticated]
+    
+    @swagger_auto_schema(tags = ['account'],request_body = MobileSerializer)       
+    def post(self, request, *args, **kwargs):
+        serializer = MobileSerializer(data = request.data)
+        serializer.is_valid(raise_exception = True)
+        msg,status = send_otp_on_entered_mobile_or_exists_one({"new_mobile": serializer.validated_data["mobile"],"user_id": request.user.id,"exists_mobile":request.user.mobile})
+        if status == 400:
+            return Response({"status":f"{status}","message":f"{msg}"})
+            
+        return Response({"status":f"{status}","message":f"{msg}"}) 
+
+    @swagger_auto_schema(tags = ['account'],request_body = UpdateMobileSerializer)       
+    def patch(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data = request.data)  
+        serializer.is_valid(raise_exception = True)
+
+        data = {
+            "new_mobile_otp":serializer.validated_data["new_mobile_otp"],
+            "exists_email_or_mobile_otp":serializer.validated_data["exists_email_or_mobile_otp"],
+            "password":serializer.validated_data["password"],
+        }
+        msg,status = verify_and_update_mobile(data,request.user)
+
+        if status == 400:
+            return Response({"status":f"{status}","message":f"{msg}"},status=400)
+        
+        return Response({"status":f"{status}","message":f"{msg}"},status=status)
