@@ -23,7 +23,11 @@ def get_tokens_for_user(user):
         'refresh': str(refresh),
         'access': str(refresh.access_token),
     }
-
+    current_password = serializers.CharField(max_length=64)
+    new_password = serializers.CharField(max_length=64)
+    confirm_password = serializers.CharField(max_length=64)
+    otp = serializers.CharField(max_length=64)
+    txn_id = serializers.CharField(max_length=64)
 # generate random otp 
 def generate_otp(key,email):
     otp = get_random_string(length=6,allowed_chars="0123456789")
@@ -39,6 +43,7 @@ def generate_otp(key,email):
     
 # Alway send otp verify otp should be reusable
 def verify_otp(data):
+    error_list = []
     msg = "otp verification successful"
     status = 200
     is_otp_found = CustomUser.objects.filter(id = data['txn_id'] ,otp = data['otp']).first()
@@ -46,12 +51,10 @@ def verify_otp(data):
         if not is_otp_found.is_expired:
             CustomUser.objects.filter(id = data['txn_id'],otp = data['otp']).update(is_verified=True)
             return msg,status
-
-        msg = "otp expired"
-        status = 400
+        msg = {"otp" : "otp expired","status" : 400}
         return msg,status
 
-    msg = "otp not found"
+    msg = {"otp" : "invalid otp ", "status" : 400}
     status = 404
     return msg,status
 

@@ -196,20 +196,21 @@ class ChangePasswordAPIView(APIView):
     def put(self, request, *args, **kwargs):
         serializer = ChangePasswordSerializer(data = request.data)
         serializer.is_valid(raise_exception = True) 
-
         # verify otp    
         msg,status = verify_otp({"txn_id":serializer.validated_data["txn_id"],"otp":serializer.validated_data["otp"]})   
         if status == 404:
-            return Response({"status":"404","message":f"{msg}"},status=404)
+            return Response({"status":"404","message":msg},status=404)
 
         if status == 400:
-            return Response({"status":"400","message":f"{msg}"},status=400)
+            return Response({"status":"400","message":msg},status=400)
 
         if not request.user.check_password(serializer.validated_data["current_password"]):
-            return Response({"status":"400","message":f"old password is not match"},status=401) 
+            msg = {"current_password":"current passwrod does not match with old password"}
+            return Response({"status":"400","message":msg},status=401) 
 
         if serializer.validated_data["new_password"] != serializer.validated_data["confirm_password"]:
-            return Response({"status":"400","message":f"new password or confirm password does not match "},status=400) 
+            msg = {"new_password":"new password confirm password does not match","confirm_password":"confirm password does not match with new password"}
+            return Response({"status":"400","message":msg},status=400) 
         # make hash password
         request.user.set_password(serializer.validated_data["new_password"])
         request.user.save()
