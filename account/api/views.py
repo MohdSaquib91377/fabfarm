@@ -86,7 +86,6 @@ class VerifyOTPApiView(APIView):
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
 class SendOTPAPIView(APIView):
-    permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(tags = ['account'],request_body = SendOTPSerializer)
     def post(self, request, *args, **kwargs):
