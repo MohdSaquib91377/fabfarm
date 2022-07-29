@@ -3,7 +3,7 @@ from order.models import *
 # Register your models here.
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ["user","full_name","city","state","country",
+    list_display = ["id","user","full_name","city","state","country",
                     "pincode","locality","landmark","address",
                     "alternate_number","total_price","payment_mode",
                     "payment_id","message","tracking_no","coupon",
