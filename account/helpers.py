@@ -28,6 +28,7 @@ def get_tokens_for_user(user):
 def clear_cache(keys):
     for key in keys:
         cache.delete(key)
+
 # generate random otp 
 def generate_otp(email):
     otp = get_random_string(length=6,allowed_chars="0123456789")
@@ -64,12 +65,12 @@ def send_otp_on_entered_email_or_exists_one(data):
     status = 200
     user = CustomUser.objects.filter(id = data.get('user_id'),email_or_mobile = data.get('new_email')).first()
     if user:
-        msg = f"user {data.get('new_email')} already verify"
+        msg = {"email_or_mobile":"already verify"}
         status = 400
         return msg,status
 
     elif CustomUser.objects.filter(email_or_mobile=data.get('new_email')).exists():
-        msg = f"this {data.get('new_email')} is taken by someone"
+        msg = {"email_or_mobile":"is taken by someone"}
         status = 400
         return msg,status
 
@@ -93,26 +94,41 @@ def verify_updated_email_or_exists_one(data):
     new_email_chache_response = cache.get(data.get('new_email_otp'))
     exists_email_chache_response = cache.get(data.get('exists_email_otp'))
 
-    if not new_email_chache_response or not exists_email_chache_response:
+    if not new_email_chache_response:
         status = 400
-        msg = f"invalid otp"   
+        msg = {"new_email_otp":"Invalid OTP"} 
         return msg,status
 
-    elif new_email_chache_response.get('otp') != data.get('new_email_otp') or exists_email_chache_response.get('otp') != data.get('exists_email_otp'):
-        status = 404
-        msg = "invalid otp"
-        return msg,status
-        
-    elif timezone.now() > new_email_chache_response.get('expire_at') or timezone.now() > exists_email_chache_response.get('expire_at'):
+    elif not exists_email_chache_response:
         status = 400
-        msg = "otp expired"
+        msg = {"exists_email_otp":"Invalid OTP"}
+        return msg,status
+
+    elif new_email_chache_response.get('otp') != data.get('new_email_otp'):
+        status = 400
+        msg = {"new_email_otp":"Invalid OTP"} 
+        return msg,status
+    
+    elif exists_email_chache_response.get('otp') != data.get('exists_email_otp'):
+        status = 400
+        msg = {"exists_email_otp":"Invalid OTP"} 
+        return msg,status
+    
+
+    elif timezone.now() > new_email_chache_response.get('expire_at'):
+        status = 400
+        msg = {"new_email_otp":"otp expired"} 
+        return msg,status
+
+    elif timezone.now() > exists_email_chache_response.get('expire_at'):
+        status = 400
+        msg = {"exists_email_otp":"otp expired"} 
         return msg,status
 
     else:
         password = make_password(data.get('password'))
         CustomUser.objects.filter(email_or_mobile=exists_email_chache_response.get('email')).update(email_or_mobile=new_email_chache_response.get('email'),password=password)
-        clear_cache({"name":data.get('new_email_otp'),"name":data.get('exists_email_otp')})
-
+        clear_cache({f"{data.get('new_email_otp')}":data.get('new_email_otp'),f"{data.get('exists_email_otp')}":data.get('exists_email_otp')})
         return msg,status
 
 # generate random otp 
