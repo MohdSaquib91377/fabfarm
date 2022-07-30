@@ -171,13 +171,19 @@ def send_otp_on_entered_mobile_or_exists_one(data):
         user = CustomUser.objects.filter(id = data.get('user_id')).first()
         email_or_mobile_cache_response = generate_otp_for_mobile(f"{user.email_or_mobile}")
         send_mail(f"we have send you otp on this {user.email_or_mobile} please verify",f"your otp is {email_or_mobile_cache_response.get('otp')}",[user.email_or_mobile])
-        msg = f"we have send you an otp on your {data.get('new_mobile')} or {user.email_or_mobile}"
+        msg = {
+            "new_mobile_otp":f"otp sent to {data.get('new_mobile')}",
+            "exists_email_or_mobile_otp":f"otp sent to {user.email_or_mobile}"
+            }
         return msg,status
 
     else:
         email_or_mobile_cache_response = generate_otp_for_mobile(f"{data.get('exists_mobile')}")   
         send_twilio_sms(f"{data.get('exists_mobile')}",f"this is your otp {email_or_mobile_cache_response.get('otp')} please verify")
-        msg = f"we have send you an otp on your {data.get('new_mobile')} or {data.get('exists_mobile')}"
+        msg = {
+            "new_mobile_otp":f"otp sent to {data.get('new_mobile')}",
+            "exists_email_or_mobile_otp":f"otp sent to {user.email_or_mobile}"
+            }
         return msg,status
 
 
@@ -190,7 +196,7 @@ def verify_and_update_mobile(data,user):
         msg = {"new_mobile_otp":"Invalid OTP"}  
         return msg,status
 
-    if email_or_mobile_cache_response:
+    elif not email_or_mobile_cache_response:
         status = 400
         msg = {"exists_email_or_mobile_otp":"Invalid OTP"}  
         return msg,status
