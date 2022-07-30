@@ -82,7 +82,10 @@ def send_otp_on_entered_email_or_exists_one(data):
         cache_response = generate_otp(f"{data.get('exists_email')}")
         send_mail(f"we have send you otp on this {data.get('exists_email')} please verify",f"your otp is {cache_response.get('otp')}",[data.get('exists_email'),data.get('exists_email')])
 
-        msg = f"we have send you otp on this {data.get('new_email')} or {data.get('exists_email')} please verify"
+        msg = {
+            "label1":f"otp sent on {data.get('new_email')}",
+            "lable2":f"otp sent on {data.get('exists_email')}"
+            }
         status = 200
         return msg,status
 
@@ -151,12 +154,12 @@ def send_otp_on_entered_mobile_or_exists_one(data):
     msg = ""
     if CustomUser.objects.filter(id = data.get('user_id'),mobile = data.get('new_mobile'),is_mobile_verified=True).exists():
         status = 400
-        msg = f"{data.get('new_mobile')} already verify"
+        msg = {"mobile":"Mobile Already verified"}
         return msg,status
 
     elif CustomUser.objects.filter(mobile = data.get('new_mobile')).exists():
-        status = 401
-        msg = f"{data.get('new_mobile')} taken by someone"
+        status = 400
+        msg = {"mobile":f"{data.get('new_mobile')} taken by someone"}
         return msg,status
 
     # generate otp 
@@ -176,27 +179,45 @@ def send_otp_on_entered_mobile_or_exists_one(data):
         send_twilio_sms(f"{data.get('exists_mobile')}",f"this is your otp {email_or_mobile_cache_response.get('otp')} please verify")
         msg = f"we have send you an otp on your {data.get('new_mobile')} or {data.get('exists_mobile')}"
         return msg,status
-        
+
+
 def verify_and_update_mobile(data,user):
     new_mobile_cache_response = cache.get(data.get('new_mobile_otp'))
     email_or_mobile_cache_response = cache.get(data.get('exists_email_or_mobile_otp'))
 
-    if not new_mobile_cache_response or not email_or_mobile_cache_response:
+    if not new_mobile_cache_response:
         status = 400
-        msg = f"invalid otp"   
-        return msg,status
-    elif new_mobile_cache_response.get('otp') != data.get('new_mobile_otp') or email_or_mobile_cache_response.get('otp') != data.get('exists_email_or_mobile_otp'):
-        status = 400
-        msg = f"invalid otp"   
+        msg = {"new_mobile_otp":"Invalid OTP"}  
         return msg,status
 
-    elif timezone.now() > new_mobile_cache_response.get('expire_at') or timezone.now() > email_or_mobile_cache_response.get('expire_at'):
+    if email_or_mobile_cache_response:
         status = 400
-        msg = f"otp expired"   
+        msg = {"exists_email_or_mobile_otp":"Invalid OTP"}  
+        return msg,status
+
+    elif new_mobile_cache_response.get('otp') != data.get('new_mobile_otp'):
+        status = 400
+        msg = {"new_mobile_otp":"Invalid OTP"}  
+        return msg,status
+
+    elif email_or_mobile_cache_response.get('otp') != data.get('exists_email_or_mobile_otp'):
+        status = 400
+        msg = {"exists_email_or_mobile_otp":"Invalid OTP"}  
+        return msg,status
+
+
+    elif timezone.now() > new_mobile_cache_response.get('expire_at'):
+        status = 400
+        msg = {"new_mobile_otp":"OTP expired"}  
+        return msg,status
+
+    elif timezone.now() > email_or_mobile_cache_response.get('expire_at'):
+        status = 400
+        msg = {"exists_email_or_mobile_otp":"OTP expired"}  
         return msg,status
 
     CustomUser.objects.filter(id = user.id).update(mobile = new_mobile_cache_response.get('email_or_mobile'),is_mobile_verified=True)
-    clear_cache({"name":data.get('new_mobile_otp'),"name":data.get('exists_email_or_mobile_otp')})
+    clear_cache({f"{data.get('new_mobile_otp')}":data.get('new_mobile_otp'),f"{data.get('exists_email_or_mobile_otp')}":data.get('exists_email_or_mobile_otp')})
     status = 200
     msg = f"Mobile updated SuccessFully"
   

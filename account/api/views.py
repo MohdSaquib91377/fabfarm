@@ -273,9 +273,9 @@ class UpdateMobileAPIView(APIView):
         serializer.is_valid(raise_exception = True)
         msg,status = send_otp_on_entered_mobile_or_exists_one({"new_mobile": serializer.validated_data["mobile"],"user_id": request.user.id,"exists_mobile":request.user.mobile})
         if status == 400:
-            return Response({"status":f"{status}","message":f"{msg}"})
+            return Response({"status":f"{status}","message":msg})
             
-        return Response({"status":f"{status}","message":f"{msg}"}) 
+        return Response({"status":f"{status}","message":msg}) 
 
     @swagger_auto_schema(tags = ['account'],request_body = UpdateMobileSerializer)       
     def patch(self, request, *args, **kwargs):
@@ -290,6 +290,6 @@ class UpdateMobileAPIView(APIView):
         msg,status = verify_and_update_mobile(data,request.user)
 
         if status == 400:
-            return Response({"status":f"{status}","message":f"{msg}"},status=400)
+            return Response({"status":f"{status}","message":msg},status=400)
         
-        return Response({"status":f"{status}","message":f"{msg}"},status=status)
+        return Response({"status":f"{status}","message":msg},status=status)
