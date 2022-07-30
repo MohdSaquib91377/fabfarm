@@ -23,13 +23,13 @@ def get_tokens_for_user(user):
         'refresh': str(refresh),
         'access': str(refresh.access_token),
     }
-    current_password = serializers.CharField(max_length=64)
-    new_password = serializers.CharField(max_length=64)
-    confirm_password = serializers.CharField(max_length=64)
-    otp = serializers.CharField(max_length=64)
-    txn_id = serializers.CharField(max_length=64)
+   
+
+def clear_cache(keys):
+    for key in keys:
+        cache.delete(key)
 # generate random otp 
-def generate_otp(key,email):
+def generate_otp(email):
     otp = get_random_string(length=6,allowed_chars="0123456789")
     expire_at = timezone.now()+settings.OTP['OTP_EXPIRATION_TIME']
     data = {
@@ -38,8 +38,8 @@ def generate_otp(key,email):
         "email":email
     }
     # store data in cache
-    cache.set(f"{key}", data, timeout=CACHE_TTL)
-    return cache.get(f"{key}")
+    cache.set(f"{otp}", data, timeout=CACHE_TTL)
+    return cache.get(f"{otp}")
     
 # Alway send otp verify otp should be reusable
 def verify_otp(data):
@@ -75,10 +75,10 @@ def send_otp_on_entered_email_or_exists_one(data):
 
     else:
         # send email
-        cache_response = generate_otp("new_email",f"{data.get('new_email')}")
+        cache_response = generate_otp(f"{data.get('new_email')}")
         send_mail(f"we have send you otp on this {data.get('new_email')} please verify",f"your otp is {cache_response.get('otp')}",[data.get('new_email'),data.get('new_email')])
 
-        cache_response = generate_otp("exists_email",f"{data.get('exists_email')}")
+        cache_response = generate_otp(f"{data.get('exists_email')}")
         send_mail(f"we have send you otp on this {data.get('exists_email')} please verify",f"your otp is {cache_response.get('otp')}",[data.get('exists_email'),data.get('exists_email')])
 
         msg = f"we have send you otp on this {data.get('new_email')} or {data.get('exists_email')} please verify"
@@ -90,9 +90,15 @@ def verify_updated_email_or_exists_one(data):
     status = 200
     msg = "Email updated successfully"
     # read data from cache
-    new_email_chache_response = cache.get("new_email")
-    exists_email_chache_response = cache.get("exists_email")
-    if new_email_chache_response.get('otp') != data.get('new_email_otp') or exists_email_chache_response.get('otp') != data.get('exists_email_otp'):
+    new_email_chache_response = cache.get(data.get('new_email_otp'))
+    exists_email_chache_response = cache.get(data.get('exists_email_otp'))
+
+    if not new_email_chache_response or not exists_email_chache_response:
+        status = 400
+        msg = f"invalid otp"   
+        return msg,status
+
+    elif new_email_chache_response.get('otp') != data.get('new_email_otp') or exists_email_chache_response.get('otp') != data.get('exists_email_otp'):
         status = 404
         msg = "invalid otp"
         return msg,status
@@ -105,6 +111,8 @@ def verify_updated_email_or_exists_one(data):
     else:
         password = make_password(data.get('password'))
         CustomUser.objects.filter(email_or_mobile=exists_email_chache_response.get('email')).update(email_or_mobile=new_email_chache_response.get('email'),password=password)
+        clear_cache({"name":data.get('new_email_otp'),"name":data.get('exists_email_otp')})
+
         return msg,status
 
 # generate random otp 
@@ -120,9 +128,7 @@ def generate_otp_for_mobile(email_or_mobile):
     cache.set(f"{otp}", data, timeout=CACHE_TTL)
     return cache.get(f"{otp}")
 
-def clear_cache(keys):
-    for key in keys:
-        cache.delete(key)
+
 
 def send_otp_on_entered_mobile_or_exists_one(data):
     status = 200
