@@ -1,3 +1,4 @@
+from posixpath import isabs
 from re import S
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,7 +8,7 @@ from .serializers import (ChangePasswordSerializer, RegisterSerializer,OTPVerify
                             LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,UpdateEmailSerializer,MobileSerializer,UpdateMobileSerializer)
 from account.models import CustomUser
 from account.helpers import (get_tokens_for_user,verify_otp,send_otp_on_entered_email_or_exists_one,
-                            verify_updated_email_or_exists_one,send_otp_on_entered_mobile_or_exists_one,verify_and_update_mobile)
+                            verify_updated_email_or_exists_one,send_otp_on_entered_mobile_or_exists_one,verify_and_update_mobile,get_user_info)
 from rest_framework import status
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
@@ -77,7 +78,7 @@ class VerifyOTPApiView(APIView):
                         CustomUser.objects.filter(id = serializer.data['id'],otp = serializer.data['otp']).update(is_verified=True)
                         # Generrate Token
                         token = get_tokens_for_user(user)
-                        return Response({"status":"200","message":"OTP verify successfully","data":token})
+                        return Response({"status":"200","message":"OTP verify successfully","data":token,"user_info":get_user_info(user)})
                     else:
                         return Response({"status":"400","message":"OTP expire"},status= status.HTTP_400_BAD_REQUEST)
                 return Response({"status":"400","message":"Invalid OTP"},status= status.HTTP_400_BAD_REQUEST)
@@ -138,12 +139,7 @@ class LoginApiView(APIView):
                     user.save()
                     #Generate Token
                     token = get_tokens_for_user(user)
-                    user_info = {
-                        "fullname": user.fullname,
-                        "email_or_mobile": user.email_or_mobile
-
-                    }
-                    return Response({"status":"200","message":"Login Successfully","data":token,"user_info":user_info})
+                    return Response({"status":"200","message":"Login Successfully","data":token,"user_info":get_user_info(user)})
                 elif user:
                     return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
                 else:

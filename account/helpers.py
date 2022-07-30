@@ -228,3 +228,11 @@ def verify_and_update_mobile(data,user):
     msg = f"Mobile updated SuccessFully"
   
     return msg,status
+
+def get_user_info(user):
+    user_info = {
+    "fullname": user.fullname,
+    "email_or_mobile": user.email_or_mobile
+    }
+
+    return user_info
