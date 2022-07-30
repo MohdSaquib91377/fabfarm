@@ -88,3 +88,7 @@ class UpdateMobileSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ["new_mobile_otp", "exists_email_or_mobile_otp", "password"]
         
+class ForgotPasswordSerializer(serializers.Serializer):
+    txn_id = serializers.IntegerField()
+    otp = serializers.CharField(max_length=64)
+    set_password = serializers.CharField(max_length=64)

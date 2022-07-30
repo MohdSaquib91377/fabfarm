@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from services.email import send_mail
 from services.otp import send_twilio_sms
 from .serializers import (ChangePasswordSerializer, RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,
-                            LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,UpdateEmailSerializer,MobileSerializer,UpdateMobileSerializer)
+                            LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,UpdateEmailSerializer,MobileSerializer,UpdateMobileSerializer,ForgotPasswordSerializer)
 from account.models import CustomUser
 from account.helpers import (get_tokens_for_user,verify_otp,send_otp_on_entered_email_or_exists_one,
                             verify_updated_email_or_exists_one,send_otp_on_entered_mobile_or_exists_one,verify_and_update_mobile,get_user_info)
@@ -21,7 +21,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.views import TokenViewBase
 from rest_framework_simplejwt.serializers import TokenRefreshSerializer
 from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
-
+from django.db.models import Q
 
 class RegisterApiView(APIView):
     @swagger_auto_schema(tags = ['account'],request_body = RegisterSerializer)
@@ -93,9 +93,9 @@ class SendOTPAPIView(APIView):
         try:
             serializer = SendOTPSerializer(data = request.data)
             if serializer.is_valid():
-                user = CustomUser.objects.filter(email_or_mobile = serializer.data["email_or_mobile"]).first()
+                user = CustomUser.objects.filter(Q(email_or_mobile = serializer.data["email_or_mobile"]) | Q(mobile = serializer.data["email_or_mobile"])).first()
                 if user:
-                    user = CustomUser.objects.get(email_or_mobile = serializer.data["email_or_mobile"])
+                    user = CustomUser.objects.get(Q(email_or_mobile = serializer.data["email_or_mobile"]) | Q(mobile = serializer.data["email_or_mobile"]))
                     user.save()
                     if '@' in serializer.data["email_or_mobile"]:
                         send_mail('Please verify your otp',f"your otp is {user.otp}",{serializer.data["email_or_mobile"]})
@@ -149,6 +149,21 @@ class LoginApiView(APIView):
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(tags = ['account'],request_body = ForgotPasswordSerializer)
+    def patch(self, request, *args, **kwargs):
+        serializer = ForgotPasswordSerializer(data = request.data)
+        serializer.is_valid(raise_exception = True)
+        user = CustomUser.objects.filter(id = serializer.validated_data["txn_id"],otp = serializer.validated_data["otp"]).first()
+        if user is None:
+            return Response({"status":"400","message":"Invalid OTP"})
+
+        if not user.is_expired:
+            return Response({"status":"400","message":"Otp expired"},status=400)
+
+        hash_password = make_password(serializer.validated_data["set_password"])
+        user.password = hash_password
+        user.save(update_fields = ["password"])
+        return Response({"status":"200","message":"Password Reset successfully please login to satrt your journy"},status=200)
 
 class LogoutAPIView(generics.GenericAPIView):
     serializer_class = LogoutSerializer
