@@ -242,9 +242,9 @@ class UpdateEmailAPIView(APIView):
         serializer.is_valid(raise_exception = True)
         msg,status = send_otp_on_entered_email_or_exists_one({"new_email": serializer.validated_data["email_or_mobile"],"user_id": request.user.id,"exists_email":request.user.email_or_mobile})
         if status == 400:
-            return Response({"status":f"{status}","message":f"{msg}"},status = 400)
+            return Response({"status":f"{status}","message":msg},status = 400)
             
-        return Response({"status":f"{status}","message":f"{msg}"}) 
+        return Response({"status":f"{status}","message":msg},status = 200) 
 
     @swagger_auto_schema(tags = ['account'],request_body = UpdateEmailSerializer)       
     def patch(self, request, *args, **kwargs):
