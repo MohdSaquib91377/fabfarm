@@ -83,8 +83,8 @@ def send_otp_on_entered_email_or_exists_one(data):
         send_mail(f"we have send you otp on this {data.get('exists_email')} please verify",f"your otp is {cache_response.get('otp')}",[data.get('exists_email'),data.get('exists_email')])
 
         msg = {
-            "label1":f"otp sent on {data.get('new_email')}",
-            "lable2":f"otp sent on {data.get('exists_email')}"
+            "new_email_otp":f"otp sent on {data.get('new_email')}",
+            "exists_email_otp":f"otp sent on {data.get('exists_email')}"
             }
         status = 200
         return msg,status
