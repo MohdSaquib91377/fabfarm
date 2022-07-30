@@ -87,3 +87,10 @@ class OrderItem(TimeStampModel):
 
     def __str__(self):
         return f"{self.order.id} -  {self.order.tracking_no}"
+
+    def save(self, *args, **kwargs):
+        total_order_item = OrderItem.objects.filter(order_id = self.order.id)
+        deliver_item = OrderItem.objects.filter(status__in = ["Delivered"])
+        if total_order_item.count() == deliver_item.count():
+            order = Order.objects.filter(id = self.order.id).update(order_status = "order_success")
+        super(OrderItem, self).save(*args, **kwargs)

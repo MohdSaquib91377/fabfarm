@@ -257,11 +257,11 @@ class UpdateEmailAPIView(APIView):
         }
         msg,status = verify_updated_email_or_exists_one(data)
         if status == 404:
-            return Response({"status":"404","message":f"{msg}"},status=404)
+            return Response({"status":"404","message":msg},status=404)
         if status == 400:
-            return Response({"status":"400","message":f"{msg}"},status=400)
+            return Response({"status":"400","message":msg},status=400)
 
-        return Response({"status":f"{status}", "message":f"{msg}"},status=200)
+        return Response({"status":f"{status}", "message":msg},status=200)
 
 class UpdateMobileAPIView(APIView):
     serializer_class = UpdateMobileSerializer
