@@ -5,6 +5,9 @@ from django.db import models
 from account.models import CustomUser,TimeStampModel
 from store.models import *
 from coupon.models import *
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 # Create your models here.
 
 class Order(TimeStampModel):
@@ -63,6 +66,7 @@ class Order(TimeStampModel):
     def __str__(self):
             return f"{self.id}"
 
+    
 
 class OrderItem(TimeStampModel):
     order = models.ForeignKey('Order',on_delete=models.CASCADE,related_name="orderItem")
@@ -88,9 +92,12 @@ class OrderItem(TimeStampModel):
     def __str__(self):
         return f"{self.order.id} -  {self.order.tracking_no}"
 
-    def save(self, *args, **kwargs):
-        total_order_item = OrderItem.objects.filter(order_id = self.order.id)
-        deliver_item = OrderItem.objects.filter(status__in = ["Delivered"],order_id = self.order.id)
-        if total_order_item.count() == deliver_item.count():
-            Order.objects.filter(id = self.order.id).update(order_status = "order_success")
-        super(OrderItem, self).save(*args, **kwargs)
+
+@receiver(post_save, sender=OrderItem)
+def make_order_success(sender, instance, **kwargs):
+    order_item = OrderItem.objects.filter(order_id = instance.order.id)
+    deliver_item = OrderItem.objects.filter(status__in=["Delivered"],order_id = instance.order.id)
+    if order_item.count() == deliver_item.count():
+        Order.objects.filter(id = instance.order.id).update(order_status="order_success")
+
+    
