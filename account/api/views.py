@@ -1,3 +1,4 @@
+from tabnanny import check
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
@@ -9,7 +10,7 @@ from account.helpers import (get_tokens_for_user,verify_otp,send_otp_on_entered_
                             verify_updated_email_or_exists_one,send_otp_on_entered_mobile_or_exists_one,verify_and_update_mobile,get_user_info)
 from rest_framework import status
 from django.contrib.auth import authenticate
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password,check_password
 from django.http import Http404
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.permissions import IsAuthenticated
@@ -144,18 +145,31 @@ class LoginApiView(APIView):
     def post(self, request, *args, **kwargs):
         try:
             serializer = LoginSerializer(data = request.data)
-            if serializer.is_valid():
-                user = authenticate(self,email_or_mobile=serializer.data["email_or_mobile"],password = serializer.data['password'])
-                if user and user.is_verified:
-                    user.is_verified = True
-                    user.save()
-                    #Generate Token
-                    token = get_tokens_for_user(user)
-                    return Response({"status":"200","message":"Login Successfully","data":token,"user_info":get_user_info(user)})
-                elif user:
-                    return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
-                else:
+                if serializer.is_valid():
+                if '@' in serializer.validated_data["email_or_mobile"]:
+                    user = authenticate(self,email_or_mobile=serializer.data["email_or_mobile"],password = serializer.data['password'])
+                    if user:
+                        if user.is_verified:
+                            user.is_verified = True
+                            user.save()
+                            #Generate Token
+                            token = get_tokens_for_user(user)
+                            return Response({"status":"200","message":"Login Successfully","data":token,"user_info":get_user_info(user)},status=200)
+                        return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
                     return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
+
+                user = CustomUser.objects.filter(mobile = int(serializer.validated_data["email_or_mobile"])).first()
+                if user:
+                    user_password = user.password
+                    entired_password = serializer.validated_data["password"]
+                    if CustomUser.objects.filter(mobile = int(serializer.validated_data["email_or_mobile"])).first().is_mobile_verified:
+                        if check_password(entired_password,user_password):
+                            token = get_tokens_for_user(user)
+                            return Response({"status":"200","message":"Login Successfully","data":token,"user_info":get_user_info(user)},status = 200)
+                        return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
+                    return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
+                return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
+
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
         except Exception as e:
