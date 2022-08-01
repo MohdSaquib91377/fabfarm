@@ -145,7 +145,7 @@ class LoginApiView(APIView):
     def post(self, request, *args, **kwargs):
         try:
             serializer = LoginSerializer(data = request.data)
-                if serializer.is_valid():
+            if serializer.is_valid():
                 if '@' in serializer.validated_data["email_or_mobile"]:
                     user = authenticate(self,email_or_mobile=serializer.data["email_or_mobile"],password = serializer.data['password'])
                     if user:
@@ -169,7 +169,6 @@ class LoginApiView(APIView):
                         return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
                     return Response({"status":"400","message":f"Please verify your {serializer.data['email_or_mobile']}"},status = status.HTTP_403_FORBIDDEN)
                 return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)
-
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
         except Exception as e:
