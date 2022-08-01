@@ -1,5 +1,6 @@
 from asyncio.format_helpers import extract_stack
 from dataclasses import field, fields
+import email
 from pyexpat import model
 from re import M
 from ssl import VerifyFlags
@@ -17,6 +18,7 @@ class RegisterSerializer(serializers.Serializer):
         return CustomUser.objects.create(**validated_data)
 
 class OTPVerifySerializer(serializers.Serializer):
+    email_or_mobile = serializers.CharField(max_length=64)
     id = serializers.CharField(max_length=10)
     otp = serializers.CharField(max_length=8)
 

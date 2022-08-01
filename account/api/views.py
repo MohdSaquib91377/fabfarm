@@ -1,5 +1,3 @@
-from posixpath import isabs
-from re import S
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from services.email import send_mail
@@ -74,14 +72,25 @@ class VerifyOTPApiView(APIView):
             if serializer.is_valid():
                 user = CustomUser.objects.filter(id = serializer.data['id'],otp = serializer.data['otp']).first()
                 if user:
-                    if not user.is_expired:
-                        CustomUser.objects.filter(id = serializer.data['id'],otp = serializer.data['otp']).update(is_verified=True)
-                        # Generrate Token
-                        token = get_tokens_for_user(user)
-                        return Response({"status":"200","message":"OTP verify successfully","data":token,"user_info":get_user_info(user)})
-                    else:
-                        return Response({"status":"400","message":"OTP expire"},status= status.HTTP_400_BAD_REQUEST)
-                return Response({"status":"400","message":"Invalid OTP"},status= status.HTTP_400_BAD_REQUEST)
+                    if '@' in serializer.validated_data["email_or_mobile"]:
+                        if not user.is_expired:
+                            CustomUser.objects.filter(id = serializer.data['id'],otp = serializer.data['otp']).update(is_verified=True)
+                            # Generrate Token
+                            token = get_tokens_for_user(user)
+                            return Response({"status":"200","message":"OTP verify successfully","data":token,"user_info":get_user_info(user)})
+                        else:
+                            return Response({"status":"400","message":"OTP expire"},status= status.HTTP_400_BAD_REQUEST)
+                   
+                    else:   
+                        if not user.is_expired:
+                            CustomUser.objects.filter(id = serializer.data['id'],otp = serializer.data['otp']).update(is_mobile_verified=True)
+                            # Generrate Token
+                            token = get_tokens_for_user(user)
+                            return Response({"status":"200","message":"OTP verify successfully","data":token,"user_info":get_user_info(user)})
+                        else:
+                            return Response({"status":"400","message":"OTP expire"},status= status.HTTP_400_BAD_REQUEST)
+                else:
+                    return Response({"status":"400","message":"Invalid OTP"},status= status.HTTP_400_BAD_REQUEST)
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
@@ -93,11 +102,10 @@ class SendOTPAPIView(APIView):
         try:
             serializer = SendOTPSerializer(data = request.data)
             if serializer.is_valid():
-                user = CustomUser.objects.filter(Q(email_or_mobile = serializer.data["email_or_mobile"]) | Q(mobile = serializer.data["email_or_mobile"])).first()
-                if user:
-                    user = CustomUser.objects.get(Q(email_or_mobile = serializer.data["email_or_mobile"]) | Q(mobile = serializer.data["email_or_mobile"]))
-                    user.save()
-                    if '@' in serializer.data["email_or_mobile"]:
+                if '@' in serializer.validated_data["email_or_mobile"]:
+                    user = CustomUser.objects.get(email_or_mobile = serializer.validated_data["email_or_mobile"])
+                    if user:
+                        user.save()
                         send_mail('Please verify your otp',f"your otp is {user.otp}",{serializer.data["email_or_mobile"]})
 
                         return Response(
@@ -106,17 +114,21 @@ class SendOTPAPIView(APIView):
                                 "otp": user.otp,
                                 "id": user.id
                             }
-                        )
+                            )
                     else:
-                        send_twilio_sms(serializer.data["email_or_mobile"],f"{user.otp}")
-                        return Response(
-                            {
-                                "status": "200",
-                                "otp": user.otp,
-                                "id": user.id
-                            }
-                        )
-                return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)    
+                        return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)    
+                    
+                else:
+                    user = CustomUser.objects.get(mobile = int(serializer.validated_data["email_or_mobile"]))
+                    user.save()
+                    send_twilio_sms(serializer.data["email_or_mobile"],f"{user.otp}")
+                    return Response(
+                        {
+                            "status": "200",
+                            "otp": user.otp,
+                            "id": user.id
+                        }
+                    )
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)       
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
