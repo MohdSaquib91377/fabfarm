@@ -31,6 +31,7 @@ class Payment(TimeStampModel):
 
 
 class Refund(TimeStampModel):
+    razorpay_payment_id = models.CharField(max_length=64,null=True,blank=True)
     razorpay_refund_id = models.CharField(max_length=255)
     order = models.ForeignKey(Order, on_delete=models.CASCADE,related_name="refunds",null=True, blank=True)
     order_item = models.ForeignKey(OrderItem, on_delete=models.CASCADE,null=True, blank=True)

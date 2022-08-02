@@ -7,6 +7,10 @@ import hashlib
 import hmac
 from order.models import *
 from payment.models import *
+from store.models import *
+from django.db.models import Sum
+
+
 def get_razorpay_client():
     client = razorpay.Client(auth = (settings.RAZOR_KEY_ID,settings.RAZOR_KEY_SECRET))
     return client
@@ -63,7 +67,7 @@ def create_refund(order,order_item_price):
     return refund
 
 def update_order(payload):
-    print("update_order")
+    print("update order ---------------------------->>>>>>>>>")
     '''
                 {
             "entity": "event",
@@ -156,28 +160,45 @@ def update_order(payload):
         '''
         # Refund failed
         if razorpay_refund["status"] == 'failed':
-            refund.order.order_status = "partial_refund_failed"
+            refund.order.order_status = "partial refund failed"
             refund.save()
             return ""
 
-        # Refund Full
-        elif int(refund.order.total_price) - razorpay_refund['amount'] / 100<= 0:
-            refund.order.order_status = "order_cancelled"
-            refund.order.payment_status = "payment_refund_full"
-            refund.order_item.status = "Refund"
-            
-        # Refund proccess
-        else:
-            refund.order.order_status = "partial_order"
-            refund.order.payment_status = "payment_refund_partial"
-            refund.order_item.status = "Refund"
+       
+       
+
+        payment_id = payload["payment"]["entity"]["id"]
+        total_refund_amount = Refund.objects.filter(razorpay_payment_id = payment_id).aggregate(Sum('amount'))["amount__sum"]
+
+       
 
         refund.status = razorpay_refund['status']
         refund.speed_requested = razorpay_refund["speed_requested"]
         refund.speed_processed = razorpay_refund["speed_processed"]
         refund.amount = razorpay_refund["amount"] / 100
+
+         # Refund Full
+        if int(refund.order.total_price) - total_refund_amount<= 0:
+            refund.order.order_status = "order cancelled"
+            refund.order.payment_status = "Payment Refund Full"
+            refund.order_item.status = "Refund"
+            
+        # Refund proccess
+        else:
+            refund.order.order_status = "partial order"
+            refund.order.payment_status = "Payment Refund Partial"
+            refund.order_item.status = "Refund"
+            
         refund.save()
         refund.order.save()
         refund.order_item.save()
+        # update product quantity
+        order_item_quantity = refund.order_item.quantity
+        product_id = refund.order_item.product.id
+        product_obj = Product.objects.get(id = product_id)
+        product_obj.quantity += int(order_item_quantity)
+        product_obj.save(update_fields = ["quantity"])
+
+        
         
         

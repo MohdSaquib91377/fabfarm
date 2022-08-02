@@ -44,8 +44,8 @@ class PaymentSuccessAPIView(APIView):
             order.amount_due = razorpay_order_response['amount_due']
             order.amount_paid = razorpay_order_response['amount_paid']
             order.attempts = razorpay_order_response['attempts']
-            order.payment_status = "payment_success"
-            order.order_status = "order_pending"
+            order.payment_status = "payment success"
+            order.order_status = "order pending"
             order.save()
 
             
@@ -79,7 +79,7 @@ class PaymentFailureAPIView(APIView):
             order.amount_due = razorpay_order_response['amount_due']
             order.amount_paid = razorpay_order_response['amount_paid']
             order.attempts = razorpay_order_response['attempts']
-            order.payment_status = "payment_failed"
+            order.payment_status = "payment failed"
             order.save()
             return Response({
                 "status":"400",
@@ -99,20 +99,20 @@ class RequestRefundAPIView(APIView):
             if not found_order_item:
                 return Response({"status":"400","message":"order item not found"},status = 400)
 
-            # Check if order item is develived 
-            if not found_order_item.status in ["Delivered"]:
-                if found_order_item.status in ["refund_in_progress"]:
-                    return Response({"status":"400","message":"Refund in progress"},status =400)
-                return Response({"status":"400","message":"Can not refund because order item is not delivered"},status =400)
-
                # Check if order item is develived 
             if found_order_item.status in ["Refund"]:
                 return Response({"status":"400","message":"Can not refund because order item is already refund"},status =400)
+            # Check if order item is develived 
+            if not found_order_item.status in ["Delivered","Pendding","Pending"]:
+                if found_order_item.status in ["Refund In Progress"]:
+                    return Response({"status":"400","message":"Refund in progress"},status =400)
+                return Response({"status":"400","message":"Can not refund because order item is not delivered or pending"},status =400)
+
             
 
             # Create Refund and notify razorpay
             refund = create_refund(found_order_item.order,int(found_order_item.product.price)*(found_order_item.quantity))
-
+            print("refundddddddddddddddddddddddd",refund)
             '''
             {
             "id": "rfnd_FP8QHiV938haTz",
@@ -141,6 +141,7 @@ class RequestRefundAPIView(APIView):
             refund_obj.payment = Payment.objects.filter(order_id=found_order_item.order.id).first()
 
             # razorpay responbse
+            refund_obj.razorpay_payment_id = refund["payment_id"]
             refund_obj.razorpay_refund_id = refund["id"]
             refund_obj.amount = refund["amount"] / 100
             refund_obj.speed_processed = refund["speed_processed"]
@@ -149,13 +150,13 @@ class RequestRefundAPIView(APIView):
             refund_obj.save()
 
             # Update order item status
-            found_order_item.status = "refund_in_progress"
+            found_order_item.status = "Refund In Progress"
             found_order_item.save()
 
             # Update Order status as well
             order = found_order_item.order
-            order.order_status = "partial_order_in_progress"
-            order.payment_status = "partial_payment_refund_in_progress"
+            order.order_status = "partial order in progress"
+            order.payment_status = "Partial Payment Refund In Progress"
             order.save()
             return Response({"status": "success","message": f"Refund of Amount <b>INR {int(found_order_item.price):,}</b> has been initiated for Booking ID <b>{order.id}</b>.<br/>Please access the payment gateway to check the respective order for more details."})
         
@@ -172,15 +173,16 @@ class RefundRazorpayWebhook(APIView):
         client = get_razorpay_client()
         if not client.utility.verify_webhook_signature(webhook_body, webhook_signature, webhook_secret):
             return Response({"status":400,"message":"not authorized webhook"})
-        print("comes in try block ----------------------------------------------><---------------------")
         json_data = json.loads(webhook_body)
-
+        print("json_data---------------------",json_data)
         if json_data['entity'] != "event":
             return Response({"message":"not authorized webhook bcz event not came"})
         if json_data["event"] in ["refund.processed","refund.failed"]:
             payload = json_data["payload"]
-            print("plz call")
             update_order(payload)
+
+            # update product quantity
+
 
             return Response({"status":"200","message":"success"},status = 200)
         return Response({"status":"200"})

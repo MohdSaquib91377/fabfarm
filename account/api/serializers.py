@@ -64,8 +64,8 @@ class ChangePasswordSerializer(serializers.Serializer):
 class ListUpdateProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ["fullname","gender","email_or_mobile"]
-        extra_fields = {"email_or_mobile":{"required": False, "allow_null": True}}
+        fields = ["fullname","gender","email_or_mobile","mobile"]
+        extra_fields = {"email_or_mobile":{"required": False, "allow_null": True},"mobile":{"required":False,"allow_null": True}}
 
 
 
