@@ -16,10 +16,14 @@ class OrderSerializer(serializers.ModelSerializer):
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
     order = serializers.PrimaryKeyRelatedField(read_only = True)
-
+    payment_mode = serializers.SerializerMethodField("get_order_payment_mode")
     class Meta:
         model = OrderItem
         fields = "__all__"  
+
+    def get_order_payment_mode(self,obj):
+        return obj.order.payment_mode
+        
 
 class OrderItemDetailsSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
