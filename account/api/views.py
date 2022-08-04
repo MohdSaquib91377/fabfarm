@@ -241,7 +241,7 @@ class ChangePasswordAPIView(APIView):
             return Response({"status":"400","message":msg},status=400)
 
         if not request.user.check_password(serializer.validated_data["current_password"]):
-            msg = {"current_password":"current passwrod does not match with old password"}
+            msg = {"current_password":"Current password does not match with old password"}
             return Response({"status":"400","message":msg},status=400) 
 
         if serializer.validated_data["new_password"] != serializer.validated_data["confirm_password"]:
