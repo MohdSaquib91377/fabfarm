@@ -76,13 +76,13 @@ class OrderItem(TimeStampModel):
     order_status = (   
           
         ("Pending","Pending"),
-        ("Out For Shipping","Out For Shiping"),
+        ("Out For Shipping","Out For Shipping"),
         ("Completed","Completed"),
         ("Packed","Packed"),
-        ("Cancel","Cancel"),
+        ("Cancelled","Cancelled"),
         ("Delivered","Delivered"),
         ("Refund In Progress","Refund In Progress"),
-        ("Refund","Refund"),
+        ("Refunded","Refunded"),
         ("Refund Failed","Refund Failed"),
 
         )
