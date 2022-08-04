@@ -55,7 +55,7 @@ def verify_otp(data):
         msg = {"otp" : "otp expired","status" : 400}
         return msg,status
 
-    msg = {"otp" : "invalid otp ", "status" : 400}
+    msg = {"otp" : "Invalid OTP ", "status" : 400}
     status = 404
     return msg,status
 
