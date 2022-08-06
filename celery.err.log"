@@ -11883,3 +11883,61 @@ User information: uid=0 euid=0 gid=0 egid=0
 [2022-08-04 19:12:12,569: INFO/ForkPoolWorker-4] Task send_mail[5e3d4987-355b-46d7-926d-790c7d9c1466] succeeded in 3.366719066980295s: None
 [2022-08-04 19:12:16,832: INFO/MainProcess] Task send_mail[8d56e272-8703-4c2d-a7ba-b77fcf21cf14] received
 [2022-08-04 19:12:20,247: INFO/ForkPoolWorker-4] Task send_mail[8d56e272-8703-4c2d-a7ba-b77fcf21cf14] succeeded in 3.41337367502274s: None
+[2022-08-05 15:55:59,691: INFO/MainProcess] Task send_mail[e0f6881b-05ff-4c0c-8fdd-6f65541823e3] received
+[2022-08-05 15:56:03,187: INFO/ForkPoolWorker-4] Task send_mail[e0f6881b-05ff-4c0c-8fdd-6f65541823e3] succeeded in 3.4953707169624977s: None
+[2022-08-05 16:00:09,390: INFO/MainProcess] Task send_mail[242059a1-cf65-4041-b041-6ed86e0356e2] received
+[2022-08-05 16:00:13,068: INFO/ForkPoolWorker-4] Task send_mail[242059a1-cf65-4041-b041-6ed86e0356e2] succeeded in 3.6770615020068362s: None
+[2022-08-05 16:08:07,763: INFO/MainProcess] Task send_mail[faff573f-e2de-4a8d-8a93-cb1d8dc568ef] received
+[2022-08-05 16:08:11,389: INFO/ForkPoolWorker-4] Task send_mail[faff573f-e2de-4a8d-8a93-cb1d8dc568ef] succeeded in 3.6251805829815567s: None
+[2022-08-05 16:11:24,970: INFO/MainProcess] Task send_mail[e9de0b31-56b8-46bd-bfa2-854a7b92e58d] received
+[2022-08-05 16:11:28,528: INFO/ForkPoolWorker-4] Task send_mail[e9de0b31-56b8-46bd-bfa2-854a7b92e58d] succeeded in 3.5570348990149796s: None
+[2022-08-05 16:14:00,102: INFO/MainProcess] Task send_mail[e05d8401-ca1e-4758-a6f0-f355de957a80] received
+[2022-08-05 16:14:05,027: INFO/ForkPoolWorker-4] Task send_mail[e05d8401-ca1e-4758-a6f0-f355de957a80] succeeded in 4.924695226014592s: None
+[2022-08-05 16:15:16,003: INFO/MainProcess] Task send_mail[32101315-2996-4e09-9212-7c70049e8161] received
+[2022-08-05 16:15:19,719: INFO/ForkPoolWorker-4] Task send_mail[32101315-2996-4e09-9212-7c70049e8161] succeeded in 3.715259342978243s: None
+[2022-08-05 16:42:26,352: INFO/MainProcess] Task send_mail[e8197222-5869-4d46-a6aa-1f9974b371b3] received
+[2022-08-05 16:42:29,849: INFO/ForkPoolWorker-4] Task send_mail[e8197222-5869-4d46-a6aa-1f9974b371b3] succeeded in 3.496351733978372s: None
+[2022-08-05 17:22:39,180: INFO/MainProcess] Task send_mail[ba51f744-442d-4c57-bc76-c746cc985b78] received
+[2022-08-05 17:22:43,059: INFO/ForkPoolWorker-4] Task send_mail[ba51f744-442d-4c57-bc76-c746cc985b78] succeeded in 3.877965994004626s: None
+[2022-08-05 18:23:15,894: INFO/MainProcess] Task send_mail[adea11bf-b35b-476d-acbe-44383bed9de1] received
+[2022-08-05 18:23:20,126: INFO/ForkPoolWorker-4] Task send_mail[adea11bf-b35b-476d-acbe-44383bed9de1] succeeded in 4.2309130289941095s: None
+[2022-08-05 18:23:33,371: INFO/MainProcess] Task send_mail[a5a1afe7-1628-4203-8943-b5de9d2536d7] received
+[2022-08-05 18:23:37,344: INFO/ForkPoolWorker-4] Task send_mail[a5a1afe7-1628-4203-8943-b5de9d2536d7] succeeded in 3.9717098510009237s: None
+[2022-08-05 18:26:36,585: INFO/MainProcess] Task send_mail[988b6e0d-e3bb-4d4b-978a-09d66d1a95e4] received
+[2022-08-05 18:26:39,989: INFO/ForkPoolWorker-4] Task send_mail[988b6e0d-e3bb-4d4b-978a-09d66d1a95e4] succeeded in 3.404111201991327s: None
+[2022-08-05 19:04:46,116: INFO/MainProcess] Task send_mail[8ebb3c04-bff8-4f57-9c32-51f4a6c55f23] received
+[2022-08-05 19:04:50,781: INFO/ForkPoolWorker-4] Task send_mail[8ebb3c04-bff8-4f57-9c32-51f4a6c55f23] succeeded in 4.662991165998392s: None
+[2022-08-05 19:13:50,075: INFO/MainProcess] Task send_mail[36085575-38e6-4a76-bc42-d51cfe4b4180] received
+[2022-08-05 19:13:54,041: INFO/ForkPoolWorker-4] Task send_mail[36085575-38e6-4a76-bc42-d51cfe4b4180] succeeded in 3.9657608740380965s: None
+[2022-08-05 19:14:30,689: INFO/MainProcess] Task send_mail[39374d6f-9991-432a-a4ad-cc9f6ec8bdca] received
+[2022-08-05 19:14:34,078: INFO/ForkPoolWorker-4] Task send_mail[39374d6f-9991-432a-a4ad-cc9f6ec8bdca] succeeded in 3.3880798520403914s: None
+[2022-08-06 14:23:02,674: INFO/MainProcess] Task send_mail[ca0d64da-9b43-4f09-98b6-039ed4525433] received
+[2022-08-06 14:23:06,510: INFO/ForkPoolWorker-4] Task send_mail[ca0d64da-9b43-4f09-98b6-039ed4525433] succeeded in 3.835783199989237s: None
+[2022-08-06 14:26:12,772: INFO/MainProcess] Task send_mail[220c12d1-f0e4-4dd3-a5e9-e9bcaf4122f5] received
+[2022-08-06 14:26:16,344: INFO/ForkPoolWorker-4] Task send_mail[220c12d1-f0e4-4dd3-a5e9-e9bcaf4122f5] succeeded in 3.571397783001885s: None
+[2022-08-06 14:29:36,041: INFO/MainProcess] Task send_mail[7c83fb0a-f793-4f70-9acc-56ecefaf7282] received
+[2022-08-06 14:29:39,345: INFO/ForkPoolWorker-4] Task send_mail[7c83fb0a-f793-4f70-9acc-56ecefaf7282] succeeded in 3.3031934799510054s: None
+[2022-08-06 14:32:12,972: INFO/MainProcess] Task send_mail[29025ea5-f3fc-4f75-8447-03afc4816aea] received
+[2022-08-06 14:32:16,330: INFO/ForkPoolWorker-4] Task send_mail[29025ea5-f3fc-4f75-8447-03afc4816aea] succeeded in 3.3569481120212004s: None
+[2022-08-06 16:02:21,070: INFO/MainProcess] Task send_mail[581dfef8-bc67-4b39-b1f7-23e906848d73] received
+[2022-08-06 16:02:24,669: INFO/ForkPoolWorker-4] Task send_mail[581dfef8-bc67-4b39-b1f7-23e906848d73] succeeded in 3.5950648300349712s: None
+[2022-08-06 16:40:32,206: INFO/MainProcess] Task send_mail[32b99051-ae77-4275-90ac-41792902d529] received
+[2022-08-06 16:40:36,228: INFO/ForkPoolWorker-4] Task send_mail[32b99051-ae77-4275-90ac-41792902d529] succeeded in 4.019851830031257s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 16:43:59,446: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 16:43:59,448: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 16:44:00,454: INFO/MainProcess] mingle: all alone
+[2022-08-06 16:44:00,460: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 16:44:00,460: INFO/MainProcess] celery@Dataviv-TS140 ready.

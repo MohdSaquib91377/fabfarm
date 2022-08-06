@@ -182,7 +182,7 @@ class LoginApiView(APIView):
         if user is None:
             return Response({"status":"400","message":"Invalid OTP"})
 
-        if not user.is_expired:
+        if user.is_expired:
             return Response({"status":"400","message":"Otp expired"},status=400)
 
         hash_password = make_password(serializer.validated_data["set_password"])
