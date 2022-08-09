@@ -131,6 +131,10 @@ class SendOTPAPIView(APIView):
                         }
                     )
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)       
+        except CustomUser.DoesNotExist:
+            return Response({"status":"400","message":"Invalid credentials"},status= status.HTTP_400_BAD_REQUEST)    
+
+
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
 
@@ -180,7 +184,7 @@ class LoginApiView(APIView):
         serializer.is_valid(raise_exception = True)
         user = CustomUser.objects.filter(id = serializer.validated_data["txn_id"],otp = serializer.validated_data["otp"]).first()
         if user is None:
-            return Response({"status":"400","message":"Invalid OTP"})
+            return Response({"status":"400","message":"Invalid OTP"},status=400)
 
         if user.is_expired:
             return Response({"status":"400","message":"Otp expired"},status=400)

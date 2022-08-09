@@ -1,6 +1,8 @@
 from django.db import models
 from account.models import TimeStampModel
 # Create your models here.
+from django.core.exceptions import ValidationError
+import PIL.Image
 
 class Page(TimeStampModel):
     page = models.CharField(max_length = 64,null=True, blank=True)
@@ -18,3 +20,9 @@ class Banner(TimeStampModel):
     
     def __str__(self):
         return f"{self.caption}"
+
+    def clean(self):
+        img_or_vid = PIL.Image.open(self.image_or_video.path)
+        if img_or_vid.height != 1920 or img_or_vid.width != 768:
+            raise ValidationError("Banner image size should be 1920 * 768")
+        super(Banner, self).clean()

@@ -45,14 +45,14 @@ def generate_otp(email):
 # Alway send otp verify otp should be reusable
 def verify_otp(data):
     error_list = []
-    msg = "otp verification successful"
+    msg = "OTP verification successful"
     status = 200
     is_otp_found = CustomUser.objects.filter(id = data['txn_id'] ,otp = data['otp']).first()
     if is_otp_found:
         if not is_otp_found.is_expired:
             CustomUser.objects.filter(id = data['txn_id'],otp = data['otp']).update(is_verified=True)
             return msg,status
-        msg = {"otp" : "otp expired","status" : 400}
+        msg = {"otp" : "OTP expired","status" : 400}
         return msg,status
 
     msg = {"otp" : "Invalid OTP ", "status" : 400}
@@ -77,10 +77,10 @@ def send_otp_on_entered_email_or_exists_one(data):
     else:
         # send email
         cache_response = generate_otp(f"{data.get('new_email')}")
-        send_mail(f"we have send you otp on this {data.get('new_email')} please verify",f"your otp is {cache_response.get('otp')}",[data.get('new_email'),data.get('new_email')])
+        send_mail(f"we have send you OTP on this {data.get('new_email')} please verify",f"your OTP is {cache_response.get('otp')}",[data.get('new_email'),data.get('new_email')])
 
         cache_response = generate_otp(f"{data.get('exists_email')}")
-        send_mail(f"we have send you otp on this {data.get('exists_email')} please verify",f"your otp is {cache_response.get('otp')}",[data.get('exists_email'),data.get('exists_email')])
+        send_mail(f"we have send you OTP on this {data.get('exists_email')} please verify",f"your OTP is {cache_response.get('otp')}",[data.get('exists_email'),data.get('exists_email')])
 
         msg = {
             "new_email_otp":f"OTP sent on {data.get('new_email')}",
@@ -172,8 +172,8 @@ def send_otp_on_entered_mobile_or_exists_one(data):
         email_or_mobile_cache_response = generate_otp_for_mobile(f"{user.email_or_mobile}")
         send_mail(f"we have send you otp on this {user.email_or_mobile} please verify",f"your otp is {email_or_mobile_cache_response.get('otp')}",[user.email_or_mobile])
         msg = {
-            "new_mobile_otp":f"otp sent to {data.get('new_mobile')}",
-            "exists_email_or_mobile_otp":f"otp sent to {user.email_or_mobile}"
+            "new_mobile_otp":f"OTP sent to {data.get('new_mobile')}",
+            "exists_email_or_mobile_otp":f"OTP sent to {user.email_or_mobile}"
             }
         return msg,status
 
@@ -181,8 +181,8 @@ def send_otp_on_entered_mobile_or_exists_one(data):
         email_or_mobile_cache_response = generate_otp_for_mobile(f"{data.get('exists_mobile')}")   
         send_twilio_sms(f"{data.get('exists_mobile')}",f"this is your otp {email_or_mobile_cache_response.get('otp')} please verify")
         msg = {
-            "new_mobile_otp":f"otp sent to {data.get('new_mobile')}",
-            "exists_email_or_mobile_otp":f"otp sent to {user.email_or_mobile}"
+            "new_mobile_otp":f"OTP sent to {data.get('new_mobile')}",
+            "exists_email_or_mobile_otp":f"OTP sent to {user.email_or_mobile}"
             }
         return msg,status
 

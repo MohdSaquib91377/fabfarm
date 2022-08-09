@@ -92,11 +92,9 @@ class Image(TimeStampModel):
     def save(self,*args,**kwargs):
         super().save(*args,**kwargs)
         img = PIL.Image.open(self.image.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300,300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+        output_size = (500,400)
+        img.thumbnail(output_size)
+        img.save(self.image.path)
 
 class RecentView(TimeStampModel):
     user = models.ForeignKey("account.CustomUser",on_delete=models.CASCADE,related_name="recent_views")

@@ -11941,3 +11941,803 @@ User information: uid=0 euid=0 gid=0 egid=0
   warnings.warn('''Using settings.DEBUG leads to a memory
 
 [2022-08-06 16:44:00,460: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 16:52:19,672: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 16:52:19,674: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 16:52:20,679: INFO/MainProcess] mingle: all alone
+[2022-08-06 16:52:20,689: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 16:52:20,689: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-06 16:57:16,796: INFO/MainProcess] Task send_mail[1df408da-ccce-4695-b137-7f853c843e59] received
+[2022-08-06 16:57:20,410: INFO/ForkPoolWorker-4] Task send_mail[1df408da-ccce-4695-b137-7f853c843e59] succeeded in 3.6126714409911074s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:12:59,369: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:12:59,372: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:13:00,377: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:13:00,384: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:13:00,384: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:15:07,627: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:15:07,630: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:15:08,635: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:15:08,641: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:15:08,641: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:18:46,197: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:18:46,199: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:18:47,205: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:18:47,213: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:18:47,214: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:19:32,316: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:19:32,318: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:19:33,323: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:19:33,330: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:19:33,330: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:26:38,290: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:26:38,293: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:26:39,298: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:26:39,304: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:26:39,304: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:31:53,181: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:31:53,183: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:31:54,187: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:31:54,194: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:31:54,194: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:35:04,092: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:35:04,094: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:35:05,099: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:35:05,106: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:35:05,106: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:35:42,162: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:35:42,165: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:35:43,170: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:35:43,177: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:35:43,177: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:40:47,187: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:40:47,190: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:40:48,195: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:40:48,204: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:40:48,204: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:40:55,805: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:40:55,806: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:40:56,811: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:40:56,818: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:40:56,818: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:55:36,974: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:55:36,976: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:55:37,982: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:55:37,989: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:55:37,989: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:55:52,710: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:55:52,712: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:55:53,717: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:55:53,734: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:55:53,735: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:58:27,395: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:58:27,397: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:58:28,402: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:58:28,409: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:58:28,409: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 17:59:52,269: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 17:59:52,271: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 17:59:53,277: INFO/MainProcess] mingle: all alone
+[2022-08-06 17:59:53,283: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 17:59:53,283: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-06 18:00:40,434: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-06 18:00:40,437: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-06 18:00:41,442: INFO/MainProcess] mingle: all alone
+[2022-08-06 18:00:41,448: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-06 18:00:41,448: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-06 18:01:11,477: INFO/MainProcess] Task send_mail[73f38504-2943-464f-b51b-a316a2bb3c10] received
+[2022-08-06 18:01:15,719: INFO/ForkPoolWorker-4] Task send_mail[73f38504-2943-464f-b51b-a316a2bb3c10] succeeded in 4.24052374297753s: None
+[2022-08-06 18:03:16,002: INFO/MainProcess] Task send_mail[c356e55e-f2ff-4c87-be8f-e68320bc31e6] received
+[2022-08-06 18:03:19,456: INFO/ForkPoolWorker-4] Task send_mail[c356e55e-f2ff-4c87-be8f-e68320bc31e6] succeeded in 3.4534364190185443s: None
+[2022-08-06 18:04:01,008: INFO/MainProcess] Task send_mail[eb096dd1-d38e-4f5c-869d-09c587d9ad19] received
+[2022-08-06 18:04:04,457: INFO/ForkPoolWorker-4] Task send_mail[eb096dd1-d38e-4f5c-869d-09c587d9ad19] succeeded in 3.448819437995553s: None
+[2022-08-06 18:06:07,009: INFO/MainProcess] Task send_mail[64f716ae-d801-4eb3-9bba-340ebd8c5d09] received
+[2022-08-06 18:06:10,380: INFO/ForkPoolWorker-4] Task send_mail[64f716ae-d801-4eb3-9bba-340ebd8c5d09] succeeded in 3.369821651955135s: None
+[2022-08-07 16:59:17,547: INFO/MainProcess] Task send_mail[9107215f-abdc-4641-a935-e55949d863cf] received
+[2022-08-07 16:59:20,097: ERROR/ForkPoolWorker-4] Task send_mail[9107215f-abdc-4641-a935-e55949d863cf] raised unexpected: SMTPRecipientsRefused({'8108902371': (553, b'5.1.3 The recipient address <8108902371> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 a6-20020a170902ecc600b0016d5a356b31sm6508493plh.116 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'8108902371': (553, b'5.1.3 The recipient address <8108902371> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 a6-20020a170902ecc600b0016d5a356b31sm6508493plh.116 - gsmtp')}
+[2022-08-07 17:03:35,258: INFO/MainProcess] Task send_mail[49b52a0c-c778-40eb-ad88-c9d742a20252] received
+[2022-08-07 17:03:37,406: ERROR/ForkPoolWorker-4] Task send_mail[49b52a0c-c778-40eb-ad88-c9d742a20252] raised unexpected: SMTPRecipientsRefused({'8108902371': (553, b'5.1.3 The recipient address <8108902371> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 p9-20020a63fe09000000b00401a9bc0f33sm4405123pgh.85 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'8108902371': (553, b'5.1.3 The recipient address <8108902371> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 p9-20020a63fe09000000b00401a9bc0f33sm4405123pgh.85 - gsmtp')}
+[2022-08-07 17:03:50,413: INFO/MainProcess] Task send_mail[ddbfbd1d-c6d9-4aa3-b01f-163d599c9776] received
+[2022-08-07 17:03:52,570: ERROR/ForkPoolWorker-4] Task send_mail[ddbfbd1d-c6d9-4aa3-b01f-163d599c9776] raised unexpected: SMTPRecipientsRefused({'8108902371': (553, b'5.1.3 The recipient address <8108902371> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 t3-20020a1709027fc300b0016daee46b72sm6395312plb.237 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'8108902371': (553, b'5.1.3 The recipient address <8108902371> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 t3-20020a1709027fc300b0016daee46b72sm6395312plb.237 - gsmtp')}
+[2022-08-08 17:10:58,612: INFO/MainProcess] Task send_mail[338a5ac3-6a07-4b13-b19c-817c72e948e3] received
+[2022-08-08 17:11:00,900: ERROR/ForkPoolWorker-4] Task send_mail[338a5ac3-6a07-4b13-b19c-817c72e948e3] raised unexpected: SMTPRecipientsRefused({'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 x13-20020a1709027c0d00b0016c20d40ee7sm8459178pll.174 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 x13-20020a1709027c0d00b0016c20d40ee7sm8459178pll.174 - gsmtp')}
+[2022-08-08 17:15:09,297: INFO/MainProcess] Task send_mail[e345a52f-725c-40d4-9c56-1bd5088176a4] received
+[2022-08-08 17:15:11,595: ERROR/ForkPoolWorker-4] Task send_mail[e345a52f-725c-40d4-9c56-1bd5088176a4] raised unexpected: SMTPRecipientsRefused({'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 b7-20020a1709027e0700b0016cf195eb16sm1312004plm.185 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 b7-20020a1709027e0700b0016cf195eb16sm1312004plm.185 - gsmtp')}
+[2022-08-08 17:21:42,028: INFO/MainProcess] Task send_mail[8630ba3c-ae35-42e6-a8e4-f25ce945dd78] received
+[2022-08-08 17:21:44,487: ERROR/ForkPoolWorker-4] Task send_mail[8630ba3c-ae35-42e6-a8e4-f25ce945dd78] raised unexpected: SMTPRecipientsRefused({'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 a9-20020a170902ecc900b0016d6c939332sm8555250plh.279 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 a9-20020a170902ecc900b0016d6c939332sm8555250plh.279 - gsmtp')}
+[2022-08-08 17:23:21,658: INFO/MainProcess] Task send_mail[fa3d7dce-78ba-4e84-a7f8-f84f6e8ec9e6] received
+[2022-08-08 17:23:26,224: INFO/ForkPoolWorker-4] Task send_mail[fa3d7dce-78ba-4e84-a7f8-f84f6e8ec9e6] succeeded in 4.5653924440266564s: None
+[2022-08-08 17:30:28,257: INFO/MainProcess] Task send_mail[48801596-93fd-41b1-ac12-2fcf0681be58] received
+[2022-08-08 17:30:30,489: ERROR/ForkPoolWorker-4] Task send_mail[48801596-93fd-41b1-ac12-2fcf0681be58] raised unexpected: SMTPRecipientsRefused({'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 m14-20020a170902f64e00b0016dc0a6f576sm8477304plg.250 - gsmtp')})
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/dataviv/fabfarmbackend/services/email.py", line 7, in send_mail
+    mail.send_mail(subject, body,settings.EMAIL_HOST_USER,to_email,fail_silently=False)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/__init__.py", line 87, in send_mail
+    return mail.send()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/mail/backends/smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'7021357248': (553, b'5.1.3 The recipient address <7021357248> is not a valid RFC-5321 address.\n5.1.3 Learn more at\n5.1.3  https://support.google.com/mail/answer/6596 m14-20020a170902f64e00b0016dc0a6f576sm8477304plg.250 - gsmtp')}
+[2022-08-08 17:31:49,241: INFO/MainProcess] Task send_mail[2cb570af-5741-4a58-86ce-73e3e06dd8c6] received
+[2022-08-08 17:31:52,890: INFO/ForkPoolWorker-4] Task send_mail[2cb570af-5741-4a58-86ce-73e3e06dd8c6] succeeded in 3.647896306007169s: None
+[2022-08-08 17:34:02,412: INFO/MainProcess] Task send_mail[0af758e3-4787-4b44-81a0-5c060c6cb334] received
+[2022-08-08 17:34:06,335: INFO/ForkPoolWorker-4] Task send_mail[0af758e3-4787-4b44-81a0-5c060c6cb334] succeeded in 3.9223398190224543s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:05:11,317: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:05:11,320: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:05:12,326: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:05:12,334: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:05:12,334: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:07:00,756: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:07:00,758: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:07:01,763: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:07:01,778: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:07:01,778: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 13:10:50,262: INFO/MainProcess] Task send_mail[38caed73-ff93-4062-a87a-05fbe9f26857] received
+[2022-08-09 13:10:54,050: INFO/ForkPoolWorker-4] Task send_mail[38caed73-ff93-4062-a87a-05fbe9f26857] succeeded in 3.7874358389526606s: None
+[2022-08-09 13:11:54,015: INFO/MainProcess] Task send_mail[3ea80949-bfe6-4b51-95ab-34a15c107175] received
+[2022-08-09 13:11:57,576: INFO/ForkPoolWorker-4] Task send_mail[3ea80949-bfe6-4b51-95ab-34a15c107175] succeeded in 3.560737235005945s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:12:22,760: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:12:22,763: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:12:23,769: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:12:23,775: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:12:23,775: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 13:15:44,745: INFO/MainProcess] Task send_mail[ccebea14-59b1-4a27-9f33-df13895d40d0] received
+[2022-08-09 13:15:48,204: INFO/ForkPoolWorker-4] Task send_mail[ccebea14-59b1-4a27-9f33-df13895d40d0] succeeded in 3.458180101006292s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:16:13,190: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:16:13,192: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:16:14,198: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:16:14,207: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:16:14,207: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:16:43,246: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:16:43,248: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:16:44,253: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:16:44,260: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:16:44,260: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:16:55,631: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:16:55,633: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:16:56,638: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:16:56,645: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:16:56,645: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:36:03,205: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:36:03,207: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:36:04,212: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:36:04,226: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:36:04,226: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:45:59,153: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:45:59,156: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:46:00,161: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:46:00,167: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:46:00,168: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 13:48:25,209: INFO/MainProcess] Task send_mail[9c800eef-6bb3-4482-bd65-725ee96b5d96] received
+[2022-08-09 13:48:29,113: INFO/ForkPoolWorker-4] Task send_mail[9c800eef-6bb3-4482-bd65-725ee96b5d96] succeeded in 3.903160889982246s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:49:23,587: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:49:23,589: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:49:24,595: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:49:24,602: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:49:24,602: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:52:28,697: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:52:28,698: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:52:29,703: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:52:29,713: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:52:29,713: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 13:53:28,425: INFO/MainProcess] Task send_mail[81e748be-e19d-40e3-b4fc-4153116a8455] received
+[2022-08-09 13:53:32,199: INFO/ForkPoolWorker-4] Task send_mail[81e748be-e19d-40e3-b4fc-4153116a8455] succeeded in 3.7736569499829784s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:53:55,268: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:53:55,270: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:53:56,275: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:53:56,282: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:53:56,282: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:56:35,261: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:56:35,264: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:56:36,269: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:56:36,277: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:56:36,277: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 13:57:53,761: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 13:57:53,764: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 13:57:54,769: INFO/MainProcess] mingle: all alone
+[2022-08-09 13:57:54,775: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 13:57:54,775: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 14:00:41,116: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 14:00:41,117: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 14:00:42,123: INFO/MainProcess] mingle: all alone
+[2022-08-09 14:00:42,130: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 14:00:42,130: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 14:02:14,243: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 14:02:14,246: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 14:02:15,251: INFO/MainProcess] mingle: all alone
+[2022-08-09 14:02:15,259: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 14:02:15,259: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 14:03:10,787: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 14:03:10,789: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 14:03:11,795: INFO/MainProcess] mingle: all alone
+[2022-08-09 14:03:11,805: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 14:03:11,805: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 14:04:02,740: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 14:04:02,742: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 14:04:03,747: INFO/MainProcess] mingle: all alone
+[2022-08-09 14:04:03,764: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 14:04:03,764: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 14:04:47,434: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 14:04:47,436: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 14:04:48,442: INFO/MainProcess] mingle: all alone
+[2022-08-09 14:04:48,448: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 14:04:48,449: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 14:13:33,910: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 14:13:33,913: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 14:13:34,918: INFO/MainProcess] mingle: all alone
+[2022-08-09 14:13:34,924: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 14:13:34,924: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 14:22:49,478: INFO/MainProcess] Task send_mail[a6495a5b-031e-4115-98f2-c1e225072fd5] received
+[2022-08-09 14:22:52,940: INFO/ForkPoolWorker-4] Task send_mail[a6495a5b-031e-4115-98f2-c1e225072fd5] succeeded in 3.460562766995281s: None
+[2022-08-09 14:53:50,014: INFO/MainProcess] Task send_mail[e9d9430e-ad27-4600-a4fd-16dce4e67f89] received
+[2022-08-09 14:53:53,700: INFO/ForkPoolWorker-4] Task send_mail[e9d9430e-ad27-4600-a4fd-16dce4e67f89] succeeded in 3.6852587680332363s: None

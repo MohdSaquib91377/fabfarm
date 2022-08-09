@@ -22,7 +22,10 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = "__all__"  
 
     def get_order_payment_mode(self,obj):
-        return obj.order.payment_mode
+        if obj.order.payment_mode in ["COD","cod"]:
+            return "Cash on delivery"
+        else:
+            return "Razorpay"
         
 
 class OrderItemDetailsSerializer(serializers.ModelSerializer):

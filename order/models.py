@@ -91,7 +91,9 @@ class OrderItem(TimeStampModel):
 
     def __str__(self):
         return f"{self.order.id} -  {self.order.tracking_no}"
-
+        
+    class Meta:
+        ordering = ["-id"]
 
 @receiver(post_save, sender=OrderItem)
 def make_order_success(sender, instance, **kwargs):
