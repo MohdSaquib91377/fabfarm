@@ -128,12 +128,17 @@ def verify_updated_email_or_exists_one(data):
         msg = {"exists_email_otp":"otp expired"} 
         return msg,status
 
-    else:
-        password = make_password(data.get('password'))
-        CustomUser.objects.filter(email_or_mobile=exists_email_chache_response.get('email')).update(email_or_mobile=new_email_chache_response.get('email'),password=password)
+    elif CustomUser.objects.filter(email_or_mobile=exists_email_chache_response.get('email')).first().check_password(data.get('password')):
+        CustomUser.objects.filter(email_or_mobile=exists_email_chache_response.get('email')).update(email_or_mobile=new_email_chache_response.get('email'))
         clear_cache({f"{data.get('new_email_otp')}":data.get('new_email_otp'),f"{data.get('exists_email_otp')}":data.get('exists_email_otp')})
         return msg,status
 
+    else:
+        status = 400
+        msg = {"password":"Invalid password"} 
+        return msg,status
+
+        
 # generate random otp 
 def generate_otp_for_mobile(email_or_mobile):
     otp = get_random_string(length=6,allowed_chars="0123456789")
@@ -222,13 +227,18 @@ def verify_and_update_mobile(data,user):
         msg = {"exists_email_or_mobile_otp":"OTP expired"}  
         return msg,status
 
-    CustomUser.objects.filter(id = user.id).update(mobile = new_mobile_cache_response.get('email_or_mobile'),is_mobile_verified=True)
-    clear_cache({f"{data.get('new_mobile_otp')}":data.get('new_mobile_otp'),f"{data.get('exists_email_or_mobile_otp')}":data.get('exists_email_or_mobile_otp')})
-    status = 200
-    msg = f"Mobile updated SuccessFully"
-  
-    return msg,status
-
+    elif CustomUser.objects.filter(id = user.id).first().check_password(data.get('password')):
+        CustomUser.objects.filter(id = user.id).update(mobile = new_mobile_cache_response.get('email_or_mobile'),is_mobile_verified=True)
+        clear_cache({f"{data.get('new_mobile_otp')}":data.get('new_mobile_otp'),f"{data.get('exists_email_or_mobile_otp')}":data.get('exists_email_or_mobile_otp')})
+        status = 200
+        msg = f"Mobile updated SuccessFully"
+    
+        return msg,status
+    else:
+        status = 400
+        msg = {"password":"Invalid password"} 
+        return msg,status
+        
 def get_user_info(user):
     user_info = {
     "fullname": user.fullname,

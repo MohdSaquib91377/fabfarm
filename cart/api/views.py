@@ -29,7 +29,8 @@ class AddToCartApiView(APIView):
     @swagger_auto_schema(tags = ['cart'],request_body = CreateCartSerializer)
     def post(self,request,*args,**kwargs):
         try:
-            is_product_quantity_high = False
+            is_product_reach_max_qty = False
+            list_of_product_reach_max_qty = []
             if len(request.data) > 0:
                 for product in request.data:
                     if isinstance(product,dict):
@@ -43,14 +44,18 @@ class AddToCartApiView(APIView):
                                 if cart.quantity <= int(product.quantity): 
                                     cart.save()
                                 else:   
-
-                                    return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
+                                    is_product_reach_max_qty = True
+                                    list_of_product_reach_max_qty.append(product.id)
+                                    continue
 
                             else:
                                 # Check weather user trying to add more quantity in cart as compared to the product quantity
                                 if product.quantity < int(data["quantity"]):
-                                    return Response({"status":"400","message":f"You have reach maximum quantity","product_id":product.id},status = status.HTTP_400_BAD_REQUEST)    
-                                serializer.save(user = request.user) 
+                                    is_product_reach_max_qty = True
+                                    list_of_product_reach_max_qty.append(product.id)
+                                    continue
+                                else:
+                                    serializer.save(user = request.user) 
                         else:
                             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
                     
@@ -59,6 +64,10 @@ class AddToCartApiView(APIView):
                             {"status": "failed", "message": "send data in array of json"},
                             status=400,
                         )   
+                print("is_product_reach_max_qty",is_product_reach_max_qty)
+                if is_product_reach_max_qty:
+                    return Response({"status":"400","message":f"You have reach maximum quantity","products":list_of_product_reach_max_qty},status = status.HTTP_400_BAD_REQUEST)    
+                
                 return Response(
                                 {"status": "200", "message": "Product Added Into Cart !!"},
                                             status=200,

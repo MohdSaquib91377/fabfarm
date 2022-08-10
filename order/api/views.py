@@ -151,9 +151,9 @@ class OrderCancelAPIView(APIView):
             order_item = self.get_object(order_item_id)
             if order_item is None:
                 return Response({"status":"400","message":"Order item not found"},status = status.HTTP_400_BAD_REQUEST)
-            if order_item.status == "Cancel":
-                return Response({"status":"400","message":"Order item already cancel"},status = status.HTTP_400_BAD_REQUEST)
-            order_item.status = "Cancel"
+            if order_item.status == "Cancelled":
+                return Response({"status":"400","message":"Order item already Cancelled"},status = status.HTTP_400_BAD_REQUEST)
+            order_item.status = "Cancelled"
             order_item.save()
             # update product quantity
             product = Product.objects.filter(pk= order_item.product.id).first()
