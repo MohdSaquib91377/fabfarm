@@ -10,8 +10,7 @@ class OrderSerializer(serializers.ModelSerializer):
     coupon = serializers.PrimaryKeyRelatedField(read_only = True)
     class Meta:
         model = Order
-        fields = ["full_name","city","state","country","pincode","locality","landmark","address","alternate_number","payment_mode","message","user","coupon"]
-        extra_fields = {"message":{"required": False, "allow_null": True}}
+        fields = ["payment_mode","user","coupon","user_address"]
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
@@ -27,7 +26,6 @@ class OrderItemSerializer(serializers.ModelSerializer):
         else:
             return "Razorpay"
         
-
 class OrderItemDetailsSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
     order = OrderSerializer()
@@ -35,3 +33,4 @@ class OrderItemDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = "__all__"  
+        

@@ -6,7 +6,7 @@ from re import M
 from ssl import VerifyFlags
 from statistics import mode
 from rest_framework import serializers
-from account.models  import CustomUser
+from account.models  import CustomUser, UserAddress
 from rest_framework_simplejwt.tokens import RefreshToken,TokenError
 
 class RegisterSerializer(serializers.Serializer):
@@ -94,3 +94,13 @@ class ForgotPasswordSerializer(serializers.Serializer):
     txn_id = serializers.IntegerField()
     otp = serializers.CharField(max_length=64)
     set_password = serializers.CharField(max_length=64)
+
+
+
+# UserAddress Serializer
+
+class UserAddressSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(read_only = True)
+    class Meta:
+        model = UserAddress
+        fields = "__all__"

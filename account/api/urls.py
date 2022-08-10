@@ -15,5 +15,10 @@ urlpatterns = [
     path("list-update-profile/",views.ListUpdateUpdateProfileAPIView.as_view(), name='create-update-profile'),
     path("update-email/",views.UpdateEmailAPIView.as_view(), name='update-email'),
     path("update-mobile/",views.UpdateMobileAPIView.as_view(), name='update-mobile'),
+
+    # User address urls
+    path('user-address/',views.UserAddressListCreateView.as_view(),name = "user-address"),
+    path('user-address/<int:pk>/',views.UserAddressDeleteUpdateView.as_view(),name = "user-address")
+
    
 ]

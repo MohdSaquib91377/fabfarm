@@ -2,7 +2,7 @@ from email import message
 from operator import le
 from pyexpat import model
 from django.db import models
-from account.models import CustomUser,TimeStampModel
+from account.models import CustomUser,TimeStampModel,UserAddress
 from store.models import *
 from coupon.models import *
 from django.db.models.signals import post_save
@@ -34,19 +34,20 @@ class Order(TimeStampModel):
 
     )
     user = models.ForeignKey('account.CustomUser',on_delete = models.CASCADE,related_name = "orders")
-    full_name = models.CharField(max_length=24)
-    city = models.CharField(max_length=24)
-    state = models.CharField(max_length=24)
-    country = models.CharField(max_length = 24)
-    pincode = models.IntegerField()
-    locality = models.CharField(max_length = 64)
-    landmark = models.CharField(max_length = 64,null = True)
-    address = models.TextField()
-    alternate_number = models.BigIntegerField()
+    user_address = models.ForeignKey(UserAddress,on_delete = models.SET_NULL,null = True)
+    # full_name = models.CharField(max_length=24)
+    # city = models.CharField(max_length=24)
+    # state = models.CharField(max_length=24)
+    # country = models.CharField(max_length = 24)
+    # pincode = models.IntegerField()
+    # locality = models.CharField(max_length = 64)
+    # landmark = models.CharField(max_length = 64,null = True)
+    # address = models.TextField()
+    # alternate_number = models.BigIntegerField()
     total_price = models.FloatField(null=True)
     payment_mode = models.CharField(max_length=64,null = True)
     payment_id = models.CharField(max_length=64,null=True)
-    message = models.TextField(null = True)
+    # message = models.TextField(null = True)
     tracking_no = models.CharField(max_length=64,null = True)
     order_status = models.CharField(choices = order_choises,default = "order pending",max_length = 64)
     
@@ -63,10 +64,9 @@ class Order(TimeStampModel):
     attempts = models.PositiveIntegerField(default=0, blank=True, null=True)
     payment_status = models.CharField(choices = payment_choices,default = "payment pending",max_length = 64)
 
-    def __str__(self):
-            return f"{self.id}"
+ 
 
-    
+
 
 class OrderItem(TimeStampModel):
     order = models.ForeignKey('Order',on_delete=models.CASCADE,related_name="orderItem")

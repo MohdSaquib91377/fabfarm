@@ -13,7 +13,7 @@ schema_view = get_schema_view(
    openapi.Info(
       title="Ecommerce API",
       default_version='v1',
-      description="Test description",
+      description="<h1>Saquib____</h1>",
 ),
    url= 'https://fab-farm.datavivservers.in/api/v1/',
    public=True,

@@ -18,6 +18,7 @@ import json
 from payment.helpers import create_razorpay_order
 from order.helpers import update_order_status
 from services.email import *
+from account.models import *
 
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -46,9 +47,9 @@ class OrderAPIView(APIView):
                     cart_total,total_amount_payble,discount_amount,coupon_id = apply_coupon_on_cart_total(request.user,message)
                     order = serializer.save(
                     user = request.user,
-                    tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
+                    tracking_no = get_random_string(length = 6,allowed_chars = "0123456789"),
                     total_price = cart_total,total_amount_payble = total_amount_payble,discounted_price = discount_amount,coupon = message,
-                    alternate_number = int(data.get('alternate_number'))
+                    user_address = UserAddress.objects.filter(pk = data.get("user_address")).first()
                     )
                     ordered_response["total_price"] = cart_total
                     ordered_response["discount_amount"] = discount_amount
@@ -59,10 +60,9 @@ class OrderAPIView(APIView):
                     cart_total,_ = Cart.get_cart_total_item_or_cost(request.user)
                     order = serializer.save(
                     user = request.user,
-                    tracking_no = data.get('full_name')+get_random_string(length = 6,allowed_chars = "0123456789"),
+                    tracking_no = get_random_string(length = 6,allowed_chars = "0123456789"),
                     total_price = cart_total,total_amount_payble = cart_total,
-                    alternate_number = int(data.get('alternate_number'))
-                    
+                    user_address = UserAddress.objects.filter(pk = data.get("user_address")).first()
                     )
                     ordered_response["total_price"] = cart_total
 
@@ -88,9 +88,13 @@ class OrderAPIView(APIView):
                     
                     # To Decrease the product quantity from available stock
                     product_obj = Product.objects.filter(pk = item.product.pk).first()
-                
+
+                    print("product_obj.quantity",product_obj.quantity)
+                    print("item.quantity",item.quantity)
+                    print("item.product.pk",item.product.pk)
+
                     product_obj.quantity = product_obj.quantity - item.quantity
-                    product_obj.save()
+                    product_obj.save(update_fields = ["quantity"])
 
                 # Clear User Cart
                 Cart.objects.filter(user = request.user).delete()
@@ -104,7 +108,7 @@ class OrderAPIView(APIView):
                     )
             return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status=400)
+            return Response({"status":"400","message":f"{e}"},status = 400)
 
     def get(self,request,*args,**kwargs):
         permission_classes = [permissions.IsAuthenticated]

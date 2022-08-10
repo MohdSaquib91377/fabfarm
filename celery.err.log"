@@ -12741,3 +12741,2731 @@ User information: uid=0 euid=0 gid=0 egid=0
 [2022-08-09 14:22:52,940: INFO/ForkPoolWorker-4] Task send_mail[a6495a5b-031e-4115-98f2-c1e225072fd5] succeeded in 3.460562766995281s: None
 [2022-08-09 14:53:50,014: INFO/MainProcess] Task send_mail[e9d9430e-ad27-4600-a4fd-16dce4e67f89] received
 [2022-08-09 14:53:53,700: INFO/ForkPoolWorker-4] Task send_mail[e9d9430e-ad27-4600-a4fd-16dce4e67f89] succeeded in 3.6852587680332363s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 15:49:16,180: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 15:49:16,181: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 15:49:17,189: INFO/MainProcess] mingle: all alone
+[2022-08-09 15:49:17,199: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 15:49:17,199: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 15:52:36,284: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 15:52:36,286: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 15:52:37,291: INFO/MainProcess] mingle: all alone
+[2022-08-09 15:52:37,312: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 15:52:37,312: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 15:53:20,409: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 15:53:20,412: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 15:53:21,417: INFO/MainProcess] mingle: all alone
+[2022-08-09 15:53:21,434: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 15:53:21,434: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 15:56:21,221: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 15:56:21,224: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 15:56:22,229: INFO/MainProcess] mingle: all alone
+[2022-08-09 15:56:22,236: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 15:56:22,236: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 15:56:41,900: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 15:56:41,901: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 15:56:42,907: INFO/MainProcess] mingle: all alone
+[2022-08-09 15:56:42,917: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 15:56:42,918: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 15:58:53,734: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 15:58:53,735: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 15:58:54,741: INFO/MainProcess] mingle: all alone
+[2022-08-09 15:58:54,752: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 15:58:54,752: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:00:49,194: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:00:49,197: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:00:50,202: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:00:50,210: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:00:50,211: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:01:44,441: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:01:44,443: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:01:45,448: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:01:45,455: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:01:45,455: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 16:01:45,466: INFO/MainProcess] Task send_mail[7a7c6d35-ae99-4168-85eb-7e44a9bd9e69] received
+[2022-08-09 16:01:48,887: INFO/ForkPoolWorker-4] Task send_mail[7a7c6d35-ae99-4168-85eb-7e44a9bd9e69] succeeded in 3.4205970460316166s: None
+[2022-08-09 16:02:48,410: INFO/MainProcess] Task send_mail[2dabd357-0ae5-4733-acfb-fa0f9677cc1d] received
+[2022-08-09 16:02:51,885: INFO/ForkPoolWorker-4] Task send_mail[2dabd357-0ae5-4733-acfb-fa0f9677cc1d] succeeded in 3.4747131520416588s: None
+[2022-08-09 16:07:27,911: INFO/MainProcess] Task send_mail[469b72a9-2777-4d0c-9b03-a9137e6b104c] received
+[2022-08-09 16:07:31,297: INFO/ForkPoolWorker-4] Task send_mail[469b72a9-2777-4d0c-9b03-a9137e6b104c] succeeded in 3.3852501009823754s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:10:17,295: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:10:17,297: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:10:18,302: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:10:18,309: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:10:18,310: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:14:29,401: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:14:29,403: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:14:30,409: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:14:30,417: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:14:30,417: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:19:18,833: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:19:18,836: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:19:19,841: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:19:19,847: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:19:19,848: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:22:44,112: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:22:44,114: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:22:45,119: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:22:45,125: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:22:45,125: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:30:30,983: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:30:30,985: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:30:31,991: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:30:32,007: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:30:32,007: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:42:41,363: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:42:41,365: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:42:42,371: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:42:42,379: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:42:42,379: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 16:44:23,047: INFO/MainProcess] Task send_mail[9e490988-48a3-4bd8-982e-719a9960ee5b] received
+
+worker: Warm shutdown (MainProcess)
+[2022-08-09 16:44:26,525: INFO/ForkPoolWorker-4] Task send_mail[9e490988-48a3-4bd8-982e-719a9960ee5b] succeeded in 3.4769224150804803s: None
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:44:30,910: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:44:30,912: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:44:31,918: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:44:31,933: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:44:31,933: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 16:46:17,392: INFO/MainProcess] Task send_mail[91091269-4a50-4964-b13b-87abaef07885] received
+[2022-08-09 16:46:20,785: INFO/ForkPoolWorker-4] Task send_mail[91091269-4a50-4964-b13b-87abaef07885] succeeded in 3.392106881015934s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:48:07,207: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:48:07,210: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:48:08,215: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:48:08,222: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:48:08,222: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 16:50:01,520: INFO/MainProcess] Task send_mail[db96584d-8f61-41da-aa84-6616fe58b2e1] received
+
+worker: Warm shutdown (MainProcess)
+[2022-08-09 16:50:05,002: INFO/ForkPoolWorker-4] Task send_mail[db96584d-8f61-41da-aa84-6616fe58b2e1] succeeded in 3.480512917973101s: None
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:50:09,273: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:50:09,275: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:50:10,281: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:50:10,289: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:50:10,289: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:50:22,574: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:50:22,576: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:50:23,581: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:50:23,589: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:50:23,589: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:55:39,537: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:55:39,540: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:55:40,546: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:55:40,552: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:55:40,552: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 16:56:18,666: INFO/MainProcess] Task send_mail[f333f05c-a6a8-4f69-b623-13b6edb42217] received
+[2022-08-09 16:56:22,225: INFO/ForkPoolWorker-4] Task send_mail[f333f05c-a6a8-4f69-b623-13b6edb42217] succeeded in 3.558339612092823s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:56:52,063: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:56:52,065: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:56:53,071: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:56:53,077: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:56:53,078: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 16:57:54,689: INFO/MainProcess] Task send_mail[789a4baa-1c64-48f6-9214-1d3528811723] received
+[2022-08-09 16:57:58,128: INFO/ForkPoolWorker-4] Task send_mail[789a4baa-1c64-48f6-9214-1d3528811723] succeeded in 3.4375745489960536s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:59:19,378: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:59:19,379: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:59:20,385: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:59:20,394: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:59:20,394: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 16:59:35,620: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 16:59:35,621: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 16:59:36,627: INFO/MainProcess] mingle: all alone
+[2022-08-09 16:59:36,637: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 16:59:36,637: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 17:02:01,766: INFO/MainProcess] Task send_mail[de90007c-8a76-4642-8001-6653d16f27a9] received
+[2022-08-09 17:02:07,180: INFO/ForkPoolWorker-4] Task send_mail[de90007c-8a76-4642-8001-6653d16f27a9] succeeded in 5.412927369936369s: None
+[2022-08-09 17:02:27,026: INFO/MainProcess] Task send_mail[54e98d47-2caf-4cfa-8af5-8ad8d49840d4] received
+[2022-08-09 17:02:30,481: INFO/ForkPoolWorker-4] Task send_mail[54e98d47-2caf-4cfa-8af5-8ad8d49840d4] succeeded in 3.454116612090729s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:02:40,765: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:02:40,767: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:02:41,773: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:02:41,780: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:02:41,780: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:03:18,146: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:03:18,149: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:03:19,154: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:03:19,163: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:03:19,163: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 17:03:40,690: INFO/MainProcess] Task send_mail[496fd319-9b57-4939-a35a-a49b996e979d] received
+[2022-08-09 17:03:44,090: INFO/ForkPoolWorker-4] Task send_mail[496fd319-9b57-4939-a35a-a49b996e979d] succeeded in 3.399578553973697s: None
+[2022-08-09 17:03:58,235: INFO/MainProcess] Task send_mail[f156242a-9ff6-4407-9f17-191f92f76f87] received
+[2022-08-09 17:04:01,609: INFO/ForkPoolWorker-4] Task send_mail[f156242a-9ff6-4407-9f17-191f92f76f87] succeeded in 3.373267391929403s: None
+[2022-08-09 17:04:08,573: INFO/MainProcess] Task send_mail[522851f9-d73a-43f2-8574-d66411bc66b7] received
+[2022-08-09 17:04:12,019: INFO/ForkPoolWorker-4] Task send_mail[522851f9-d73a-43f2-8574-d66411bc66b7] succeeded in 3.446093673002906s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:09:40,998: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:09:41,000: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:09:42,005: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:09:42,012: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:09:42,012: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:12:15,418: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:12:15,421: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:12:16,427: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:12:16,436: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:12:16,436: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:14:37,409: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:14:37,411: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:14:38,416: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:14:38,423: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:14:38,423: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 17:17:49,001: INFO/MainProcess] Task send_mail[96ed38d2-0c8a-4378-886a-de526f0f2623] received
+[2022-08-09 17:17:52,426: INFO/ForkPoolWorker-4] Task send_mail[96ed38d2-0c8a-4378-886a-de526f0f2623] succeeded in 3.424580084043555s: None
+[2022-08-09 17:30:59,788: INFO/MainProcess] Task send_mail[7e21e0aa-b4ba-43f8-9c34-163494715d53] received
+[2022-08-09 17:31:03,590: INFO/ForkPoolWorker-4] Task send_mail[7e21e0aa-b4ba-43f8-9c34-163494715d53] succeeded in 3.801369574968703s: None
+[2022-08-09 17:33:21,565: INFO/MainProcess] Task send_mail[fce53246-bb65-4629-99a5-5b077deba8fa] received
+
+worker: Warm shutdown (MainProcess)
+[2022-08-09 17:33:25,088: INFO/ForkPoolWorker-4] Task send_mail[fce53246-bb65-4629-99a5-5b077deba8fa] succeeded in 3.52251313009765s: None
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:33:29,371: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:33:29,374: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:33:30,379: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:33:30,388: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:33:30,388: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 17:42:17,340: INFO/MainProcess] Task send_mail[01f03525-bb4a-4d22-acb2-4abf2f52443c] received
+[2022-08-09 17:42:20,807: INFO/ForkPoolWorker-4] Task send_mail[01f03525-bb4a-4d22-acb2-4abf2f52443c] succeeded in 3.466669519082643s: None
+
+worker: Warm shutdown (MainProcess)
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPIView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPIView
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPIView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPIView
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPIView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPIView
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPIView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPIView
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPI
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPI
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPI
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 342, in UserAddressAPI
+    queryset = UserAddress.objects.all()
+NameError: name 'UserAddress' is not defined
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:45:22,940: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:45:22,942: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:45:23,947: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:45:23,954: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:45:23,954: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:46:46,118: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:46:46,121: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:46:47,126: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:46:47,133: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:46:47,133: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:48:06,673: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:48:06,676: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:48:07,681: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:48:07,689: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:48:07,689: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:51:11,273: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:51:11,276: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:51:12,281: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:51:12,287: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:51:12,287: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 17:54:07,582: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 17:54:07,584: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 17:54:08,590: INFO/MainProcess] mingle: all alone
+[2022-08-09 17:54:08,596: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 17:54:08,596: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 341, in <module>
+    class UserAddressAPI(generics.ListCreateUpdateAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'ListCreateUpdateAPIView'. Did you mean: 'ListCreateAPIView'?
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 18:00:46,618: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 18:00:46,621: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 18:00:47,626: INFO/MainProcess] mingle: all alone
+[2022-08-09 18:00:47,633: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 18:00:47,633: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 18:04:30,783: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 18:04:30,786: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 18:04:31,791: INFO/MainProcess] mingle: all alone
+[2022-08-09 18:04:31,797: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 18:04:31,797: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 18:08:19,139: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 18:08:19,141: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 18:08:20,147: INFO/MainProcess] mingle: all alone
+[2022-08-09 18:08:20,153: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 18:08:20,154: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 20
+    path('user-address/',views.UserAddressListCreateView.as_view(),name = "user-address")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 20
+    path('user-address/',views.UserAddressListCreateView.as_view(),name = "user-address")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 20
+    path('user-address/',views.UserAddressListCreateView.as_view(),name = "user-address")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 20
+    path('user-address/',views.UserAddressListCreateView.as_view(),name = "user-address")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 352, in <module>
+    class UserAddressDeleteUpdateView(generics.UpdateDestroyAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'UpdateDestroyAPIView'. Did you mean: 'DestroyAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 352, in <module>
+    class UserAddressDeleteUpdateView(generics.UpdateDestroyAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'UpdateDestroyAPIView'. Did you mean: 'DestroyAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 352, in <module>
+    class UserAddressDeleteUpdateView(generics.UpdateDestroyAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'UpdateDestroyAPIView'. Did you mean: 'DestroyAPIView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 29, in <module>
+    path('api/v1/account/',include('account.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/account/api/urls.py", line 2, in <module>
+    from account.api import views
+  File "/home/dataviv/fabfarmbackend/account/api/views.py", line 352, in <module>
+    class UserAddressDeleteUpdateView(generics.UpdateDestroyAPIView):
+AttributeError: module 'rest_framework.generics' has no attribute 'UpdateDestroyAPIView'. Did you mean: 'DestroyAPIView'?
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 18:20:54,182: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 18:20:54,185: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 18:20:55,190: INFO/MainProcess] mingle: all alone
+[2022-08-09 18:20:55,196: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 18:20:55,196: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:00:09,290: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:00:09,293: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:00:10,299: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:00:10,309: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:00:10,309: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:01:23,507: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:01:23,508: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:01:24,514: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:01:24,523: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:01:24,523: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:01:42,646: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:01:42,647: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:01:43,653: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:01:43,673: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:01:43,673: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:14:15,016: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:14:15,018: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:14:16,023: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:14:16,029: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:14:16,029: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:20:30,061: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:20:30,063: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:20:31,069: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:20:31,075: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:20:31,075: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:33:36,946: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:33:36,948: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:33:37,954: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:33:37,961: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:33:37,961: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:50:36,782: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:50:36,784: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:50:37,790: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:50:37,797: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:50:37,797: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-09 19:53:40,516: INFO/MainProcess] Task send_mail[c81d524c-2765-4720-81ba-9287c0448f09] received
+[2022-08-09 19:53:44,419: INFO/ForkPoolWorker-4] Task send_mail[c81d524c-2765-4720-81ba-9287c0448f09] succeeded in 3.9021564080612734s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:54:26,658: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:54:26,660: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:54:27,666: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:54:27,673: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:54:27,673: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:57:15,389: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:57:15,391: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:57:16,397: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:57:16,403: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:57:16,403: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-09 19:58:08,223: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-09 19:58:08,226: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-09 19:58:09,231: INFO/MainProcess] mingle: all alone
+[2022-08-09 19:58:09,241: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-09 19:58:09,241: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-10 10:57:34,946: INFO/MainProcess] Task send_mail[4a7a25ab-3b95-46ae-9161-4d2a35abcad8] received
+[2022-08-10 10:57:38,413: INFO/ForkPoolWorker-4] Task send_mail[4a7a25ab-3b95-46ae-9161-4d2a35abcad8] succeeded in 3.4666751959593967s: None

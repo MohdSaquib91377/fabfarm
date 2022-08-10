@@ -53,3 +53,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin,TimeStampModel):
             return True
         else:
             return False
+
+class UserAddress(TimeStampModel):
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE,related_name = "user_address")
+    full_name = models.CharField(max_length=24)
+    city = models.CharField(max_length=24)
+    state = models.CharField(max_length=24)
+    country = models.CharField(max_length = 24)
+    pincode = models.IntegerField()
+    locality = models.CharField(max_length = 64)
+    landmark = models.CharField(max_length = 64,null = True)
+    address = models.TextField()
+    alternate_number = models.BigIntegerField()
+
+
+    class Meta:
+        ordering = ["-id"]

@@ -4,20 +4,26 @@ from store.api.serializers import ProductsSerializer
 from cart.models import *
 from store.models import *
 from django.db.models import Sum
+from account.api.serializers import *
 
 class CartSerializer(serializers.ModelSerializer):
     cartQuantity = serializers.IntegerField(source = "quantity")
     product = ProductsSerializer()
+    user_address = serializers.SerializerMethodField("get_user_address")
     
     class Meta:
         model = Cart
-        fields = ['id','product','user','cartQuantity']
+        fields = ['id','product','user','cartQuantity','user_address']
 
     def to_representation(self,instance):
         representation = super().to_representation(instance)
         representation['cartCost'] = int(instance.quantity) * int(instance.product.price)
         return representation
 
+    def get_user_address(self,obj):
+        user_address_queryset = obj.user.user_address.all() 
+        serializer = UserAddressSerializer(user_address_queryset,many = True).data
+        return serializer
 
 class CreateCartSerializer(serializers.ModelSerializer):
     product_id = serializers.IntegerField()

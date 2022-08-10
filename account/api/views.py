@@ -4,8 +4,9 @@ from rest_framework.response import Response
 from services.email import send_mail
 from services.otp import send_twilio_sms
 from .serializers import (ChangePasswordSerializer, RegisterSerializer,OTPVerifySerializer,SendOTPSerializer,
-                            LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,UpdateEmailSerializer,MobileSerializer,UpdateMobileSerializer,ForgotPasswordSerializer)
-from account.models import CustomUser
+                            LoginSerializer,LogoutSerializer,ListUpdateProfileSerializer,
+                            UpdateEmailSerializer,MobileSerializer,UpdateMobileSerializer,ForgotPasswordSerializer,UserAddressSerializer)
+from account.models import CustomUser,UserAddress
 from account.helpers import (get_tokens_for_user,verify_otp,send_otp_on_entered_email_or_exists_one,
                             verify_updated_email_or_exists_one,send_otp_on_entered_mobile_or_exists_one,verify_and_update_mobile,get_user_info)
 from rest_framework import status
@@ -333,3 +334,22 @@ class UpdateMobileAPIView(APIView):
             return Response({"status":f"{status}","message":msg},status=400)
         
         return Response({"status":f"{status}","message":msg},status=status)
+
+
+# UserAddress API
+
+class UserAddressListCreateView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = UserAddress.objects.all()
+    serializer_class = UserAddressSerializer
+
+    def get_queryset(self):
+        return self.request.user.user_address.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+class UserAddressDeleteUpdateView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = UserAddress.objects.all()
+    serializer_class = UserAddressSerializer
