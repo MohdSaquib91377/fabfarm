@@ -14,5 +14,7 @@ admin.site.register(Order,OrderAdmin)
 class OrderItemAdmin(admin.ModelAdmin):
     list_display = ["order","product","id","price","quantity","status","make_refund"]
 
-  
+@admin.register(RequestRefundBankInfo)
+class RequestRefundBankInfoAdmin(admin.ModelAdmin):
+    list_display = ["id","ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number"]
 

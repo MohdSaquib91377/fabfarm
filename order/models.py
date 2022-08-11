@@ -114,4 +114,13 @@ def make_order_success(sender, instance, **kwargs):
     if order_item.count() == deliver_item.count():
         Order.objects.filter(id = instance.order.id).update(order_status="order success")
 
-    
+
+class RequestRefundBankInfo(TimeStampModel):
+    ifsc_code = models.CharField(max_length = 64)
+    account_number = models.PositiveBigIntegerField()
+    confirm_account_number = models.PositiveBigIntegerField()
+    account_holder_name = models.CharField(max_length = 64)
+    phone_number = models.PositiveBigIntegerField()
+
+    def __str__(self):
+        return f"{self.account_number}"

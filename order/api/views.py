@@ -1,13 +1,13 @@
 import re
 from rest_framework.response import Response
-from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,OrderItemIdSerializer
+from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,OrderItemIdSerializer,CodRequestRefundBankInfoSerializer
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import status
 from drf_yasg.utils import swagger_auto_schema
 from django.utils.crypto import get_random_string
 from cart.models import Cart
-from order.models import Order, OrderItem
+from order.models import Order, OrderItem,RequestRefundBankInfo
 from store.models import *
 from cart.helpers import is_product_in_cart
 from django.http import Http404
@@ -128,11 +128,11 @@ class OrderAPIView(APIView):
 
 class OrderDetailsAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    def get(self,request,order_id,*args,**kwargs):
+    def get(self,request,order_item_id,*args,**kwargs):
         try:    
-            if not Order.objects.filter(id = order_id).exists():
+            if not OrderItem.objects.filter(id = order_item_id).exists():
                 return Response({"status":"400","message":"No order found"},status=status.HTTP_400_BAD_REQUEST)
-            orderitem_queryset = OrderItem.objects.filter(order_id = order_id)
+            orderitem_queryset = OrderItem.objects.filter(id = order_item_id)
             serializer = OrderItemDetailsSerializer(orderitem_queryset,many = True)
             return Response(serializer.data,status = status.HTTP_200_OK)
         except Exception as e:
@@ -186,6 +186,17 @@ class GetOrderItemDetailAPIView(generics.RetrieveAPIView):
     serializer_class = OrderItemDetailsSerializer
     lookup_field = "id"
     
+
+class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = RequestRefundBankInfo.objects.all()
+    serializer_class = CodRequestRefundBankInfoSerializer
+
+
+
+
+
+
 from django.shortcuts import render
 
 def AdminRefund(request):

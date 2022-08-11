@@ -21376,3 +21376,1411 @@ User information: uid=0 euid=0 gid=0 egid=0
   warnings.warn('''Using settings.DEBUG leads to a memory
 
 [2022-08-11 17:21:31,845: INFO/MainProcess] celery@Dataviv-TS140 ready.
+[2022-08-11 17:56:02,970: INFO/MainProcess] Task send_mail[df6faf59-9d4e-4bd6-9220-a782cedb990c] received
+[2022-08-11 17:56:06,589: INFO/ForkPoolWorker-4] Task send_mail[df6faf59-9d4e-4bd6-9220-a782cedb990c] succeeded in 3.6179898099508137s: None
+[2022-08-11 18:03:55,794: INFO/MainProcess] Task send_mail[e177c181-0b53-4517-be55-5fb18c0e04dc] received
+[2022-08-11 18:03:59,516: INFO/ForkPoolWorker-4] Task send_mail[e177c181-0b53-4517-be55-5fb18c0e04dc] succeeded in 3.7212585309753194s: None
+[2022-08-11 18:05:45,179: INFO/MainProcess] Task send_mail[660a8257-0067-45e2-93a3-68a70dd2dbc7] received
+[2022-08-11 18:05:48,576: INFO/ForkPoolWorker-4] Task send_mail[660a8257-0067-45e2-93a3-68a70dd2dbc7] succeeded in 3.396553072030656s: None
+[2022-08-11 18:10:33,148: INFO/MainProcess] Task send_mail[7b2d5f26-e717-4036-9ad1-e104495b9139] received
+[2022-08-11 18:10:36,896: INFO/ForkPoolWorker-4] Task send_mail[7b2d5f26-e717-4036-9ad1-e104495b9139] succeeded in 3.7472305559786037s: None
+[2022-08-11 18:15:09,105: INFO/MainProcess] Task send_mail[523095af-f9f9-4d15-b6f3-60e51d8f8017] received
+[2022-08-11 18:15:12,666: INFO/ForkPoolWorker-4] Task send_mail[523095af-f9f9-4d15-b6f3-60e51d8f8017] succeeded in 3.560599571908824s: None
+[2022-08-11 18:17:11,600: INFO/MainProcess] Task send_mail[6d313b02-0ebe-4341-b530-1f48b9a6e6ba] received
+[2022-08-11 18:17:15,046: INFO/ForkPoolWorker-4] Task send_mail[6d313b02-0ebe-4341-b530-1f48b9a6e6ba] succeeded in 3.4450867860578s: None
+[2022-08-11 18:17:45,332: INFO/MainProcess] Task send_mail[77cfc9e7-32f5-4ebb-94d5-165da1963598] received
+[2022-08-11 18:17:48,745: INFO/ForkPoolWorker-4] Task send_mail[77cfc9e7-32f5-4ebb-94d5-165da1963598] succeeded in 3.411517151980661s: None
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 18:18:40,286: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 18:18:40,289: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 18:18:41,294: INFO/MainProcess] mingle: all alone
+[2022-08-11 18:18:41,301: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 18:18:41,301: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 18:30:09,729: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 18:30:09,731: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 18:30:10,737: INFO/MainProcess] mingle: all alone
+[2022-08-11 18:30:10,743: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 18:30:10,744: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 18:31:10,143: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 18:31:10,145: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 18:31:11,151: INFO/MainProcess] mingle: all alone
+[2022-08-11 18:31:11,161: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 18:31:11,161: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 19:02:41,693: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 19:02:41,695: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 19:02:42,701: INFO/MainProcess] mingle: all alone
+[2022-08-11 19:02:42,708: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 19:02:42,708: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 19:05:31,394: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 19:05:31,395: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 19:05:32,401: INFO/MainProcess] mingle: all alone
+[2022-08-11 19:05:32,408: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 19:05:32,408: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 19:40:15,447: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 19:40:15,449: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 19:40:16,454: INFO/MainProcess] mingle: all alone
+[2022-08-11 19:40:16,461: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 19:40:16,461: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 19:42:45,654: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 19:42:45,656: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 19:42:46,661: INFO/MainProcess] mingle: all alone
+[2022-08-11 19:42:46,674: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 19:42:46,674: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    queryset = RequestRefundBankInfo.objects.all()
+NameError: name 'RequestRefundBankInfo' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 7, in <module>
+    path('cod-request-refund/',views.RequestRefundBankInfoListCreateView.as_view(),name = 'cod-request-refund'),
+AttributeError: module 'order.api.views' has no attribute 'RequestRefundBankInfoListCreateView'. Did you mean: 'CodRequestRefundBankInfoListCreateView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 7, in <module>
+    path('cod-request-refund/',views.RequestRefundBankInfoListCreateView.as_view(),name = 'cod-request-refund'),
+AttributeError: module 'order.api.views' has no attribute 'RequestRefundBankInfoListCreateView'. Did you mean: 'CodRequestRefundBankInfoListCreateView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 7, in <module>
+    path('cod-request-refund/',views.RequestRefundBankInfoListCreateView.as_view(),name = 'cod-request-refund'),
+AttributeError: module 'order.api.views' has no attribute 'RequestRefundBankInfoListCreateView'. Did you mean: 'CodRequestRefundBankInfoListCreateView'?
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 7, in <module>
+    path('cod-request-refund/',views.RequestRefundBankInfoListCreateView.as_view(),name = 'cod-request-refund'),
+AttributeError: module 'order.api.views' has no attribute 'RequestRefundBankInfoListCreateView'. Did you mean: 'CodRequestRefundBankInfoListCreateView'?
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 19:49:33,138: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 19:49:33,141: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 19:49:34,147: INFO/MainProcess] mingle: all alone
+[2022-08-11 19:49:34,159: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 19:49:34,159: INFO/MainProcess] celery@Dataviv-TS140 ready.
+
+worker: Warm shutdown (MainProcess)
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    permission_classes = [IsAuthenticated]
+NameError: name 'IsAuthenticated' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    permission_classes = [IsAuthenticated]
+NameError: name 'IsAuthenticated' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    permission_classes = [IsAuthenticated]
+NameError: name 'IsAuthenticated' is not defined
+Traceback (most recent call last):
+  File "/home/dataviv/farm_env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/celery.py", line 217, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/base.py", line 134, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/bin/worker.py", line 343, in worker
+    worker = app.Worker(
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 480, in check
+    for pattern in self.url_patterns:
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 696, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/resolvers.py", line 689, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/eshop/urls.py", line 31, in <module>
+    path('api/v1/order/',include('order.api.urls')),
+  File "/home/dataviv/farm_env/lib/python3.10/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/dataviv/fabfarmbackend/order/api/urls.py", line 2, in <module>
+    from order.api import views
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 190, in <module>
+    class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+  File "/home/dataviv/fabfarmbackend/order/api/views.py", line 191, in CodRequestRefundBankInfoListCreateView
+    permission_classes = [IsAuthenticated]
+NameError: name 'IsAuthenticated' is not defined
+/home/dataviv/farm_env/lib/python3.10/site-packages/celery/platforms.py:840: SecurityWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2022-08-11 19:50:43,956: INFO/MainProcess] Connected to redis://localhost:6379//
+[2022-08-11 19:50:43,959: INFO/MainProcess] mingle: searching for neighbors
+[2022-08-11 19:50:44,964: INFO/MainProcess] mingle: all alone
+[2022-08-11 19:50:44,978: WARNING/MainProcess] /home/dataviv/farm_env/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-08-11 19:50:44,978: INFO/MainProcess] celery@Dataviv-TS140 ready.
