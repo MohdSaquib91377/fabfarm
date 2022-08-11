@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: open sans;
+  transition: ease 0.5s;
+  text-decoration: none;
+}
+
+body {
+  background: #eef2f9;
+}
+
+.product-card {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: #dbe2ee 0 0 20px 5px;
+  display: flex;
+  gap: 30px;
+  color: #191847;
+}
+
+.cover-image {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+img:hover{
+  transform: scale(1.05);
+}
+.more-image-container {
+  display: flex;
+}
+.more-image {
+  width: 100px;
+}
+.image-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.free-shipping {
+  display: inline-block;
+  background: #191847;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+}
+
+.product-name {
+  margin: 10px 0 20px 0;
+  font-size: 22px;
+}
+
+.regular-price {
+  text-decoration: line-through;
+}
+
+.discount-price {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.offer-info {
+  font-size: 14px;
+  color: gray;
+}
+
+.add-to-cart {
+  display: inline-block;
+  width: 100%;
+  background: #191847;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: #e2e9f3 0 5px;
+  margin: 20px 0;
+}
+.add-to-cart ion-icon {
+  font-size: 30px;
+  margin-bottom: -8px;
+}
+.add-to-cart:hover {
+  background: #e2e9f3;
+  box-shadow: #191847 0 5px;
+  color: #191847;
+}
+.add-to-cart:hover ion-icon {
+  transform: rotate(360deg);
+}
+
+.stock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.stock-status {
+  width: 14px;
+  height: 14px;
+  background: #00d98b;
+  border-radius: 50%;
+}
+.stock-info {
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  width: 200px;
+  color: #191847;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 15px;
+  border: solid #dfe6f0 2px;
+  border-radius: 10px;
+}
+.button ion-icon {
+  font-size: 30px;
+  margin-bottom: -7px;
+}
+.button:hover {
+  box-shadow: #e2e9f3 0 0 10px;
+}
+.button:hover ion-icon {
+  transform: rotate(360deg);
+}
+
+    </style>
+  </head>
+  <body>
+    <div class = "container">
+    <form class="form-inline">
+        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+          
+        </select>
+      
+      
+        <!-- <button type="submit" class="btn btn-primary">Refund</button> -->
+      </form>
+
+      <!-- show order item info -->
+      <div class="product-card">
+        
+        <div class="image-container">
+          <div class="cover-image ">
+            <img class = "product-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.22NHOGduNlgOgLOnTosV3gHaHW%26pid%3DApi&f=1" alt="">
+          </div>
+          <br>
+          <div class="more-image-container">
+            
+            <div class="more-image product-image mr-1">
+              <img class = "product-image"  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.alternate.nl%2Fp%2F600x600%2Fk%2FRazer_Kraken___Kitty_Edition___Quartz_gaming_headset%40%40kh-r59_31.jpg&f=1&nofb=1" alt="">
+            </div>
+            <div class="more-image product-image mr-1">
+              <img class = "product-image"  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.komplett.no%2Fimg%2Fp%2F1144%2F1146947_6.jpg&f=1&nofb=1" alt="">
+            </div>
+            <div class="more-image product-image">
+              <img class = "product-image"  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.komplett.no%2Fimg%2Fp%2F870%2F1146947_4.jpg&f=1&nofb=1" alt="">
+            </div> 
+          </div> 
+        </div>
+        <div class="product-info">
+          <a href="#" class="free-shipping">Product Info</a>
+          <h3 class="product-name"></h3>
+          <p class="regular-price"></p>
+          <p class="discount-price"></p>
+          <p class="offer-info">The offer is valid until April 3 or as long as stock losts!</p>
+        
+          <div class="buttons">
+            <a href="#" class="button">
+         <span class="payment_mode"></span>
+            </a>
+            <a href="#" class="button">
+               <span class="status"></span>
+            </a>
+          </div>
+          <a href="#" class="add-to-cart">
+            <ion-icon name="add-outline"></ion-icon> Refund
+          </a>
+          
+          
+        </div>
+        
+        </div>
+        
+      </div>
+      
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    </div>
+
+    <!-- modal -->
+
+   <!-- Button trigger modal -->
+
+  
+        <!-- Modal -->
+        <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+   
+    <script>
+        // get all order items
+       $('.product-card').css({"display":"none"})
+        $.ajax({
+            url:"https://fab-farm.datavivservers.in/api/v1/order/order-items/",
+            type:"get",
+            dataType:"json",
+
+            success:function(response){
+                
+                
+                response.forEach(element => {
+                    var option = `<option selected>${element.id}</option>`
+                    $('#inlineFormCustomSelectPref').append(option)
+                });
+                $('#inlineFormCustomSelectPref').append(`<option selected>select...</option>`)
+            }
+
+        })
+
+        $('select').on('change', function() {
+            
+            $.ajax({    
+
+                url:`https://fab-farm.datavivservers.in/api/v1/order/order-item-details/${this.value}`,
+                type:"get",
+                dataType:"json",
+
+                success:function(response){
+                    console.log(response)
+                $('.product-card').css({"display":"flex"})
+
+                var product = response['product']
+                $('.product-name').html(product["name"])
+                $('.regular-price').html(product["old_price"])
+                
+                $('.discount-price').html(product["price"])
+                $('.offer-info').html(product["description"])
+                $('.product-image').attr("src",product["image"][0]["image"])
+                $('.payment_mode').html(response['order']['payment_mode'])
+                $('.status').html(response['status'])
+                window.localStorage.setItem("order_item_id",response["id"])
+                
+
+
+
+                }   
+
+            })
+
+
+        });
+    
+        $(function(){
+            $('#exampleModal').show()
+            
+        // Create Refund
+        $('.add-to-cart').click(function(){
+
+        var order_item_id =  window.localStorage.getItem("order_item_id")
+        $.ajax({
+            
+            url:`https://fab-farm.datavivservers.in/api/v1/payment/payment-refund/${order_item_id}/`,
+            "type":"post",
+            dataType:"json",
+            success:function(response){
+                if(response.status == "success"){
+                    $('.product-card').html('')
+                    $('.product-card').html(response.message)
+
+                }
+            }
+        })
+        })
+        })
+        
+    </script>
+
+</body>
+</html>

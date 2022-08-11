@@ -7,6 +7,8 @@ from store.models import *
 from coupon.models import *
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.html import format_html
+from django.urls import reverse
 
 # Create your models here.
 
@@ -64,7 +66,8 @@ class Order(TimeStampModel):
     attempts = models.PositiveIntegerField(default=0, blank=True, null=True)
     payment_status = models.CharField(choices = payment_choices,default = "payment pending",max_length = 64)
 
- 
+    def __str__(self):
+        return f"{self.id}"
 
 
 
@@ -84,14 +87,23 @@ class OrderItem(TimeStampModel):
         ("Refund In Progress","Refund In Progress"),
         ("Refunded","Refunded"),
         ("Refund Failed","Refund Failed"),
+        ("Request Refund","Request Refund")
 
         )
 
     status = models.CharField(choices=order_status,default = "Pending",max_length = 64)
+    make_refund = models.CharField(max_length = 64,null = True, blank = True)
 
     def __str__(self):
         return f"{self.order.id} -  {self.order.tracking_no}"
-        
+    
+    def make_refund(self):
+        if self.status in ["Request Refund"]:
+            url = reverse("admin-refund")
+            return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
+
+
+
     class Meta:
         ordering = ["-id"]
 

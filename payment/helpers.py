@@ -181,13 +181,13 @@ def update_order(payload):
         if int(refund.order.total_price) - total_refund_amount<= 0:
             refund.order.order_status = "order cancelled"
             refund.order.payment_status = "Payment Refund Full"
-            refund.order_item.status = "Refund"
+            refund.order_item.status = "Refunded"
             
         # Refund proccess
         else:
             refund.order.order_status = "partial order"
             refund.order.payment_status = "Payment Refund Partial"
-            refund.order_item.status = "Refund"
+            refund.order_item.status = "Refunded"
             
         refund.save()
         refund.order.save()

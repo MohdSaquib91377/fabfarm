@@ -88,7 +88,6 @@ class PaymentFailureAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class RequestRefundAPIView(APIView):
-    permission_classes = [IsAuthenticated]
     @swagger_auto_schema(tags = ['payment'],request_body = RefundSerializer)
     def post(self, request, order_item,*args, **kwargs):
         try:
@@ -103,16 +102,19 @@ class RequestRefundAPIView(APIView):
             if found_order_item.status in ["Refund"]:
                 return Response({"status":"400","message":"Can not refund because order item is already refund"},status =400)
             # Check if order item is develived 
-            if not found_order_item.status in ["Delivered","Pendding","Pending"]:
+            if not found_order_item.status in ["Delivered","Pendding","Pending","Request Refund"]:
                 if found_order_item.status in ["Refund In Progress"]:
                     return Response({"status":"400","message":"Refund in progress"},status =400)
-                return Response({"status":"400","message":"Can not refund because order item is not delivered or pending"},status =400)
+                return Response({"status":"400","message":"Can not refund because order item is not delivered or pending or Request Refund"},status =400)
 
+            if found_order_item.status == "Delivered":
+                found_order_item.status = "Request Refund"
+                found_order_item.save()
+                return Response({"status":"200","message":f"Refund Requested"},status = 200)
             
 
             # Create Refund and notify razorpay
             refund = create_refund(found_order_item.order,int(found_order_item.product.price)*(found_order_item.quantity))
-            print("refundddddddddddddddddddddddd",refund)
             '''
             {
             "id": "rfnd_FP8QHiV938haTz",
@@ -186,4 +188,3 @@ class RefundRazorpayWebhook(APIView):
 
             return Response({"status":"200","message":"success"},status = 200)
         return Response({"status":"200"})
-    

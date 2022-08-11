@@ -22,5 +22,5 @@ class PaymentFailureSerializer(serializers.Serializer):
         return Payment.objects.create(**validated_data)
 
 class RefundSerializer(serializers.Serializer):
-    reason = serializers.CharField(max_length=128)
+    reason = serializers.CharField(max_length=128,required = False)
     

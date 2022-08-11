@@ -1,6 +1,6 @@
 import re
 from rest_framework.response import Response
-from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer
+from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,OrderItemIdSerializer
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import status
@@ -19,6 +19,7 @@ from payment.helpers import create_razorpay_order
 from order.helpers import update_order_status
 from services.email import *
 from account.models import *
+from rest_framework import generics
 
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -172,3 +173,20 @@ class OrderCancelAPIView(APIView):
             return Response({"status":"400","message":f"{e}"},status = status.HTTP_400_BAD_REQUEST)
 
 
+class GetOrderItemAPIView(generics.ListAPIView):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemIdSerializer
+
+    def get_queryset(self):
+        queryset = OrderItem.objects.filter(status = "Request Refund")
+        return queryset
+
+class GetOrderItemDetailAPIView(generics.RetrieveAPIView):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemDetailsSerializer
+    lookup_field = "id"
+    
+from django.shortcuts import render
+
+def AdminRefund(request):
+    return render(request,"admin-refund.html",{})

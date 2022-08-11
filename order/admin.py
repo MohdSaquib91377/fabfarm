@@ -10,7 +10,9 @@ class OrderAdmin(admin.ModelAdmin):
     ]
 admin.site.register(Order,OrderAdmin)
 
+@admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ["order","product","id","price","quantity","status"]
+    list_display = ["order","product","id","price","quantity","status","make_refund"]
 
-admin.site.register(OrderItem,OrderItemAdmin)
+  
+

@@ -8,9 +8,14 @@ from store.models import *
 class OrderSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only = True)
     coupon = serializers.PrimaryKeyRelatedField(read_only = True)
+    address = serializers.SerializerMethodField("get_order_address")
+
     class Meta:
         model = Order
-        fields = ["payment_mode","user","coupon","user_address"]
+        fields = ["payment_mode","user","coupon","user_address","address"]
+    def get_order_address(self,obj):
+        serializer = UserAddressSerializer(obj.user_address).data
+        return serializer
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
@@ -34,3 +39,8 @@ class OrderItemDetailsSerializer(serializers.ModelSerializer):
         model = OrderItem
         fields = "__all__"  
         
+# admin side
+class OrderItemIdSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = ["id"]
