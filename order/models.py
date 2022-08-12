@@ -121,6 +121,9 @@ class RequestRefundBankInfo(TimeStampModel):
     confirm_account_number = models.PositiveBigIntegerField()
     account_holder_name = models.CharField(max_length = 64)
     phone_number = models.PositiveBigIntegerField()
+    reason = models.CharField(max_length = 256,null = True, blank = True)
+    #order item
+    order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
 
     def __str__(self):
         return f"{self.account_number}"

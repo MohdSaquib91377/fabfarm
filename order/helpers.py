@@ -2,6 +2,7 @@
 from django.http import Http404
 from .models import *
 from django.db.models import Q
+import re
 def get_order_object(razorpay_order_id):
     try:
         return Order.objects.get(razorpay_order_id = razorpay_order_id)
@@ -18,4 +19,17 @@ def update_order_status(order_id):
         else:
             return False
 
-    
+def is_ValidIFSCode(ifsc_code): 
+    # Regex to check valid IFSC Code.
+    regex = "^[A-Z]{4}0[A-Z0-9]{6}$"
+
+    # Compile the ReGex
+    p = re.compile(regex)
+
+    if(re.search(p, ifsc_code)):
+        return True
+    else:
+        return False
+
+
+

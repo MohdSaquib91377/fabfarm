@@ -55,3 +55,4 @@ class CodRequestRefundBankInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = RequestRefundBankInfo
         fields = "__all__"
+    
