@@ -18,7 +18,8 @@ from drf_yasg.utils import swagger_auto_schema
 class CategoryProductView(APIView):    
     def get(self,request,*args, **kwargs):
         try:
-            queryset = SubCategory.objects.all()
+            sub_category_id = Product.objects.filter().values_list("sub_category")
+            queryset = SubCategory.objects.filter(id__in = sub_category_id)
             serializer = SubCategoryProductSerializer(queryset,many=True,context={"user":request.user if request.user.id else None})
             return Response(serializer.data) 
 

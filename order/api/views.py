@@ -21,6 +21,7 @@ from order.helpers import update_order_status
 from services.email import *
 from account.models import *
 from rest_framework import generics
+from drf_yasg.utils import swagger_auto_schema
 
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -188,38 +189,45 @@ class GetOrderItemDetailAPIView(generics.RetrieveAPIView):
     lookup_field = "id"
     
 
-class CodRequestRefundBankInfoListCreateView(generics.ListCreateAPIView):
+class CodRequestRefundBankInfoCreateView(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = RequestRefundBankInfo.objects.all()
     serializer_class = CodRequestRefundBankInfoSerializer
-
+    @swagger_auto_schema(tags = ['order'],request_body = CodRequestRefundBankInfoSerializer)       
     def post(self,request,*args,**kwargs):
         try:
-            serializer = self.get_serializer(data = request.data)
+            serializer = self.serializer_class(data = request.data)
             serializer.is_valid(raise_exception = True)
-            order_item = OrderItem.objects.filter(id = serializer.data['order_item']).first()
-            if not order_item.status in ["Delivered"]:
+            id = serializer.validated_data.get('order_item').id
+            item = OrderItem.objects.filter(id = id).first()
+            if not item.status in ["Delivered"]:
                 return Response({"status":"400","message":f"order items status should be delivered"},status = 400)
 
-            elif serializer.data['account_number'] != serializer.data['confirm_account_number']:
+            elif serializer.validated_data['account_number'] != serializer.validated_data['confirm_account_number']:
                 error = {
                     "account_number":"account number and confirm account does not match",
                     "confirm_account_number":"account number and confirm account does not match"
                 }
                 return Response({"status":"400","message":error},status = 400)
 
-            elif not is_ValidIFSCode(serializer.data['ifsc_code']):
+            elif not is_ValidIFSCode(serializer.validated_data['ifsc_code']):
                 error = {
                     "ifsc_code" : "Invalid IFSCode"
                 }
                 return Response({"status":"400","message":error},status = 400)
                 
-            order_item.status = "Request Refund"
-            order_item.save(update_fields = ["status"])
+            item.status = "Request Refund"
+            item.save(update_fields = ["status"])
+            serializer.save()
+
             return Response({"status":"200","message":f"Your Request has been approved"},status = 200)
         except Exception as e:
-            return Response({"status":"200","message":f"{e}"},status = 400)
+            return Response({"status":"400","message":f"{e}"},status = 400)
 
+class CodRequestRefundBankInfoRUDView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = RequestRefundBankInfo.objects.all()
+    serializer_class = CodRequestRefundBankInfoSerializer
+    lookup_field = "id"
 
 
 
