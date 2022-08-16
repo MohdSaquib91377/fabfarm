@@ -112,7 +112,6 @@ class RequestRefundAPIView(APIView):
                 found_order_item.save()
                 return Response({"status":"200","message":f"Refund Requested"},status = 200)
             
-
             # Create Refund and notify razorpay
             refund = create_refund(found_order_item.order,int(found_order_item.product.price)*(found_order_item.quantity))
             '''

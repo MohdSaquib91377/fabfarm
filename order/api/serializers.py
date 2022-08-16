@@ -54,5 +54,6 @@ class OrderItemIdSerializer(serializers.ModelSerializer):
 class CodRequestRefundBankInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = RequestRefundBankInfo
-        fields = "__all__"
+        fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","reason","order_item"]
+
     

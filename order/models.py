@@ -5,10 +5,12 @@ from django.db import models
 from account.models import CustomUser,TimeStampModel,UserAddress
 from store.models import *
 from coupon.models import *
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save,pre_save
 from django.dispatch import receiver
 from django.utils.html import format_html
 from django.urls import reverse
+from django.dispatch import receiver
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -93,15 +95,15 @@ class OrderItem(TimeStampModel):
 
     status = models.CharField(choices=order_status,default = "Pending",max_length = 64)
     make_refund = models.CharField(max_length = 64,null = True, blank = True)
+    is_return = models.BooleanField(default = False)
 
     def __str__(self):
-        return f"{self.order.id} -  {self.order.tracking_no}"
+        return f"{self.id}"
     
     def make_refund(self):
-        if self.status in ["Request Refund"]:
+        if self.status in ["Request Refund"] and self.order.payment_mode in ["razor_pay"]:
             url = reverse("admin-refund")
             return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
-
 
 
     class Meta:
@@ -115,6 +117,12 @@ def make_order_success(sender, instance, **kwargs):
         Order.objects.filter(id = instance.order.id).update(order_status="order success")
 
 
+def validate_cod_refund(order_item):
+    if not OrderItem.objects.filter(id = order_item).first().is_return:
+        raise ValidationError(f"Refund Cannot be proccessed until product not return")
+    return order_item
+
+
 class RequestRefundBankInfo(TimeStampModel):
     ifsc_code = models.CharField(max_length = 64)
     account_number = models.PositiveBigIntegerField()
@@ -123,7 +131,54 @@ class RequestRefundBankInfo(TimeStampModel):
     phone_number = models.PositiveBigIntegerField()
     reason = models.CharField(max_length = 256,null = True, blank = True)
     #order item
-    order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
+    order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True,validators=[validate_cod_refund])
+    price = models.PositiveBigIntegerField(default = 0)
+    is_refunded = models.BooleanField(default = False)
 
     def __str__(self):
         return f"{self.account_number}"
+
+    def save(self,*args,**kwargs):
+        self.price = self.order_item.price
+        super(RequestRefundBankInfo, self).save(*args, **kwargs)
+
+    @receiver(post_save,sender=RequestRefundBankInfo)
+    def update_order_or_order_item_status():
+        pass
+
+class ReturnRefundPolicy(TimeStampModel):
+    RETURN_REFUND_POLICY_CHOICES = (
+        ("7 days","7 days"),
+        ("14 days","14 days"),
+        ("30 days","30 days"),
+        ("45 days","45 days")
+
+    )
+    return_refund_timestamp = models.CharField(max_length = 16,choices = RETURN_REFUND_POLICY_CHOICES,default = '7 days')
+
+    def __str__(self):
+        return f"{self.return_refund_timestamp}"
+
+    class Meta:
+        ordering = ["-id"]
+        verbose_name_plural = "Return Refund Policy"
+
+class ReceiveReturn(TimeStampModel):
+    order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name = "receive_return")
+    order = models.ForeignKey(Order,on_delete = models.CASCADE,related_name = "receive_return")
+    product = models.ForeignKey(Product,on_delete = models.CASCADE,related_name = "receive_return")
+
+    def __str__(self):
+        return f"{self.order_item.id} - {self.order.id} - {self.product.id}"
+    
+    class Meta:
+        ordering = ["-id"]
+        verbose_name_plural = "Receive Return"
+    
+    @receiver(post_save, sender = OrderItem)
+    def create_receive_return(sender,instance,*args,**kwargs):
+        if ReceiveReturn.objects.filter(order_item = instance).exists():
+            ReceiveReturn.objects.filter(order_item = instance).delete()
+        else:
+            ReceiveReturn.objects.create(order_item = instance,order = instance.order,product = instance.product)
+                

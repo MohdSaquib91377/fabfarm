@@ -12,9 +12,16 @@ admin.site.register(Order,OrderAdmin)
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ["order","product","id","price","quantity","status","make_refund"]
+    list_display = ["order","product","id","price","quantity","status","make_refund","is_return"]
 
 @admin.register(RequestRefundBankInfo)
 class RequestRefundBankInfoAdmin(admin.ModelAdmin):
-    list_display = ["id","ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number"]
+    list_display = ["id","created_at","updated_at","ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","order_item","is_refunded","price"]
 
+@admin.register(ReturnRefundPolicy)
+class ReturnRefundPolicyAdmin(admin.ModelAdmin):
+    list_display = ["id","return_refund_timestamp"]
+
+@admin.register(ReceiveReturn)
+class ReceiveReturnAdmin(admin.ModelAdmin):
+    list_display = ["id","order","order_item","product"]
