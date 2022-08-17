@@ -295,6 +295,7 @@ class UpdateEmailAPIView(APIView):
             "new_email_otp":serializer.validated_data["new_email_otp"],
             "exists_email_otp":serializer.validated_data["exists_email_otp"],
             "password":serializer.validated_data["password"],
+            "txn_id":serializer.validated_data["txn_id"]
         }
         msg,status = verify_updated_email_or_exists_one(data)
         if status == 404:

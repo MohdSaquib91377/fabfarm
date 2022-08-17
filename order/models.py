@@ -11,6 +11,7 @@ from django.utils.html import format_html
 from django.urls import reverse
 from django.dispatch import receiver
 from django.core.exceptions import ValidationError
+from django.db.models import Sum
 
 # Create your models here.
 
@@ -106,6 +107,7 @@ class OrderItem(TimeStampModel):
             return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
 
 
+
     class Meta:
         ordering = ["-id"]
 
@@ -114,7 +116,7 @@ def make_order_success(sender, instance, **kwargs):
     order_item = OrderItem.objects.filter(order_id = instance.order.id)
     deliver_item = OrderItem.objects.filter(status__in=["Delivered"],order_id = instance.order.id)
     if order_item.count() == deliver_item.count():
-        Order.objects.filter(id = instance.order.id).update(order_status="order success")
+        Order.objects.filter(id = instance.order.id).update(order_status="order success",payment_status = "payment success")
 
 
 def validate_cod_refund(order_item):
@@ -132,6 +134,7 @@ class RequestRefundBankInfo(TimeStampModel):
     reason = models.CharField(max_length = 256,null = True, blank = True)
     #order item
     order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True,validators=[validate_cod_refund])
+    order = models.ForeignKey(Order,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
     price = models.PositiveBigIntegerField(default = 0)
     is_refunded = models.BooleanField(default = False)
 
@@ -139,12 +142,13 @@ class RequestRefundBankInfo(TimeStampModel):
         return f"{self.account_number}"
 
     def save(self,*args,**kwargs):
+      
         self.price = self.order_item.price
         super(RequestRefundBankInfo, self).save(*args, **kwargs)
 
-    @receiver(post_save,sender=RequestRefundBankInfo)
-    def update_order_or_order_item_status():
-        pass
+
+      
+            
 
 class ReturnRefundPolicy(TimeStampModel):
     RETURN_REFUND_POLICY_CHOICES = (
@@ -175,10 +179,35 @@ class ReceiveReturn(TimeStampModel):
         ordering = ["-id"]
         verbose_name_plural = "Receive Return"
     
-    @receiver(post_save, sender = OrderItem)
-    def create_receive_return(sender,instance,*args,**kwargs):
+@receiver(post_save, sender = OrderItem)
+def create_receive_return(sender,instance,*args,**kwargs):
+    if instance.is_return == True:
+        obj, created = ReceiveReturn.objects.get_or_create(
+            order_item=instance,
+            order=instance.order,
+            product=instance.product
+        )
+
+    else:
         if ReceiveReturn.objects.filter(order_item = instance).exists():
             ReceiveReturn.objects.filter(order_item = instance).delete()
+
+            
+@receiver(post_save,sender = RequestRefundBankInfo)
+def update_order_order_item_status_or_product_quantity(sender,instance,*args,**kwargs):
+    if instance.is_refunded == True:
+        total_order_item = RequestRefundBankInfo.objects.filter(order = instance.order).aggregate(Sum('price'))["price__sum"]
+        if int(instance.order_item.order.total_amount_payble )- int(total_order_item) > 0:
+            instance.order_item.order.order_status = "partial order"
+            instance.order_item.order.payment_status = "Payment Refund Partial"
+            instance.order_item.status = "Refunded"
         else:
-            ReceiveReturn.objects.create(order_item = instance,order = instance.order,product = instance.product)
-                
+            instance.order_item.order.order_status  = "order cancelled"
+            instance.order_item.order.payment_status = "Payment Refund Full"
+            instance.order_item.status = "Refunded"
+        instance.order_item.save()
+        instance.order_item.order.save()
+        # update product quantity
+        product = Product.objects.filter(id = instance.order_item.product.id).first()
+        product.quantity += instance.order_item.quantity
+        product.save()

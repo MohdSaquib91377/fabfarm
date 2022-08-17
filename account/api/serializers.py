@@ -72,10 +72,11 @@ class ListUpdateProfileSerializer(serializers.ModelSerializer):
 class UpdateEmailSerializer(serializers.ModelSerializer):
     new_email_otp = serializers.CharField()
     exists_email_otp = serializers.CharField()
+    txn_id = serializers.CharField()
 
     class Meta:
         model = CustomUser
-        fields = ["new_email_otp","exists_email_otp","password"]
+        fields = ["new_email_otp","exists_email_otp","password","txn_id"]
 
 class MobileSerializer(serializers.ModelSerializer):
     class Meta:

@@ -5,6 +5,7 @@ from account.models import TimeStampModel
 import PIL.Image
 from account.models import *
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.exceptions import ValidationError
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=64)
@@ -78,7 +79,13 @@ class Product(TimeStampModel):
     def __str__(self):
         return f"{self.id} -> {self.name} -> {self.sub_category.name} -> {self.category.name}"
 
-    
+    def clean(self):
+        sub_category_list = SubCategory.objects.filter(category = self.category).values_list("id",flat = True)
+        if not self.sub_category_id in sub_category_list:
+            raise ValidationError("Sub Category does not match for category")
+        super(Product, self).clean()
+
+
 class Image(TimeStampModel):
     image = models.ImageField(upload_to='images/products/main/')
     image_caption = models.CharField(max_length=64)

@@ -52,8 +52,11 @@ class OrderItemIdSerializer(serializers.ModelSerializer):
 
 
 class CodRequestRefundBankInfoSerializer(serializers.ModelSerializer):
+    order_item = serializers.PrimaryKeyRelatedField(read_only = True)
     class Meta:
         model = RequestRefundBankInfo
-        fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","reason","order_item"]
+        fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","reason","order_item","order"]
+        extra_kwargs = {"order": {"required": False, "allow_null": True}}
+                
 
     

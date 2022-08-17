@@ -194,36 +194,53 @@ class CodRequestRefundBankInfoCreateView(APIView):
     serializer_class = CodRequestRefundBankInfoSerializer
     @swagger_auto_schema(tags = ['order'],request_body = CodRequestRefundBankInfoSerializer)       
     def post(self,request,*args,**kwargs):
+        serializer = self.serializer_class(data = request.data)
+        serializer.is_valid(raise_exception = True)
+        
+        id = request.data["order_item"]
+        item = OrderItem.objects.filter(id = id).first()
+        if not item.status in ["Delivered"]:
+            return Response({"status":"400","message":f"order items status should be delivered"},status = 400)
+
+        elif serializer.validated_data['account_number'] != serializer.validated_data['confirm_account_number']:
+            error = {
+                "account_number":"account number and confirm account does not match",
+                "confirm_account_number":"account number and confirm account does not match"
+            }
+            return Response({"status":"400","message":error},status = 400)
+
+        elif not is_ValidIFSCode(serializer.validated_data['ifsc_code']):
+            error = {
+                "ifsc_code" : "Invalid IFSCode"
+            }
+            return Response({"status":"400","message":error},status = 400)
+            
+        item.status = "Request Refund"
+        
+        RequestRefundBankInfo.objects.create(
+            ifsc_code = serializer.validated_data["ifsc_code"],
+            account_number = serializer.validated_data["account_number"],
+            confirm_account_number = serializer.validated_data["confirm_account_number"],
+            account_holder_name = serializer.validated_data["account_holder_name"],
+            phone_number = serializer.validated_data["phone_number"],
+            reason = serializer.validated_data["reason"],
+            order_item = item,
+            order = item.order
+        )
+        item.save(update_fields = ["status"])
+        return Response({"status":"200","message":f"Your Request has been approved"},status = 200)
+    
+    
+    def get(self,request,*args,**kwargs):
         try:
-            serializer = self.serializer_class(data = request.data)
-            serializer.is_valid(raise_exception = True)
-            id = serializer.validated_data.get('order_item').id
-            item = OrderItem.objects.filter(id = id).first()
-            if not item.status in ["Delivered"]:
-                return Response({"status":"400","message":f"order items status should be delivered"},status = 400)
-
-            elif serializer.validated_data['account_number'] != serializer.validated_data['confirm_account_number']:
-                error = {
-                    "account_number":"account number and confirm account does not match",
-                    "confirm_account_number":"account number and confirm account does not match"
-                }
-                return Response({"status":"400","message":error},status = 400)
-
-            elif not is_ValidIFSCode(serializer.validated_data['ifsc_code']):
-                error = {
-                    "ifsc_code" : "Invalid IFSCode"
-                }
-                return Response({"status":"400","message":error},status = 400)
-                
-            item.status = "Request Refund"
-            item.save(update_fields = ["status"])
-            serializer.save()
-
-            return Response({"status":"200","message":f"Your Request has been approved"},status = 200)
+            queryset  = RequestRefundBankInfo.objects.filter(order_item__order__user__id = request.user.id)
+            print("queryset",queryset)
+            serializer = self.serializer_class(queryset,many = True).data
+            return Response(serializer)
         except Exception as e:
             return Response({"status":"400","message":f"{e}"},status = 400)
 
-class CodRequestRefundBankInfoRUDView(generics.RetrieveUpdateDestroyAPIView):
+class CodRequestRefundBankInfoRUDView(generics.DestroyAPIView,generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = RequestRefundBankInfo.objects.all()
     serializer_class = CodRequestRefundBankInfoSerializer

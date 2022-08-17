@@ -16,7 +16,7 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 @admin.register(RequestRefundBankInfo)
 class RequestRefundBankInfoAdmin(admin.ModelAdmin):
-    list_display = ["id","created_at","updated_at","ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","order_item","is_refunded","price"]
+    list_display = ["id","created_at","updated_at","ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","order","order_item","is_refunded","price"]
 
 @admin.register(ReturnRefundPolicy)
 class ReturnRefundPolicyAdmin(admin.ModelAdmin):
