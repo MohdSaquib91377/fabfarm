@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'banner',
     'django_elasticsearch_dsl', # new
     'search.apps.SearchConfig', # new
+    'rating_review'
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

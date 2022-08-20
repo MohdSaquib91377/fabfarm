@@ -6,6 +6,7 @@ from store.api.serializers import *
 from store.models import *
 from django.utils import timezone
 from datetime import timedelta
+from rating_review.api.serializers import *
 
 class OrderSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only = True)
@@ -56,6 +57,7 @@ class OrderItemDetailsSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
     order = OrderSerializer()
     payment_mode = serializers.SerializerMethodField("get_order_payment_mode")
+    order_item_rating = serializers.SerializerMethodField("get_order_item_rating")
     class Meta:
         model = OrderItem
         fields = "__all__"  
@@ -65,6 +67,12 @@ class OrderItemDetailsSerializer(serializers.ModelSerializer):
             return "Cash on delivery"
         else:
             return "Razorpay"
+    def get_order_item_rating(self,obj):
+        queryset = Rating.objects.filter(order_item=obj,user = obj.order.user)
+        if queryset:
+            serializer = ProductRatingSerializer(queryset,many=True).data
+            return serializer
+        return None
 # admin side
 class OrderItemIdSerializer(serializers.ModelSerializer):
     class Meta:

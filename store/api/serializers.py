@@ -6,8 +6,8 @@ from rest_framework import serializers
 from wishlist.models import *
 from store.models import *
 from account.api.serializers import UserSerializer
-
-
+from rating_review.api.serializers import ProductRatingSerializer
+from rating_review.helpers import calc_product_avg_rating
 class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -34,10 +34,10 @@ class ProductsSerializer(serializers.ModelSerializer):
     maxQuantity = serializers.IntegerField(source = "quantity")
     quantity = serializers.SerializerMethodField("set_qauntity_by_1")
     is_product_in_wishlist_for_current_user = serializers.SerializerMethodField("get_cuurent_user_wishlist")
-
+    product_ratings = serializers.SerializerMethodField("get_product_ratings")
     class Meta:
         model = Product
-        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category","is_product_in_wishlist_for_current_user"]
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category","is_product_in_wishlist_for_current_user","product_ratings"]
         
     def get_images(self, obj):
         images = obj.images.all()
@@ -54,7 +54,8 @@ class ProductsSerializer(serializers.ModelSerializer):
                 return True
             else:
                 return False
-        
+    def get_product_ratings(self, obj):
+        return calc_product_avg_rating(obj)
         
 class SubCategoryProductSerializer(serializers.ModelSerializer):
     products = ProductsSerializer(many=True)
