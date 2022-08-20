@@ -10,7 +10,7 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     model = CustomUser
     list_display = ('id','fullname','email_or_mobile', 'is_staff', 'is_active','is_verified','otp','expire_at',"mobile","is_mobile_verified")
-    list_filter = ('email_or_mobile', 'is_staff', 'is_active')
+    list_filter = ('email_or_mobile', 'is_staff', 'is_active',"fullname","mobile")
     fieldsets = (
         (None, {'fields': ('email_or_mobile', 'password',"mobile","is_mobile_verified")}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),

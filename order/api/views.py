@@ -1,6 +1,6 @@
 import re
 from rest_framework.response import Response
-from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,OrderItemIdSerializer,CodRequestRefundBankInfoSerializer
+from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,OrderItemIdSerializer,CodRequestRefundSerializer,CodBankSerializer
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import status
@@ -189,62 +189,47 @@ class GetOrderItemDetailAPIView(generics.RetrieveAPIView):
     lookup_field = "id"
     
 
-class CodRequestRefundBankInfoCreateView(APIView):
+class CodRequestRefundView(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    serializer_class = CodRequestRefundBankInfoSerializer
-    @swagger_auto_schema(tags = ['order'],request_body = CodRequestRefundBankInfoSerializer)       
+    serializer_class = CodRequestRefundSerializer
+    @swagger_auto_schema(tags = ['order'],request_body = CodRequestRefundSerializer)       
     def post(self,request,*args,**kwargs):
         serializer = self.serializer_class(data = request.data)
         serializer.is_valid(raise_exception = True)
-        
-        id = request.data["order_item"]
-        item = OrderItem.objects.filter(id = id).first()
+        item = OrderItem.objects.filter(id = serializer.data["order_item"]).first()
         if not item.status in ["Delivered"]:
             return Response({"status":"400","message":f"order items status should be delivered"},status = 400)
-
-        elif serializer.validated_data['account_number'] != serializer.validated_data['confirm_account_number']:
-            error = {
-                "account_number":"account number and confirm account does not match",
-                "confirm_account_number":"account number and confirm account does not match"
-            }
-            return Response({"status":"400","message":error},status = 400)
-
-        elif not is_ValidIFSCode(serializer.validated_data['ifsc_code']):
-            error = {
-                "ifsc_code" : "Invalid IFSCode"
-            }
-            return Response({"status":"400","message":error},status = 400)
-            
         item.status = "Request Refund"
-        
-        RequestRefundBankInfo.objects.create(
-            ifsc_code = serializer.validated_data["ifsc_code"],
-            account_number = serializer.validated_data["account_number"],
-            confirm_account_number = serializer.validated_data["confirm_account_number"],
-            account_holder_name = serializer.validated_data["account_holder_name"],
-            phone_number = serializer.validated_data["phone_number"],
-            reason = serializer.validated_data["reason"],
-            order_item = item,
-            order = item.order
-        )
+        RequestRefundBankInfo.objects.filter(id = serializer.data["bank_id"]).update(reason = serializer.data["reason"],order_item = item,order = item.order)
         item.save(update_fields = ["status"])
         return Response({"status":"200","message":f"Your Request has been approved"},status = 200)
     
     
-    def get(self,request,*args,**kwargs):
-        try:
-            queryset  = RequestRefundBankInfo.objects.filter(order_item__order__user__id = request.user.id)
-            print("queryset",queryset)
-            serializer = self.serializer_class(queryset,many = True).data
-            return Response(serializer)
-        except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status = 400)
+   
 
-class CodRequestRefundBankInfoRUDView(generics.DestroyAPIView,generics.UpdateAPIView):
+class CodBankView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = RequestRefundBankInfo.objects.all()
-    serializer_class = CodRequestRefundBankInfoSerializer
+    serializer_class = CodBankSerializer
+    
+    def perform_create(self,serializer):
+        serializer.save(user = self.request.user)
+
+    def get(self,request,*args,**kwargs):
+        queryset = RequestRefundBankInfo.objects.filter(user = self.request.user)
+        serializer = CodBankSerializer(queryset,many = True).data
+        if queryset:
+            return Response(serializer)
+        return Response({"status":"400","message":"400"},status = 400)
+
+
+class CodBankRUDView(generics.DestroyAPIView,generics.UpdateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = RequestRefundBankInfo.objects.all()
+    serializer_class = CodBankSerializer
     lookup_field = "id"
+    
+  
 
 
 

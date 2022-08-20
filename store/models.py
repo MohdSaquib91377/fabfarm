@@ -6,6 +6,8 @@ import PIL.Image
 from account.models import *
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.exceptions import ValidationError
+from django.db.models.signals import post_save,pre_save
+from django.dispatch import receiver
 
 class Category(TimeStampModel):
     name = models.CharField(max_length=64)
@@ -86,10 +88,11 @@ class Product(TimeStampModel):
         super(Product, self).clean()
 
 
+
 class Image(TimeStampModel):
-    image = models.ImageField(upload_to='images/products/main/')
+    image = models.ImageField(upload_to='images/products/main/',default = "women's_sleeper.jpg")
     image_caption = models.CharField(max_length=64)
-    products = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='images', default=None)
+    products = models.ForeignKey("Product",on_delete=models.CASCADE,related_name='images')
 
     class Meta:
         ordering = ['-created_at']
@@ -103,6 +106,15 @@ class Image(TimeStampModel):
         img.thumbnail(output_size)
         img.save(self.image.path)
 
+
+@receiver(post_save,sender = Product)
+def default_image_product(sender,instance,*args,**kwargs):
+    if not Image.objects.filter(products = instance).exists():
+        obj = Image()
+        obj.image_caption = "default caption"
+        obj.products = instance
+        obj.save()
+    
 class RecentView(TimeStampModel):
     user = models.ForeignKey("account.CustomUser",on_delete=models.CASCADE,related_name="recent_views")
     product = models.ForeignKey("Product",on_delete=models.CASCADE,related_name="recent_views")

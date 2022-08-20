@@ -120,8 +120,10 @@ def make_order_success(sender, instance, **kwargs):
 
 
 def validate_cod_refund(order_item):
-    if not OrderItem.objects.filter(id = order_item).first().is_return:
-        raise ValidationError(f"Refund Cannot be proccessed until product not return")
+    order_item_obj = OrderItem.objects.filter(id = order_item.id,status = "Request Refund").first()
+    if order_item_obj:
+        if not order_item_obj.is_return:
+            raise ValidationError(f"Refund Cannot be proccessed until product not return")
     return order_item
 
 
@@ -137,14 +139,11 @@ class RequestRefundBankInfo(TimeStampModel):
     order = models.ForeignKey(Order,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
     price = models.PositiveBigIntegerField(default = 0)
     is_refunded = models.BooleanField(default = False)
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
 
     def __str__(self):
         return f"{self.account_number}"
 
-    def save(self,*args,**kwargs):
-      
-        self.price = self.order_item.price
-        super(RequestRefundBankInfo, self).save(*args, **kwargs)
 
 
       
@@ -159,7 +158,6 @@ class ReturnRefundPolicy(TimeStampModel):
 
     )
     return_refund_timestamp = models.CharField(max_length = 16,choices = RETURN_REFUND_POLICY_CHOICES,default = '7 days')
-
     def __str__(self):
         return f"{self.return_refund_timestamp}"
 

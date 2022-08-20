@@ -4,8 +4,9 @@ urlpatterns = [
     path('place-order/', views.OrderAPIView.as_view(),name='place-order'),
     path('order-details/<order_item_id>/', views.OrderDetailsAPIView.as_view(),name='order-details'),
     path('order-cancel/<order_item_id>/', views.OrderCancelAPIView.as_view(),name='order-cancel'),
-    path('cod-request-refund/',views.CodRequestRefundBankInfoCreateView.as_view(),name = 'cod-request-refund'),
-    path('code-request-refund-RDU/<int:id>/',views.CodRequestRefundBankInfoRUDView.as_view(),name = 'code-request-refund-RDU'),
+    path('cod-request-refund/',views.CodRequestRefundView.as_view(),name = 'cod-request-refund'),
+    path('cod-read-update-delete-bank/<int:id>/',views.CodBankRUDView.as_view(),name = 'cod-read-update-delete-bank'),
+    path('cod-create-bank/',views.CodBankView.as_view(),name = "cod-create-bank"),
     # Admin Site handle
     path('order-items/',views.GetOrderItemAPIView.as_view(),name = "order-items"),
     path('order-item-details/<int:id>/',views.GetOrderItemDetailAPIView.as_view(),name = 'order-items-details'),

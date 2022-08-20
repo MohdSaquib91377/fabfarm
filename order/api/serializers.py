@@ -1,9 +1,11 @@
 from rest_framework.response import Response
 from rest_framework import serializers
-from order.models import Order,OrderItem,RequestRefundBankInfo
+from order.models import Order,OrderItem,RequestRefundBankInfo,ReturnRefundPolicy
 from account.api.serializers import *
 from store.api.serializers import *
 from store.models import *
+from django.utils import timezone
+from datetime import timedelta
 
 class OrderSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(read_only = True)
@@ -21,6 +23,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
     order = serializers.PrimaryKeyRelatedField(read_only = True)
     payment_mode = serializers.SerializerMethodField("get_order_payment_mode")
+    return_refund_validaty = serializers.SerializerMethodField("check_return_refund_validaty")
     class Meta:
         model = OrderItem
         fields = "__all__"  
@@ -30,7 +33,25 @@ class OrderItemSerializer(serializers.ModelSerializer):
             return "Cash on delivery"
         else:
             return "Razorpay"
-        
+    
+    def check_return_refund_validaty(self,obj):
+        # get refund validaty
+        object = ReturnRefundPolicy.objects.filter().first()
+        days = int(object.return_refund_timestamp.split(" ")[0])
+        order_date = obj.order.created_at + timedelta(days)
+        if timezone.now() > order_date:
+            return {
+                "status":False,
+                "message":"Return/Refund policy expire"
+            }  
+        else:
+            return {
+            "status":True,
+            "message":f"Return/Refund has validaty {days} days of it's purchase date"
+            }      
+
+
+
 class OrderItemDetailsSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
     order = OrderSerializer()
@@ -51,12 +72,16 @@ class OrderItemIdSerializer(serializers.ModelSerializer):
         fields = ["id"]
 
 
-class CodRequestRefundBankInfoSerializer(serializers.ModelSerializer):
-    order_item = serializers.PrimaryKeyRelatedField(read_only = True)
+class CodRequestRefundSerializer(serializers.ModelSerializer):
+    bank_id = serializers.IntegerField(source = "id")
     class Meta:
         model = RequestRefundBankInfo
-        fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","reason","order_item","order"]
+        fields = ["reason","order_item","bank_id"]
         extra_kwargs = {"order": {"required": False, "allow_null": True}}
                 
-
+class CodBankSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RequestRefundBankInfo
+        fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","user","id"]
+        extra_kwargs = {"user":{"required":False, "allow_null":True},"id":{"required":False, "allow_null":True}}
     
