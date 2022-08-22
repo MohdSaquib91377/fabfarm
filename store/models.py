@@ -10,6 +10,7 @@ from django.db.models.signals import post_save,pre_save
 from django.dispatch import receiver
 
 class Category(TimeStampModel):
+    image = models.ImageField(upload_to = 'category/',max_length=255, blank=True, null=True)
     name = models.CharField(max_length=64)
     slug = models.SlugField(max_length=64,unique=True, help_text="Unique value for product page URL,created from name")
     description = models.TextField()
@@ -90,7 +91,7 @@ class Product(TimeStampModel):
 
 
 class Image(TimeStampModel):
-    image = models.ImageField(upload_to='images/products/main/',default = "women's_sleeper.jpg")
+    image = models.ImageField(upload_to='images/products/main/',default = "fabfarm.jpg")
     image_caption = models.CharField(max_length=64)
     products = models.ForeignKey("Product",on_delete=models.CASCADE,related_name='images')
 

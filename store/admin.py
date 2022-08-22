@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Category, Brand, Product, Image,SubCategory,RecentView,ContactUs
 
 class CategoryAdmin(admin.ModelAdmin):    
-    list_display = ['id', 'name', 'slug','is_active','meta_keywords','meta_description']    
+    list_display = ['id', 'name', 'slug','is_active','meta_keywords','meta_description','image']    
 admin.site.register(Category, CategoryAdmin)
 
 class SubCategoryAdmin(admin.ModelAdmin):    
