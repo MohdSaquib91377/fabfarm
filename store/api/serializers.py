@@ -8,6 +8,9 @@ from store.models import *
 from account.api.serializers import UserSerializer
 from rating_review.api.serializers import ProductRatingSerializer
 from rating_review.helpers import calc_product_avg_rating
+from django.db.models import Sum
+from django.db.models import Q
+ 
 class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -34,10 +37,13 @@ class ProductsSerializer(serializers.ModelSerializer):
     maxQuantity = serializers.IntegerField(source = "quantity")
     quantity = serializers.SerializerMethodField("set_qauntity_by_1")
     is_product_in_wishlist_for_current_user = serializers.SerializerMethodField("get_cuurent_user_wishlist")
-    product_ratings = serializers.SerializerMethodField("get_product_ratings")
+    product_avg_ratings = serializers.SerializerMethodField("get_product_ratings")
+    ratings = ProductRatingSerializer(read_only = True,many=True)
+    total_ratings_reviews = serializers.SerializerMethodField("get_total_ratings_reviews")
+    rating_bar = serializers.SerializerMethodField("get_rating_bar")
     class Meta:
         model = Product
-        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category","is_product_in_wishlist_for_current_user","product_ratings"]
+        fields = ["id","name","slug","sku","price","old_price","is_active","is_bestseller","maxQuantity","quantity","description","meta_keywords","meta_description","brand","image","sub_category","category","is_product_in_wishlist_for_current_user","product_avg_ratings","ratings","total_ratings_reviews","rating_bar"]
         
     def get_images(self, obj):
         images = obj.images.all()
@@ -54,9 +60,23 @@ class ProductsSerializer(serializers.ModelSerializer):
                 return True
             else:
                 return False
+
     def get_product_ratings(self, obj):
         return calc_product_avg_rating(obj)
-        
+    
+    def get_total_ratings_reviews(self, obj):
+        queryset = obj.ratings.filter(product__id = obj.id).exclude(Q(comment__isnull = True) | Q(comment = '') | Q(comment = 'string'))
+        return f"{obj.ratings.filter(product__id = obj.id).aggregate(Sum('rating'))['rating__sum']} Ratings & {queryset.count()} Reviews"
+
+    def get_rating_bar(self, obj):
+        bar_list = []
+        bar_obj = dict()
+        for start_rating in range(1,6,1):
+            bar_obj[start_rating] = obj.ratings.filter(product_id=obj.id, rating=start_rating).count()
+            bar_list.append(bar_obj)
+            bar_obj = {}
+        return bar_list
+
 class SubCategoryProductSerializer(serializers.ModelSerializer):
     products = ProductsSerializer(many=True)
     is_product_in_wishlist_for_current_user = serializers.SerializerMethodField("get_cuurent_user_wishlist")
