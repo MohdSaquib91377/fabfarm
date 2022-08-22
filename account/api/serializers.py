@@ -86,10 +86,11 @@ class MobileSerializer(serializers.ModelSerializer):
 class UpdateMobileSerializer(serializers.ModelSerializer):
     new_mobile_otp = serializers.CharField(max_length=64)
     exists_email_or_mobile_otp = serializers.CharField(max_length=64)
+    txn_id = serializers.CharField()
 
     class Meta:
         model = CustomUser
-        fields = ["new_mobile_otp", "exists_email_or_mobile_otp", "password"]
+        fields = ["new_mobile_otp", "exists_email_or_mobile_otp", "password","txn_id"]
         
 class ForgotPasswordSerializer(serializers.Serializer):
     txn_id = serializers.IntegerField()

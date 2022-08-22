@@ -328,6 +328,8 @@ class UpdateMobileAPIView(APIView):
             "new_mobile_otp":serializer.validated_data["new_mobile_otp"],
             "exists_email_or_mobile_otp":serializer.validated_data["exists_email_or_mobile_otp"],
             "password":serializer.validated_data["password"],
+            "txn_id":serializer.validated_data["txn_id"]
+
         }
         msg,status = verify_and_update_mobile(data,request.user)
 
