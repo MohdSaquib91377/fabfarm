@@ -25,6 +25,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
     order = serializers.PrimaryKeyRelatedField(read_only = True)
     payment_mode = serializers.SerializerMethodField("get_order_payment_mode")
     return_refund_validaty = serializers.SerializerMethodField("check_return_refund_validaty")
+    order_item_rating = serializers.SerializerMethodField("get_order_item_rating")
     class Meta:
         model = OrderItem
         fields = "__all__"  
@@ -50,14 +51,22 @@ class OrderItemSerializer(serializers.ModelSerializer):
             "status":True,
             "message":f"Return/Refund has validaty {days} days of it's purchase date"
             }      
-
-
+    
+    def get_order_item_rating(self,obj):
+        rating_obj = obj.ratings.filter(order_item__id = obj.id,user__id = obj.order.user.id).first()
+        if rating_obj:
+            return {
+                "ratings": rating_obj.rating,
+                "id":rating_obj.id,
+                "review":rating_obj.comment
+            }
 
 class OrderItemDetailsSerializer(serializers.ModelSerializer):
     product = ProductsSerializer()
     order = OrderSerializer()
     payment_mode = serializers.SerializerMethodField("get_order_payment_mode")
     order_item_rating = serializers.SerializerMethodField("get_order_item_rating")
+
     class Meta:
         model = OrderItem
         fields = "__all__"  
@@ -73,6 +82,16 @@ class OrderItemDetailsSerializer(serializers.ModelSerializer):
             serializer = ProductRatingSerializer(queryset,many=True).data
             return serializer
         return None
+
+    def get_order_item_rating(self,obj):
+        rating_obj = obj.ratings.filter(order_item__id = obj.id,user__id = obj.order.user.id).first()
+        if rating_obj:
+            return {
+                "ratings": rating_obj.rating,
+                "id":rating_obj.id,
+                "review":rating_obj.comment
+            }
+
 # admin side
 class OrderItemIdSerializer(serializers.ModelSerializer):
     class Meta:
