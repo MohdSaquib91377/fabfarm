@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import CustomUser,Contact,FundAccout
 
 
 class CustomUserAdmin(UserAdmin):
@@ -26,3 +26,12 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ["id","user","razorpay_conatct_id"]
+
+class FundAccoutAdmin(admin.ModelAdmin):
+    list_display = ["id","user","contact_id","razorpay_fund_id","account_type","ifsc","bank_name","name","account_number","active"]
+
+admin.site.register(Contact, ContactAdmin)
+admin.site.register(FundAccout, FundAccoutAdmin)

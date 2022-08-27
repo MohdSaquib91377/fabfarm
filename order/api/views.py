@@ -1,6 +1,8 @@
 import re
 from rest_framework.response import Response
-from order.api.serializers import OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,OrderItemIdSerializer,CodRequestRefundSerializer,CodBankSerializer
+from order.api.serializers import (OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,
+                OrderItemIdSerializer,CodRequestRefundSerializer,
+                FundAccoutSerializer,CodBankSerializer)
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import status
@@ -205,16 +207,56 @@ class CodRequestRefundView(APIView):
         return Response({"status":"200","message":f"Your Request has been approved"},status = 200)
     
     
-   
 
-class CodBankView(generics.ListCreateAPIView):
+from order.helpers import *
+from account.models import Contact,FundAccout
+class CreateFundAccountView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = RequestRefundBankInfo.objects.all()
-    serializer_class = CodBankSerializer
+    queryset = FundAccout.objects.all()
+    serializer_class = FundAccoutSerializer
     
     def perform_create(self,serializer):
-        serializer.save(user = self.request.user)
+        print(serializer.data)
+        # create contact
+        data = {
+        "name": self.request.user.fullname,
+        "email":self.request.user.email_or_mobile,
+        "type":"customer",
+        "reference_id":f"{self.request.user.fullname}{self.request.user.id}"
+        }
+        if self.request.user.mobile:
+            data["contact"] = self.request.user.mobile
 
+        response,status = create_contact("contacts",data)
+        if status == 201:
+            Contact.objects.create(user = self.request.user,razorpay_conatct_id = response["id"])
+
+            #  Create Fund Account
+            data = {
+                "contact_id":response["id"],
+                "account_type":"bank_account",
+                "bank_account":{
+                    "name":serializer.data["name"],
+                    "ifsc":serializer.data["ifsc"],
+                    "account_number":serializer.data["account_number"],
+                }
+
+            }
+            response,status= create_fund_account("fund_accounts",data)
+            if status == 201:
+                FundAccout.objects.create(
+                                    user = self.request.user,
+                                    account_type = response["account_type"],
+                                    contact_id = response["contact_id"],
+                                    ifsc = response["bank_account"]["ifsc"],
+                                    bank_name = response["bank_account"]["bank_name"],
+                                    account_number = response["bank_account"]["account_number"],
+                                    name = response["bank_account"]["name"],
+                                    active = response["active"],
+                                    )
+
+
+            
     def get(self,request,*args,**kwargs):
         queryset = RequestRefundBankInfo.objects.filter(user = self.request.user)
         serializer = CodBankSerializer(queryset,many = True).data

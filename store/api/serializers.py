@@ -70,9 +70,12 @@ class ProductsSerializer(serializers.ModelSerializer):
 
     def get_rating_bar(self, obj):
         bar_list = []
+        colour_code = ["#FF6161","#FF9F00","#388E3C","#388E3C","#388E3C"]
         bar_obj = dict()
         for start_rating in range(1,6,1):
-            bar_obj[start_rating] = obj.ratings.filter(product_id=obj.id, rating=start_rating).count()
+            bar_obj[str(start_rating)] = obj.ratings.filter(product_id=obj.id, rating=start_rating).count()
+            bar_obj["colour_code"] = colour_code[start_rating - 1]
+            bar_obj["bar_percentage"] = (obj.ratings.filter(product_id=obj.id, rating=start_rating).count()/100)*start_rating
             bar_list.append(bar_obj)
             bar_obj = {}
         return bar_list

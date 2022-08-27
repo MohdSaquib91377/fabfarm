@@ -69,3 +69,30 @@ class UserAddress(TimeStampModel):
 
     class Meta:
         ordering = ["-id"]
+
+
+# Razorpay contact
+class Contact(TimeStampModel):
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE,related_name = "contact")
+    razorpay_conatct_id = models.CharField(max_length=64,verbose_name=_("razorpay contact id"))
+
+    class Meta:
+        ordering = ["-id"]
+        db_table = "contacts"
+        verbose_name_plural =  _("Razorpay Contact")
+
+# Razorpay fund Acc
+class FundAccout(TimeStampModel):
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE,related_name = "fund_acc")
+    contact_id = models.CharField(max_length=64,verbose_name=_("contact id"))
+    razorpay_fund_id = models.CharField(max_length=64,verbose_name=_("razorpay fund id"))
+    account_type = models.CharField(max_length=64)
+    ifsc = models.CharField(max_length = 64)
+    bank_name = models.CharField(max_length = 64)
+    name = models.CharField(max_length = 64)
+    account_number = models.PositiveIntegerField()
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["-id"]
+        verbose_name_plural =  _("Fund Account")

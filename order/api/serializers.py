@@ -111,4 +111,19 @@ class CodBankSerializer(serializers.ModelSerializer):
         model = RequestRefundBankInfo
         fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","user","id"]
         extra_kwargs = {"user":{"required":False, "allow_null":True},"id":{"required":False, "allow_null":True}}
-    
+
+class FundAccoutSerializer(serializers.ModelSerializer):
+    confirm_account_number = serializers.IntegerField()
+    class Meta:
+        model = FundAccout
+        fields = ["ifsc","name","account_number",'confirm_account_number']
+        extra_kwargs = {
+                        "user":{"required":False, "allow_null":True},
+                        "contact_id":{"required":False, "allow_null":True},
+                        "razorpay_fund_id":{"required":False, "allow_null":True},
+                        "account_type":{"required":False, "allow_null":True},
+                        "active":{"required":False, "allow_null":True},
+                        "bank_name":{"required":False, "allow_null":True},
+
+
+                        }

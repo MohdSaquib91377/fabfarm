@@ -33,3 +33,27 @@ def is_ValidIFSCode(ifsc_code):
 
 
 
+from django.conf import settings
+import json
+import requests,base64
+
+
+raz_cred = f"{settings.RAZOR_KEY_ID}:{settings.RAZOR_KEY_SECRET}"
+raz_token = base64.b64encode(raz_cred.encode()).decode()
+RAZORPAY_BASE_URL = "https://api.razorpay.com/v1/"
+
+def create_contact(url: str,data:dict) -> dict:
+    response = requests.post(
+        url = RAZORPAY_BASE_URL + url,
+        headers = {"Authorization": f"Basic {raz_token}","Content-Type": "application/json",},
+        data = json.dumps(data)
+        )   
+    return response.json(),response.status_code
+
+def create_fund_account(url: str,data:dict) -> dict:
+    response = requests.post(
+        url = RAZORPAY_BASE_URL + url,
+        headers = {"Authorization": f"Basic {raz_token}","Content-Type": "application/json",},
+        data = json.dumps(data)
+        )
+    return response.json(),response.status_code
