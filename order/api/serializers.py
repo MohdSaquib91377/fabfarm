@@ -104,11 +104,10 @@ class OrderItemIdSerializer(serializers.ModelSerializer):
 
 class FundAccoutSerializer(serializers.ModelSerializer):
     confirm_account_number = serializers.IntegerField()
-    order_item_id = serializers.IntegerField()
 
     class Meta:
         model = FundAccout
-        fields = ["ifsc","name","account_number",'confirm_account_number',"order_item_id"]
+        fields = ["ifsc","name","account_number","confirm_account_number"]
         extra_kwargs = {
                         "user":{"required":False, "allow_null":True},
                         "contact_id":{"required":False, "allow_null":True},
@@ -116,6 +115,5 @@ class FundAccoutSerializer(serializers.ModelSerializer):
                         "account_type":{"required":False, "allow_null":True},
                         "active":{"required":False, "allow_null":True},
                         "bank_name":{"required":False, "allow_null":True},
-
 
                         }
