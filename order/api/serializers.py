@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework import serializers
-from order.models import Order,OrderItem,RequestRefundBankInfo,ReturnRefundPolicy
+from order.models import Order,OrderItem,ReturnRefundPolicy
 from account.api.serializers import *
 from store.api.serializers import *
 from store.models import *
@@ -99,24 +99,16 @@ class OrderItemIdSerializer(serializers.ModelSerializer):
         fields = ["id"]
 
 
-class CodRequestRefundSerializer(serializers.ModelSerializer):
-    bank_id = serializers.IntegerField(source = "id")
-    class Meta:
-        model = RequestRefundBankInfo
-        fields = ["reason","order_item","bank_id"]
-        extra_kwargs = {"order": {"required": False, "allow_null": True}}
                 
-class CodBankSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = RequestRefundBankInfo
-        fields = ["ifsc_code","account_number","confirm_account_number","account_holder_name","phone_number","user","id"]
-        extra_kwargs = {"user":{"required":False, "allow_null":True},"id":{"required":False, "allow_null":True}}
+
 
 class FundAccoutSerializer(serializers.ModelSerializer):
     confirm_account_number = serializers.IntegerField()
+    order_item_id = serializers.IntegerField()
+
     class Meta:
         model = FundAccout
-        fields = ["ifsc","name","account_number",'confirm_account_number']
+        fields = ["ifsc","name","account_number",'confirm_account_number',"order_item_id"]
         extra_kwargs = {
                         "user":{"required":False, "allow_null":True},
                         "contact_id":{"required":False, "allow_null":True},

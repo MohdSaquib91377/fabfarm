@@ -31,7 +31,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ["id","user","razorpay_conatct_id"]
 
 class FundAccoutAdmin(admin.ModelAdmin):
-    list_display = ["id","user","contact_id","razorpay_fund_id","account_type","ifsc","bank_name","name","account_number","active"]
+    list_display = ["id","user","contact_id","razorpay_fund_id","account_type","ifsc","bank_name","name","account_number","active","make_refund"]
 
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(FundAccout, FundAccoutAdmin)

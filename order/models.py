@@ -12,6 +12,7 @@ from django.urls import reverse
 from django.dispatch import receiver
 from django.core.exceptions import ValidationError
 from django.db.models import Sum
+from account.models import *
 
 # Create your models here.
 
@@ -127,28 +128,6 @@ def validate_cod_refund(order_item):
     return order_item
 
 
-class RequestRefundBankInfo(TimeStampModel):
-    ifsc_code = models.CharField(max_length = 64)
-    account_number = models.PositiveBigIntegerField()
-    confirm_account_number = models.PositiveBigIntegerField()
-    account_holder_name = models.CharField(max_length = 64)
-    phone_number = models.PositiveBigIntegerField()
-    reason = models.CharField(max_length = 256,null = True, blank = True)
-    #order item
-    order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True,validators=[validate_cod_refund])
-    order = models.ForeignKey(Order,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
-    price = models.PositiveBigIntegerField(default = 0)
-    is_refunded = models.BooleanField(default = False)
-    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE,related_name = "RequestRefundBankInfo",null = True,blank = True)
-
-    def __str__(self):
-        return f"{self.account_number}"
-
-
-
-      
-            
-
 class ReturnRefundPolicy(TimeStampModel):
     RETURN_REFUND_POLICY_CHOICES = (
         ("7 days","7 days"),
@@ -190,22 +169,14 @@ def create_receive_return(sender,instance,*args,**kwargs):
         if ReceiveReturn.objects.filter(order_item = instance).exists():
             ReceiveReturn.objects.filter(order_item = instance).delete()
 
-            
-@receiver(post_save,sender = RequestRefundBankInfo)
-def update_order_order_item_status_or_product_quantity(sender,instance,*args,**kwargs):
-    if instance.is_refunded == True:
-        total_order_item = RequestRefundBankInfo.objects.filter(order = instance.order).aggregate(Sum('price'))["price__sum"]
-        if int(instance.order_item.order.total_amount_payble )- int(total_order_item) > 0:
-            instance.order_item.order.order_status = "partial order"
-            instance.order_item.order.payment_status = "Payment Refund Partial"
-            instance.order_item.status = "Refunded"
-        else:
-            instance.order_item.order.order_status  = "order cancelled"
-            instance.order_item.order.payment_status = "Payment Refund Full"
-            instance.order_item.status = "Refunded"
-        instance.order_item.save()
-        instance.order_item.order.save()
-        # update product quantity
-        product = Product.objects.filter(id = instance.order_item.product.id).first()
-        product.quantity += instance.order_item.quantity
-        product.save()
+
+class RequestRefundItem(TimeStampModel):
+    order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name="refund_items")
+    fund_accounts = models.ForeignKey(FundAccout,on_delete = models.CASCADE,related_name="refund_items")
+
+
+    class Meta:
+        verbose_name_plural = "Request Refund Items"
+    def __str__(self):
+        return f"{self.order_item.id} - {self.fund_accounts.id}"
+    

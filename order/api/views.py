@@ -1,15 +1,15 @@
 import re
 from rest_framework.response import Response
 from order.api.serializers import (OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,
-                OrderItemIdSerializer,CodRequestRefundSerializer,
-                FundAccoutSerializer,CodBankSerializer)
+                OrderItemIdSerializer,
+                FundAccoutSerializer)
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import status
 from drf_yasg.utils import swagger_auto_schema
 from django.utils.crypto import get_random_string
 from cart.models import Cart
-from order.models import Order, OrderItem,RequestRefundBankInfo
+from order.models import Order, OrderItem
 from store.models import *
 from cart.helpers import is_product_in_cart
 from django.http import Http404
@@ -24,6 +24,10 @@ from services.email import *
 from account.models import *
 from rest_framework import generics
 from drf_yasg.utils import swagger_auto_schema
+
+
+from order.helpers import *
+from account.models import Contact,FundAccout
 
 class OrderAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -191,49 +195,33 @@ class GetOrderItemDetailAPIView(generics.RetrieveAPIView):
     lookup_field = "id"
     
 
-class CodRequestRefundView(APIView):
+class CreateFundAccountView(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    serializer_class = CodRequestRefundSerializer
-    @swagger_auto_schema(tags = ['order'],request_body = CodRequestRefundSerializer)       
-    def post(self,request,*args,**kwargs):
-        serializer = self.serializer_class(data = request.data)
-        serializer.is_valid(raise_exception = True)
-        item = OrderItem.objects.filter(id = serializer.data["order_item"]).first()
-        if not item.status in ["Delivered"]:
-            return Response({"status":"400","message":f"order items status should be delivered"},status = 400)
-        item.status = "Request Refund"
-        RequestRefundBankInfo.objects.filter(id = serializer.data["bank_id"]).update(reason = serializer.data["reason"],order_item = item,order = item.order)
-        item.save(update_fields = ["status"])
-        return Response({"status":"200","message":f"Your Request has been approved"},status = 200)
-    
-    
-
-from order.helpers import *
-from account.models import Contact,FundAccout
-class CreateFundAccountView(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
-    queryset = FundAccout.objects.all()
     serializer_class = FundAccoutSerializer
-    
-    def perform_create(self,serializer):
-        print(serializer.data)
-        # create contact
-        data = {
-        "name": self.request.user.fullname,
-        "email":self.request.user.email_or_mobile,
-        "type":"customer",
-        "reference_id":f"{self.request.user.fullname}{self.request.user.id}"
-        }
-        if self.request.user.mobile:
-            data["contact"] = self.request.user.mobile
+    @swagger_auto_schema(tags = ['order'],request_body = FundAccoutSerializer)
+    def post(self,request,*args, **kwargs):
 
-        response,status = create_contact("contacts",data)
-        if status == 201:
-            Contact.objects.create(user = self.request.user,razorpay_conatct_id = response["id"])
+        try:
+            # create contact
+            serializer = self.serializer_class(data = request.data)
+            serializer.is_valid(raise_exception = True)
+            if not request.user.contact.filter().exists():
+                data = {
+                "name": request.user.fullname,
+                "email": request.user.email_or_mobile,
+                "type":"customer",
+                "reference_id":f"{request.user.fullname}{request.user.id}"
+                }
+                if request.user.mobile:
+                    data["contact"] = request.user.mobile
 
-            #  Create Fund Account
+                response,status = create_contact("contacts",data)
+                if status == 201:
+                    Contact.objects.create(user = request.user,razorpay_conatct_id = response["id"])
+
+            #Create Fund Account
             data = {
-                "contact_id":response["id"],
+                "contact_id":request.user.contact.filter().first().razorpay_conatct_id,
                 "account_type":"bank_account",
                 "bank_account":{
                     "name":serializer.data["name"],
@@ -245,7 +233,8 @@ class CreateFundAccountView(generics.ListCreateAPIView):
             response,status= create_fund_account("fund_accounts",data)
             if status == 201:
                 FundAccout.objects.create(
-                                    user = self.request.user,
+                                    user = request.user,
+                                    razorpay_fund_id = response["id"],
                                     account_type = response["account_type"],
                                     contact_id = response["contact_id"],
                                     ifsc = response["bank_account"]["ifsc"],
@@ -255,27 +244,26 @@ class CreateFundAccountView(generics.ListCreateAPIView):
                                     active = response["active"],
                                     )
 
-
-            
-    def get(self,request,*args,**kwargs):
-        queryset = RequestRefundBankInfo.objects.filter(user = self.request.user)
-        serializer = CodBankSerializer(queryset,many = True).data
-        if queryset:
-            return Response(serializer)
-        return Response({"status":"400","message":"400"},status = 400)
-
-
-class CodBankRUDView(generics.DestroyAPIView,generics.UpdateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
-    queryset = RequestRefundBankInfo.objects.all()
-    serializer_class = CodBankSerializer
-    lookup_field = "id"
+                
+                
+                return Response({"status":"200","message":"Your account has been created successfully"},status=200)
     
+
+        except Exception as e:
+            return Response({"status":"400","message":e},status=400)
+
+
+
+def payout_view(request):
+    return render(request, 'payout.html', {})
+
+class RazorpayPayoutAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        pass                
+   
+
+
   
-
-
-
-
 from django.shortcuts import render
 
 def AdminRefund(request):

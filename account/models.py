@@ -8,6 +8,10 @@ from django.utils.crypto import get_random_string
 from .managers import CustomUserManager
 from datetime import datetime
 from django.conf import settings
+from django.urls import reverse
+from django.utils.html import format_html
+
+
 
 class TimeStampModel(models.Model):
     id = models.AutoField(primary_key=True,editable=False)
@@ -90,9 +94,15 @@ class FundAccout(TimeStampModel):
     ifsc = models.CharField(max_length = 64)
     bank_name = models.CharField(max_length = 64)
     name = models.CharField(max_length = 64)
-    account_number = models.PositiveIntegerField()
+    account_number = models.PositiveBigIntegerField()
     active = models.BooleanField(default=False)
+    make_refund = models.CharField(max_length=64,verbose_name=_("make refund for cash on delivery"),null = True,blank = True)
 
     class Meta:
         ordering = ["-id"]
         verbose_name_plural =  _("Fund Account")
+    
+    def make_refund(self, **kwargs):
+        url = reverse("payout")
+        return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
+    
