@@ -57,3 +57,12 @@ def create_fund_account(url: str,data:dict) -> dict:
         data = json.dumps(data)
         )
     return response.json(),response.status_code
+
+def create_payout(url: str,data:dict) -> dict:
+    response = requests.post(
+        url = RAZORPAY_BASE_URL + url,
+        headers = {"Authorization": f"Basic {raz_token}","Content-Type": "application/json",},
+        data = json.dumps(data)
+
+        ) 
+    return response.json(),response.status_code

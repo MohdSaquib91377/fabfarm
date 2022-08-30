@@ -44,7 +44,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin,TimeStampModel):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.email_or_mobile
+        return f"{self.email_or_mobile}"
     
     def save(self, *args, **kwargs):
         self.otp = get_random_string(length=6,allowed_chars="0123456789")
@@ -96,13 +96,13 @@ class FundAccout(TimeStampModel):
     name = models.CharField(max_length = 64)
     account_number = models.PositiveBigIntegerField()
     active = models.BooleanField(default=False)
-    make_refund = models.CharField(max_length=64,verbose_name=_("make refund for cash on delivery"),null = True,blank = True)
+
+    def __str__(self):
+        return f"{self.id}"
 
     class Meta:
         ordering = ["-id"]
         verbose_name_plural =  _("Fund Account")
     
-    def make_refund(self, **kwargs):
-        url = reverse("payout")
-        return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
+    
     

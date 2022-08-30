@@ -11,15 +11,4 @@ class Migration(migrations.Migration):
         ('order', '0021_requestrefundbankinfo_is_refunded'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='requestrefundbankinfo',
-            name='price',
-            field=models.PositiveBigIntegerField(default=0),
-        ),
-        migrations.AlterField(
-            model_name='requestrefundbankinfo',
-            name='order_item',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='RequestRefundBankInfo', to='order.orderitem', validators=[order.models.validate_cod_refund]),
-        ),
-    ]
+   

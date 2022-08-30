@@ -25,4 +25,24 @@ class ReceiveReturnAdmin(admin.ModelAdmin):
 
 @admin.register(RequestRefundItem)
 class RequestRefundItemAdmin(admin.ModelAdmin):
-    list_display = ["id","order_item","fund_accounts"]
+    list_display = ["id","order_item","fund_accounts","user","make_refund"]
+
+@admin.register(Payout)
+class PayoutAdmin(admin.ModelAdmin):
+    list_display = [
+     "razorpay_payout_id",
+     "fund_account_id",
+     "amount",
+     "currency",
+     "fees",
+     "tax",
+     "status",
+     "purpose",
+     "mode",
+     "reference_id",
+     "merchant_id",
+     "source",
+     "reason",
+     "description"
+    ]
+    

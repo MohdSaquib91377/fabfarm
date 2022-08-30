@@ -305,7 +305,7 @@ img:hover{
         var order_item_id =  window.localStorage.getItem("order_item_id")
         $.ajax({
             
-            url:`https://fab-farm.datavivservers.in/api/v1/payment/payment-refund/${order_item_id}/`,
+            url:`https://fab-farm.datavivservers.in/api/v1/order/razorpay/payout/${order_item_id}/`,
             "type":"post",
             dataType:"json",
             success:function(response){

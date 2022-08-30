@@ -1,6 +1,6 @@
 import re
 from rest_framework.response import Response
-from order.api.serializers import (OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,
+from order.api.serializers import (OrderSerializer,OrderItemSerializer,OrderItemDetailsSerializer,RequestRefundItemSerializer,
                 OrderItemIdSerializer,
                 FundAccoutSerializer)
 from rest_framework.views import APIView
@@ -35,7 +35,6 @@ class OrderAPIView(APIView):
     @method_decorator(csrf_exempt, name='dispatch')         
     def post(self,request,*args, **kwargs):
         try:
-            print("post-------------------------------->")
             is_razor_pay_mode = False
             ordered_response = dict()
             
@@ -198,6 +197,7 @@ class GetOrderItemDetailAPIView(generics.RetrieveAPIView):
 class CreateFundAccountView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = FundAccoutSerializer
+
     @swagger_auto_schema(tags = ['order'],request_body = FundAccoutSerializer)
     def post(self,request,*args, **kwargs):
 
@@ -244,22 +244,69 @@ class CreateFundAccountView(APIView):
                                     active = response["active"],
                                     )
 
-                
-                
                 return Response({"status":"200","message":"Your account has been created successfully"},status=200)
     
 
         except Exception as e:
             return Response({"status":"400","message":e},status=400)
 
+    def get(self,request, *args, **kwargs):
+        queryset = FundAccout.objects.filter(user = request.user)
+        print(queryset)
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data) 
 
+
+class RequestRefundItemAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = RequestRefundItemSerializer
+    @swagger_auto_schema(tags = ['order'],request_body = RequestRefundItemSerializer)
+    def post(self,request, *args, **kwargs):
+        try:
+            serializer = self.serializer_class(data = request.data)
+            serializer.is_valid(raise_exception = True)
+
+            order_item = OrderItem.objects.filter(id = serializer.validated_data["order_item"].id).first()
+            if not order_item.status in ["Delivered"]:
+                return Response({"status":"400","message":"Order item is not delivered"},status=400)
+            
+            serializer.save(user = request.user)
+            order_item.status = "Request Refund"
+            order_item.save(update_fields = ["status"])
+            return Response({"status":"200","message":"Your request has been approved"},status=200)
+        except Exception as e:
+            return Response({"status":"400","message":e},status=400)
 
 def payout_view(request):
     return render(request, 'payout.html', {})
 
 class RazorpayPayoutAPIView(APIView):
-    def post(self, request, *args, **kwargs):
-        pass                
+    def post(self, request, order_item,*args, **kwargs):
+        # create razorpay payout 
+        order_item = OrderItem.objects.filter(id = order_item.id).first()
+        if not order_item.is_return:
+            return Response({"status":"400","message":"Order item is not return"},status=400)
+
+        data = {
+            "account_number": settings.ACCOUNT_NUMBER,
+            "fund_account_id": order_item.refund_items.filter().first().fund_accounts.razorpay_fund_id,
+            "amount": order_item.price * order.quantity,
+            "currency": "INR",
+            "mode": "IMPS",
+            "purpose": "refund",
+            "queue_if_low_balance": true,
+            "reference_id": "Acme Transaction ID 12345",
+            "narration": "Acme Corp Fund Transfer",
+            "notes": {
+                "notes_key_1":"Tea, Earl Grey, Hot",
+                "notes_key_2":"Tea, Earl Grey… decaf."
+            }
+            }
+        response,status = create_payout("payouts",data)
+        if status == 201:
+            return Response({"status":"201","message":"Payout created"},status=200)
+            
+                  
    
 
 

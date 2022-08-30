@@ -120,13 +120,6 @@ def make_order_success(sender, instance, **kwargs):
         Order.objects.filter(id = instance.order.id).update(order_status="order success",payment_status = "payment success")
 
 
-def validate_cod_refund(order_item):
-    order_item_obj = OrderItem.objects.filter(id = order_item.id,status = "Request Refund").first()
-    if order_item_obj:
-        if not order_item_obj.is_return:
-            raise ValidationError(f"Refund Cannot be proccessed until product not return")
-    return order_item
-
 
 class ReturnRefundPolicy(TimeStampModel):
     RETURN_REFUND_POLICY_CHOICES = (
@@ -157,7 +150,7 @@ class ReceiveReturn(TimeStampModel):
         verbose_name_plural = "Receive Return"
     
 @receiver(post_save, sender = OrderItem)
-def create_receive_return(sender,instance,*args,**kwargs):
+def create_receive_return(sender,instance,created,*args,**kwargs):
     if instance.is_return == True:
         obj, created = ReceiveReturn.objects.get_or_create(
             order_item=instance,
@@ -170,9 +163,12 @@ def create_receive_return(sender,instance,*args,**kwargs):
             ReceiveReturn.objects.filter(order_item = instance).delete()
 
 
+
 class RequestRefundItem(TimeStampModel):
     order_item = models.ForeignKey(OrderItem,on_delete = models.CASCADE,related_name="refund_items")
     fund_accounts = models.ForeignKey(FundAccout,on_delete = models.CASCADE,related_name="refund_items")
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE,related_name="refund_items",null=True,blank=True)
+    make_refund = models.CharField(max_length=64,verbose_name=("make refund for cash on delivery"),null = True,blank = True)
 
 
     class Meta:
@@ -180,3 +176,70 @@ class RequestRefundItem(TimeStampModel):
     def __str__(self):
         return f"{self.order_item.id} - {self.fund_accounts.id}"
     
+    def make_refund(self, **kwargs):
+        if self.order_item.status in ["Request Refund"] and self.order_item.order.payment_mode in ["cod"]:
+            url = reverse("payout")
+            return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
+
+class Payout(TimeStampModel):
+    razorpay_payout_id = models.CharField(max_length=64)
+    fund_account_id = models.CharField(max_length=64)
+    amount = models.CharField(max_length=64)
+    currency = models.CharField(max_length=3)
+    fees  = models.CharField(max_length=64)
+    tax = models.CharField(max_length=64)
+    status = models.CharField(max_length=64)
+    purpose = models.CharField(max_length=64)
+    mode = models.CharField(max_length=64)
+    reference_id = models.CharField(max_length=64)
+    merchant_id = models.CharField(max_length=64)
+
+    # errors
+    source = models.CharField(max_length=64,null = True,blank=True)
+    reason = models.CharField(max_length=64,null=True,blank=True)
+    description = models.TextField(max_length = 255,null = True,blank=True)
+    
+    class Meta:
+        ordering = ("-id",)
+        verbose_name_plural = "Payouts"
+
+'''
+{   
+    "id": "pout_KBp6SZav4sbVDg",
+    "entity": "payout",
+    "fund_account_id": "fa_KBLCwrUpWe6rfX",
+    "amount": 100,
+    "currency": "INR",
+    "notes": {
+        "notes_key_1": "Tea, Earl Grey, Hot",
+        "notes_key_2": "Tea, Earl Grey… decaf."
+    },
+    "fees": 0,
+    "tax": 0,
+    "status": "processing",
+    "purpose": "refund",
+    "utr": null,
+    "mode": "IMPS",
+    "reference_id": "Acme Transaction ID 12345",
+    "narration": "Acme Corp Fund Transfer",
+    "batch_id": null,
+    "failure_reason": null,
+    "created_at": 1661857841,
+    "fee_type": "free_payout",
+    "status_details": {
+        "reason": null,
+        "description": null,
+        "source": null
+    },
+    "merchant_id": "Ja7clXrWRXJTJC",
+    "status_details_id": null,
+    "error": {
+        "source": null,
+        "reason": null,
+        "description": null,
+        "code": "NA",
+        "step": "NA",
+        "metadata": {}
+    }
+}
+'''

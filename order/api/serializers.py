@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework import serializers
-from order.models import Order,OrderItem,ReturnRefundPolicy
+from order.models import Order,OrderItem,ReturnRefundPolicy,RequestRefundItem
 from account.api.serializers import *
 from store.api.serializers import *
 from store.models import *
@@ -99,21 +99,28 @@ class OrderItemIdSerializer(serializers.ModelSerializer):
         fields = ["id"]
 
 
-                
+
+class RequestRefundItemSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = RequestRefundItem   
+        fields = ["order_item","fund_accounts"]            
 
 
 class FundAccoutSerializer(serializers.ModelSerializer):
-    confirm_account_number = serializers.IntegerField()
+    confirm_account_number = serializers.IntegerField(required=False)
 
     class Meta:
         model = FundAccout
         fields = ["ifsc","name","account_number","confirm_account_number"]
         extra_kwargs = {
+
                         "user":{"required":False, "allow_null":True},
                         "contact_id":{"required":False, "allow_null":True},
                         "razorpay_fund_id":{"required":False, "allow_null":True},
                         "account_type":{"required":False, "allow_null":True},
                         "active":{"required":False, "allow_null":True},
                         "bank_name":{"required":False, "allow_null":True},
+                        "confirm_account_number":{"required":False, "allow_null":True},
 
                         }
