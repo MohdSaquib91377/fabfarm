@@ -9,7 +9,7 @@ from rest_framework import status
 from drf_yasg.utils import swagger_auto_schema
 from django.utils.crypto import get_random_string
 from cart.models import Cart
-from order.models import Order, OrderItem
+from order.models import Order, OrderItem,Payout
 from store.models import *
 from cart.helpers import is_product_in_cart
 from django.http import Http404
@@ -277,41 +277,83 @@ class RequestRefundItemAPIView(APIView):
         except Exception as e:
             return Response({"status":"400","message":e},status=400)
 
-def payout_view(request):
-    return render(request, 'payout.html', {})
 
 class RazorpayPayoutAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
     def post(self, request, order_item,*args, **kwargs):
-        # create razorpay payout 
-        order_item = OrderItem.objects.filter(id = order_item.id).first()
-        if not order_item.is_return:
-            return Response({"status":"400","message":"Order item is not return"},status=400)
+        try:
+            # create razorpay payout 
+            order_item = OrderItem.objects.filter(id = order_item).first()
+            if not order_item.is_return:
+                return Response({"status":"400","message":"Order item is not return"},status=400)
 
-        data = {
-            "account_number": settings.ACCOUNT_NUMBER,
-            "fund_account_id": order_item.refund_items.filter().first().fund_accounts.razorpay_fund_id,
-            "amount": order_item.price * order.quantity,
-            "currency": "INR",
-            "mode": "IMPS",
-            "purpose": "refund",
-            "queue_if_low_balance": true,
-            "reference_id": "Acme Transaction ID 12345",
-            "narration": "Acme Corp Fund Transfer",
-            "notes": {
-                "notes_key_1":"Tea, Earl Grey, Hot",
-                "notes_key_2":"Tea, Earl Grey… decaf."
-            }
-            }
-        response,status = create_payout("payouts",data)
-        if status == 201:
-            return Response({"status":"201","message":"Payout created"},status=200)
+            data = {
+                "account_number": settings.ACCOUNT_NUMBER,
+                "fund_account_id": order_item.refund_items.filter().first().fund_accounts.razorpay_fund_id,
+                "amount": int(order_item.product.price * order_item.quantity)*100,
+                "currency": "INR",
+                "mode": "IMPS",
+                "purpose": "refund",
+                "queue_if_low_balance": True,
+                "reference_id": "Acme Transaction ID 12345",
+                "narration": "Acme Corp Fund Transfer"
+                }
+            response,status = create_payout("payouts",data)
+            if status == 200:
+                Payout.objects.create(
+                    
+                        order_item = order_item,
+                        order = order_item.order,
+                        razorpay_payout_id = response["id"],
+                        fund_account_id = response["fund_account_id"],
+                        amount = response["amount"]/100,
+                        currency = response["currency"],
+                        fees = response["fees"],
+                        tax = response["tax"],
+                        status = response["status"],
+                        purpose = response["purpose"],
+                        utr = response["utr"],
+                        mode = response["mode"],    
+                        reference_id = response["reference_id"],
+                        merchant_id = response["merchant_id"],
+
+
+                )
+                return Response({"status":"200","message":"Payout created"},status=200)
+            return Response({"status":f"{status}","message":f"{response['error']['description']}"},status=status)
             
-                  
+                
+        except Exception as e:
+            return Response({"status":"400","message":f"{e}"},status = 400)           
    
 
+
+from payment.helpers import *
+class RazorpayPayoutWebhooksAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        webhook_body = request.body.decode("utf-8")
+        webhook_signature = request.headers["X-Razorpay-Signature"]
+        webhook_secret = settings.RAZORPAY_WEBHOOK_KEY_SECRET
+        client = get_razorpay_client()
+        if not client.utility.verify_webhook_signature(webhook_body, webhook_signature, webhook_secret):
+            return Response({"status":400,"message":"not authorized webhook"})
+        json_data = json.loads(webhook_body)
+        if json_data["event"] in ["payout.processed"]:
+            update_payout(json_data["payload"]["payout"]["entity"])
+
+        elif json_data["event"] in ["payout.reversed"]:
+            update_payout(json_data["payload"]["payout"]["entity"])
+
+        
+        return Response({"status":"200","message":"Payout webhooks get called"},status=200)
 
   
 from django.shortcuts import render
 
 def AdminRefund(request):
     return render(request,"admin-refund.html",{})
+
+def payout_view(request):
+    return render(request, 'payout.html', {})
+
+

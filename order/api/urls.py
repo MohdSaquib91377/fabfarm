@@ -8,6 +8,7 @@ urlpatterns = [
     path('razorpay/create-fund-account/',views.CreateFundAccountView.as_view(),name = "create-fund-account"),
     path('payout/', views.payout_view,name='payout'),
     path('razorpay/payout/<int:order_item>/', views.RazorpayPayoutAPIView.as_view(),name='razorpay-payout'),
+    path('razorpay/payout-webhooks/',views.RazorpayPayoutWebhooksAPIView.as_view(),name='razorpay-payout-webhooks'),
 
 
     # Admin Site handle

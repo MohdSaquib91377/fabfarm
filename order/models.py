@@ -182,9 +182,15 @@ class RequestRefundItem(TimeStampModel):
             return format_html("<a href='%s'>%s</a>" % (url, "Refund"))
 
 class Payout(TimeStampModel):
+
+    # OrderItem F.K
+    order_item = models.ForeignKey(OrderItem,related_name="payout",on_delete = models.CASCADE,null = True,blank = True) 
+    # Order F.K 
+    order = models.ForeignKey(Order, related_name="payout", on_delete = models.CASCADE,null = True,blank = True)
+
     razorpay_payout_id = models.CharField(max_length=64)
     fund_account_id = models.CharField(max_length=64)
-    amount = models.CharField(max_length=64)
+    amount = models.PositiveBigIntegerField()
     currency = models.CharField(max_length=3)
     fees  = models.CharField(max_length=64)
     tax = models.CharField(max_length=64)
@@ -193,7 +199,7 @@ class Payout(TimeStampModel):
     mode = models.CharField(max_length=64)
     reference_id = models.CharField(max_length=64)
     merchant_id = models.CharField(max_length=64)
-
+    utr = models.CharField(max_length=64,null = True,blank=True)
     # errors
     source = models.CharField(max_length=64,null = True,blank=True)
     reason = models.CharField(max_length=64,null=True,blank=True)
@@ -203,43 +209,3 @@ class Payout(TimeStampModel):
         ordering = ("-id",)
         verbose_name_plural = "Payouts"
 
-'''
-{   
-    "id": "pout_KBp6SZav4sbVDg",
-    "entity": "payout",
-    "fund_account_id": "fa_KBLCwrUpWe6rfX",
-    "amount": 100,
-    "currency": "INR",
-    "notes": {
-        "notes_key_1": "Tea, Earl Grey, Hot",
-        "notes_key_2": "Tea, Earl Grey… decaf."
-    },
-    "fees": 0,
-    "tax": 0,
-    "status": "processing",
-    "purpose": "refund",
-    "utr": null,
-    "mode": "IMPS",
-    "reference_id": "Acme Transaction ID 12345",
-    "narration": "Acme Corp Fund Transfer",
-    "batch_id": null,
-    "failure_reason": null,
-    "created_at": 1661857841,
-    "fee_type": "free_payout",
-    "status_details": {
-        "reason": null,
-        "description": null,
-        "source": null
-    },
-    "merchant_id": "Ja7clXrWRXJTJC",
-    "status_details_id": null,
-    "error": {
-        "source": null,
-        "reason": null,
-        "description": null,
-        "code": "NA",
-        "step": "NA",
-        "metadata": {}
-    }
-}
-'''

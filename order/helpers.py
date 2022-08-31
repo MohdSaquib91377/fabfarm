@@ -3,6 +3,8 @@ from django.http import Http404
 from .models import *
 from django.db.models import Q
 import re
+from django.db.models import Sum
+
 def get_order_object(razorpay_order_id):
     try:
         return Order.objects.get(razorpay_order_id = razorpay_order_id)
@@ -30,6 +32,54 @@ def is_ValidIFSCode(ifsc_code):
         return True
     else:
         return False
+
+
+
+def update_payout(data):
+    payout = Payout.objects.filter(razorpay_payout_id = data["id"]).first()
+    if not payout:
+        return ""
+    payout.razorpay_payout_id = data["id"]
+    payout.fund_account_id = data["fund_account_id"]
+    payout.amount = int(data["amount"]/100)
+    payout.currency = data["currency"]
+    payout.fees = data["fees"]
+    payout.tax = data["tax"]
+    payout.status = data["status"]
+    payout.purpose = data["purpose"]
+    payout.utr = data["utr"]
+    payout.mode = data["mode"]
+    payout.reference_id = data["reference_id"]
+    payout.save()
+
+    if data["status"] == "reversed":
+        payout.order.order_status = "partial refund failed"
+        payout.source = data['error']["source"]
+        payout.reason = data['error']["reason"]
+        payout.description = data['error']["description"]
+
+   
+
+    elif data["status"] == "processed":
+        # TODO: Shoot a mail to customer
+        payout_order_total = Payout.objects.filter(order__id = payout.order.id,status = "processed").aggregate(Sum('amount'))['amount__sum']
+
+        if payout.order.total_price - payout_order_total > 0:
+            payout.order.order_status = "partial order"
+            payout.order.payment_status = "Payment Refund Partial"
+            payout.order_item.status = "Refunded"
+        else:
+            payout.order.order_status = "order cancelled"
+            payout.order.payment_status = "Payment Refund Full"
+            payout.order_item.status = "Refunded"   
+        
+    payout.order_item.save()
+    payout.order.save()
+
+
+
+
+
 
 
 

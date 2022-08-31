@@ -309,11 +309,18 @@ img:hover{
             "type":"post",
             dataType:"json",
             success:function(response){
+
                 if(response.status == "success"){
                     $('.product-card').html('')
                     $('.product-card').html(response.message)
 
                 }
+            },
+            error:function(response){
+              var data = JSON.parse(response.responseText)
+              if(data.status == "400"){
+                  alert(data.message)
+              }
             }
         })
         })
