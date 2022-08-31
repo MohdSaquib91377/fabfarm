@@ -279,7 +279,7 @@ img:hover{
                 $('.product-name').html(product["name"])
                 $('.regular-price').html(product["old_price"])
                 
-                $('.discount-price').html(product["price"])
+                $('.discount-price').html(product["price"]*product["quantity"])
                 $('.offer-info').html(product["description"])
                 $('.product-image').attr("src",product["image"][0]["image"])
                 $('.payment_mode').html(response['order']['payment_mode'])
@@ -303,14 +303,21 @@ img:hover{
         $('.add-to-cart').click(function(){
 
         var order_item_id =  window.localStorage.getItem("order_item_id")
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxOTQ3NTkxLCJpYXQiOjE2NjE5NDcyOTEsImp0aSI6IjgzM2U5OWI0NDgyOTRhZDVhYWEzYzZkNWJlODVmOWVkIiwidXNlcl9pZCI6MX0.cC4Bh1mLSx1uB7p-EdkwihkgzsQ6mLQ5b3AHMyYsAE4"
         $.ajax({
             
             url:`https://fab-farm.datavivservers.in/api/v1/order/razorpay/payout/${order_item_id}/`,
             "type":"post",
             dataType:"json",
+            headers: {
+            
+              Authorization: `Bearer ${token}`
+
+
+            },
             success:function(response){
 
-                if(response.status == "success"){
+                if(response.status == "200"){
                     $('.product-card').html('')
                     $('.product-card').html(response.message)
 

@@ -279,13 +279,15 @@ class RequestRefundItemAPIView(APIView):
 
 
 class RazorpayPayoutAPIView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAdminUser]
     def post(self, request, order_item,*args, **kwargs):
         try:
             # create razorpay payout 
             order_item = OrderItem.objects.filter(id = order_item).first()
             if not order_item.is_return:
                 return Response({"status":"400","message":"Order item is not return"},status=400)
+            if Payout.objects.filter(order_item=order_item,status = "processed").exists():
+                return Response({"status":"400","message":"Order item is already payout"},status=400)
 
             data = {
                 "account_number": settings.ACCOUNT_NUMBER,
