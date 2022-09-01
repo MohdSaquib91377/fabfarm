@@ -112,7 +112,7 @@ class FundAccoutSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FundAccout
-        fields = ["ifsc","name","account_number","confirm_account_number"]
+        fields = ["id","ifsc","name","account_number","confirm_account_number"]
         extra_kwargs = {
 
                         "user":{"required":False, "allow_null":True},
@@ -122,5 +122,7 @@ class FundAccoutSerializer(serializers.ModelSerializer):
                         "active":{"required":False, "allow_null":True},
                         "bank_name":{"required":False, "allow_null":True},
                         "confirm_account_number":{"required":False, "allow_null":True},
+                        "id":{"required":False, "allow_null":True},
+
 
                         }
