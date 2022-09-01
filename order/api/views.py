@@ -231,6 +231,7 @@ class CreateFundAccountView(APIView):
 
             }
             response,status= create_fund_account("fund_accounts",data)
+            print(response,status)
             if status == 201:
                 FundAccout.objects.create(
                                     user = request.user,
@@ -245,7 +246,7 @@ class CreateFundAccountView(APIView):
                                     )
 
                 return Response({"status":"200","message":"Your account has been created successfully"},status=200)
-    
+            return Response({"status":"400","message":response},status=400)
 
         except Exception as e:
             return Response({"status":"400","message":e},status=400)
@@ -279,7 +280,6 @@ class RequestRefundItemAPIView(APIView):
 
 
 class RazorpayPayoutAPIView(APIView):
-    permission_classes = [permissions.IsAdminUser]
     def post(self, request, order_item,*args, **kwargs):
         try:
             # create razorpay payout 
