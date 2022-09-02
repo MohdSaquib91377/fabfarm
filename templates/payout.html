@@ -309,12 +309,7 @@ img:hover{
             url:`https://fab-farm.datavivservers.in/api/v1/order/razorpay/payout/${order_item_id}/`,
             "type":"post",
             dataType:"json",
-            headers: {
             
-              Authorization: `Bearer ${token}`
-
-
-            },
             success:function(response){
 
                 if(response.status == "200"){

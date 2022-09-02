@@ -11,75 +11,69 @@ from rest_framework import status
 from store.api.serializers import SearchProductSerializer
 from store.documents import ProductDocument
 import coreapi
+from rating_review.helpers import *
+from elasticsearch_dsl.query import MoreLikeThis
 
 class SearchProduct(APIView):
     serializer_class = SearchProductSerializer
     document_class = ProductDocument
     
     def get(self,request):
-        try:
-            category_id = request.GET.get('category_id')
-            sub_category_id = request.GET.get('sub_category_id')
-            search = request.GET.get('search')
-            min_price = request.GET.get('min_price')
-            max_price = request.GET.get('max_price')
-            sort_by_asec = request.GET.get('sort_by_asec')
-            sort_by_desc = request.GET.get('sort_by_desc')
-            if category_id and search:
-                q = Q(
-                    "multi_match",
-                    query = category_id,
-                    fields=["category.id"]
-                    )&Q(
-                        "multi_match",
-                        query = search,
-                        fields=["name","brand.name","category.name","sub_category.name","images.image_caption"]
-                        )
+        category_id = request.GET.get('category_id')
+        sub_category_id = request.GET.get('sub_category_id')
+        search = request.GET.get('search')
+        min_price = request.GET.get('min_price')
+        max_price = request.GET.get('max_price')
+        sort_by_asec = request.GET.get('sort_by_asec')
+        sort_by_desc = request.GET.get('sort_by_desc')
+        sort_by_popularity = request.GET.get('sort_by_popularity')
+        
+        if category_id and search:
+            q = Q("multi_match",query = search,fields=["name","brand.name","category.name","sub_category.name","images.image_caption"], fuzziness='auto')
+            search = self.document_class.search().query(q)
+            search = search.filter('term',category__id = category_id)
 
-            elif sub_category_id and search:
-                q = Q(
-                    "multi_match",
-                    query = sub_category_id,
-                    fields=["sub_category.id"]
-                    )&Q(
-                        "multi_match",
-                        query = search,
-                        fields=["name","brand.name","category.name","sub_category.name","images.image_caption"]
-                        )
-
-            elif category_id:
-                q = Q(
-                    "multi_match",
-                    query = category_id,
-                    fields=["category.id"]
-                    ) 
-
-            elif sub_category_id:
-                q = Q(
-                    "multi_match",
-                    query = sub_category_id,
-                    fields=["sub_category.id"]
-                    )
-            if category_id or sub_category_id:
-                search = self.document_class.search().query(q)                      
-                search = search.filter('range', price={'gte': min_price, 'lte': max_price})
-                if sort_by_asec:
-                    search = search.sort(
-                        'price'
-                    )
-                if sort_by_desc:
-                    search = search.sort(
-                        '-price'
-                    )
+        elif sub_category_id and search:
+            q = Q("multi_match",query = search,fields=["name","brand.name","category.name","sub_category.name","images.image_caption"], fuzziness='auto')
+            search = self.document_class.search().query(q)
+            search = search.filter('term',sub_category__id = sub_category_id)
+           
+        elif category_id:
+            q = Q('bool',must = [Q('match',category__id = category_id)],minimum_should_match=1)
+            search = self.document_class.search().query(q)
             
-            else:
-                q = Q("multi_match",query = search,fields=["name","brand.name","category.name","sub_category.name","images.image_caption"])
-                search = self.document_class.search().query(q)
+        elif sub_category_id:
+            q = Q('bool',must = [Q('match',sub_category__id = sub_category_id)],minimum_should_match=1)
+            search = self.document_class.search().query(q)
+
+
+        # sort product based on range
+        if min_price != 0 and max_price !=0:
+            search = search.filter('range', price={'gte': min_price, 'lte': max_price})
+
+        # sort product based on asecending order
+        if sort_by_asec in ["true"]:
+            search = search.sort(
+                'price'
+            )
+
+        # sort product based on desecending order
+        if sort_by_desc in ["true"]:
+            search = search.sort(
+                '-price'
+            )
+        
+
+        # filter product based on popularity
+        if sort_by_popularity in ['true']:
             queryset = search.to_queryset()
-            serializer = self.serializer_class(queryset,many=True)
-            return Response(serializer.data)
-        except Exception as e:
-            return Response({"status":"400","message":f"{e}"},status= status.HTTP_400_BAD_REQUEST)
+            sorted_order_id = get_sort_by_popularity(queryset)
+            queryset = sorted(search.to_queryset(), key=lambda x: sorted_order_id.index(x.id)) 
+
+        queryset = search.to_queryset()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data)
+
 
 
     
