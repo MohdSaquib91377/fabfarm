@@ -39,7 +39,7 @@ document.getElementById('rzp-btn').onclick = function(e){
     createorder(url,data).then(function(data){
         if(data.status == "200"){
             var options = {
-                "key": "rzp_test_CnOpGNtcdPZYld", // Enter the Key ID generated from the Dashboard
+                "key": "rzp_test_z8hHPSr94XnVjQ", // Enter the Key ID generated from the Dashboard
                 "amount": `${data.amount}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
                 "name": "Acme Corp",

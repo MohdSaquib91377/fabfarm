@@ -25,6 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG',default=True)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS',default=True,cast=Csv())
+CSRF_TRUSTED_ORIGINS = ['https://eshopapi.datavivservers.in']
 
 
 # Application definition
@@ -216,7 +217,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://fab-farm.datavivservers.in']
+#CSRF_TRUSTED_ORIGINS = ['https://fab-farm.datavivservers.in']
 
 CORS_ALLOW_HEADERS = default_headers + (
     'Access-Control-Allow-Origin',
