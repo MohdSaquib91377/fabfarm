@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'payment',
     'banner',
-    'django_elasticsearch_dsl', # new
+    # 'django_elasticsearch_dsl', # new
     'search.apps.SearchConfig', # new
     'rating_review'
 ]
@@ -409,3 +409,4 @@ CACHES = {
         "KEY_PREFIX": "example"
     }
 }
+ELASTICSEARCH = config('ELASTICSEARCH',default=False)
