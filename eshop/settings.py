@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG',default=True)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS',default=True,cast=Csv())
-CSRF_TRUSTED_ORIGINS = ['https://eshopapi.datavivservers.in']
+CSRF_TRUSTED_ORIGINS = ['https://eshopapi.datavivservers.in','https://api.osty.in']
 
 
 # Application definition
